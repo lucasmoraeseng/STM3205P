@@ -1,0 +1,10 @@
+__Previews/
+History/
+* Logs*
+*.DSNlck
+*.raw
+*.bak
+6.Simulacoes/**/*.log
+3.Firmware/*/build/
+3.Firmware/*/build/*.*
+2.Hardware/**/*.LOG
