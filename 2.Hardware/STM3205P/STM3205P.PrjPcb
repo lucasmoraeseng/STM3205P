@@ -122,6 +122,23 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=ZZSJNUGJ
 
+[Document6]
+DocumentPath=STM3205P_DACLogicGates.SchDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=KGYNNUBI
+
 [Configuration1]
 Name=Sources
 ParameterCount=0
