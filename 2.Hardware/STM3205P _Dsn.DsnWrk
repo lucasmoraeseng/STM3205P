@@ -2,5 +2,3 @@
 Version=1.0
 [Project1]
 ProjectPath=STM3205P\STM3205P.PrjPcb
-[Project3]
-ProjectPath=..\..\LibrariesAltium\Others\AudioIndicators.LibPkg
