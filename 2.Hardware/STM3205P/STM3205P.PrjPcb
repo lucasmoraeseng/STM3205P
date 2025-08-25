@@ -242,32 +242,32 @@ GenerateClassCluster=0
 DocumentUniqueId=SSNHXVJI
 
 [Parameter1]
-Name=_Revision
-Value=1.0
+Name=_ApprovedBy
+Value=
 
 [Parameter2]
-Name=_ProjectName
-Value=STM3205P
+Name=_Author
+Value=Lucas da Silva
 
 [Parameter3]
-Name=_Engineer
-Value=Lucas da Silva
+Name=_CheckedBy
+Value=
 
 [Parameter4]
 Name=_DrawnBy
 Value=Lucas da Silva
 
 [Parameter5]
-Name=_CheckedBy
-Value=
-
-[Parameter6]
-Name=_Author
+Name=_Engineer
 Value=Lucas da Silva
 
+[Parameter6]
+Name=_ProjectName
+Value=STM3205P
+
 [Parameter7]
-Name=_ApprovedBy
-Value=
+Name=_Revision
+Value=1.0
 
 [Parameter8]
 Name=POName
@@ -395,7 +395,7 @@ OutputDefault20=0
 [OutputGroup2]
 Name=Simulator Outputs
 Description=
-TargetPrinter=HP Smart Tank 580-590 series [E221D0]
+TargetPrinter=OneNote (Desktop)
 PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintJobKind=1|PrintWhat=1
 
 [OutputGroup3]
