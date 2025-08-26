@@ -241,33 +241,58 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=SSNHXVJI
 
+[Document13]
+DocumentPath=STM3205P.OutJob
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
+
+[ProjectVariant1]
+UniqueID=0A223ADE-191C-4F35-BA9B-3EFF9359DB81
+Description=Main
+AllowFabrication=0
+ParameterCount=0
+VariationCount=0
+ParamVariationCount=0
+
 [Parameter1]
-Name=_ApprovedBy
-Value=
+Name=_Revision
+Value=1.0
 
 [Parameter2]
-Name=_Author
-Value=Lucas da Silva
+Name=_ProjectName
+Value=STM3205P
 
 [Parameter3]
-Name=_CheckedBy
-Value=
+Name=_Engineer
+Value=Lucas da Silva
 
 [Parameter4]
 Name=_DrawnBy
 Value=Lucas da Silva
 
 [Parameter5]
-Name=_Engineer
-Value=Lucas da Silva
+Name=_CheckedBy
+Value=
 
 [Parameter6]
-Name=_ProjectName
-Value=STM3205P
+Name=_Author
+Value=Lucas da Silva
 
 [Parameter7]
-Name=_Revision
-Value=1.0
+Name=_ApprovedBy
+Value=
 
 [Parameter8]
 Name=POName
@@ -395,7 +420,7 @@ OutputDefault20=0
 [OutputGroup2]
 Name=Simulator Outputs
 Description=
-TargetPrinter=OneNote (Desktop)
+TargetPrinter=HP Smart Tank 580-590 series [E221D0]
 PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintJobKind=1|PrintWhat=1
 
 [OutputGroup3]
