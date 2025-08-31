@@ -1,0 +1,75 @@
+Protel Design System Design Rule Check
+PCB File : C:\Users\lucas\Documents\Github\STM3205P\2.Hardware\STM3205P\STM3205P_PCB.PcbDoc
+Date     : 31/08/2025
+Time     : 12:33:39
+
+Processing Rule : Clearance Constraint (Gap=7mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=15mil) (InNetClass('HighVoltage')),(All)
+Rule Violations :0
+
+Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
+Rule Violations :0
+
+Processing Rule : Un-Routed Net Constraint ( (All) )
+Rule Violations :0
+
+Processing Rule : Modified Polygon (Allow modified: No), (Allow shelved: No)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=8mil) (Max=18mil) (Preferred=12mil) (All)
+Rule Violations :0
+
+Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=20mil) (Conductor Width=10mil) (Air Gap=10mil) (Entries=4) (All)
+Rule Violations :0
+
+Processing Rule : Hole Size Constraint (Min=0.984mil) (Max=196.85mil) (All)
+Rule Violations :0
+
+Processing Rule : Hole To Hole Clearance (Gap=10mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Minimum Solder Mask Sliver (Gap=6mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Silk To Solder Mask (Clearance=8mil) (IsPad),(All)
+Rule Violations :0
+
+Processing Rule : Silk to Silk (Clearance=10mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Net Antennae (Tolerance=0mil) (All)
+Rule Violations :0
+
+Processing Rule : Room STM3205P_VoltageMeasure (Bounding Region = (6929.134mil, 6850.394mil, 20196.85mil, 15393.701mil) (InComponentClass('STM3205P_VoltageMeasure'))
+Rule Violations :0
+
+Processing Rule : Room STM3205P_DigitalOutputs (Bounding Region = (6811.024mil, 6968.504mil, 20314.961mil, 15275.591mil) (InComponentClass('STM3205P_DigitalOutputs'))
+Rule Violations :0
+
+Processing Rule : Room STM3205P_PowerSupply (Bounding Region = (6850.394mil, 6929.134mil, 20275.59mil, 15314.961mil) (InComponentClass('STM3205P_PowerSupply'))
+Rule Violations :0
+
+Processing Rule : Room STM3205P_VoltageControl (Bounding Region = (6889.764mil, 6889.764mil, 20236.22mil, 15354.331mil) (InComponentClass('STM3205P_VoltageControl'))
+Rule Violations :0
+
+Processing Rule : Room STM3205P_Controller (Bounding Region = (6653.543mil, 7125.984mil, 20472.441mil, 15118.11mil) (InComponentClass('STM3205P_Controller'))
+Rule Violations :0
+
+Processing Rule : Room STM3205P_Connectors (Bounding Region = (6692.913mil, 7086.614mil, 20433.071mil, 15157.48mil) (InComponentClass('STM3205P_Connectors'))
+Rule Violations :0
+
+Processing Rule : Room STM3205P_DACSPI (Bounding Region = (6771.654mil, 7007.874mil, 20354.331mil, 15236.22mil) (InComponentClass('STM3205P_DACSPI'))
+Rule Violations :0
+
+Processing Rule : Room STM3205P_CurrentMeasure (Bounding Region = (6732.283mil, 7047.244mil, 20393.701mil, 15196.85mil) (InComponentClass('STM3205P_CurrentMeasure'))
+Rule Violations :0
+
+Processing Rule : Height Constraint (Min=0mil) (Max=3937.008mil) (Prefered=500mil) (All)
+Rule Violations :0
+
+
+Violations Detected : 0
+Waived Violations : 0
+Time Elapsed        : 00:00:02
