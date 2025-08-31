@@ -1,0 +1,31 @@
+------------------------------------------------------------------------------------------
+Gerber File Extension Report For: STM3205P_PCB.GBR   31/08/2025  17:06:31
+------------------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------------------
+Layer Extension     Layer Description                      
+------------------------------------------------------------------------------------------
+.GTO                Top Overlay                             
+.GTP                Top Paste                               
+.GTS                Top Solder                              
+.GTL                Top Layer                               
+.GP1                Int1 (GND)                              
+.GP2                Int2 (GND)                              
+.GBL                Bottom Layer                            
+.GBS                Bottom Solder                           
+.GBP                Bottom Paste                            
+.GBO                Bottom Overlay                          
+.GM1                3D Bodies                               
+.GM2                Mechanical 2                            
+.GM3                Notes                                   
+.GM10               Board                                   
+.GM11               V cut                                   
+.GM13               Package Outline                         
+.GM14               3D Keepout                              
+.GM15               Device Keepout                          
+.GM16               Position Info                           
+.GKO                Keep-Out Layer                          
+.GPT                Top Pad Master                          
+.GPB                Bottom Pad Master                       
+------------------------------------------------------------------------------------------

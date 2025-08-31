@@ -1,0 +1,540 @@
+*************************************************************
+FileName = STM3205P_PCB.GBR
+AutoAperture = True
+*************************************************************
+Generating : Device Keepout
+      File : STM3205P_PCB.GM15
+
+    Adding Layer      : Device Keepout
+
+    Adding Layer      : Board
+
+
+Used DCodes :
+    D14
+*************************************************************
+
+*************************************************************
+Generating : Top Pad Master
+      File : STM3205P_PCB.GPT
+
+    Adding Layer      : Top Layer
+
+    Adding Layer      : Multi-Layer
+
+    Adding Layer      : Board
+
+
+Used DCodes :
+    D14
+    D25
+    D26
+    D27
+    D28
+    D29
+    D30
+    D31
+    D32
+    D33
+    D34
+    D35
+    D36
+    D74
+    D75
+    D76
+    D77
+    D78
+    D79
+    D80
+    D81
+    D82
+    D83
+    D84
+    D85
+    D86
+    D87
+    D88
+    D89
+    D90
+    D91
+    D92
+*************************************************************
+
+*************************************************************
+Generating : Top Solder
+      File : STM3205P_PCB.GTS
+
+    Adding Layer      : Top Solder
+
+    Adding Layer      : Board
+
+    Adding Layer      : Top Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D14
+    D37
+    D38
+    D39
+    D40
+    D41
+    D42
+    D43
+    D44
+    D45
+    D46
+    D47
+    D48
+    D49
+    D50
+    D51
+    D52
+    D53
+    D54
+    D55
+    D56
+    D57
+    D58
+    D59
+    D60
+    D61
+    D62
+    D63
+    D64
+    D65
+    D66
+    D67
+    D68
+    D69
+    D70
+    D71
+*************************************************************
+
+*************************************************************
+Generating : Int1 (GND)
+      File : STM3205P_PCB.GP1
+
+    Adding Layer      : Int1 (GND)
+
+    Adding Layer      : Board
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D14
+    D79
+    D96
+    D97
+    D98
+    D99
+    D100
+    D101
+    D102
+    D103
+    D104
+    D105
+    D106
+    D107
+*************************************************************
+
+*************************************************************
+Generating : V cut
+      File : STM3205P_PCB.GM11
+
+    Adding Layer      : V cut
+
+    Adding Layer      : Board
+
+
+Used DCodes :
+    D14
+*************************************************************
+
+*************************************************************
+Generating : Bottom Overlay
+      File : STM3205P_PCB.GBO
+
+    Adding Layer      : Bottom Overlay
+
+    Adding Layer      : Board
+
+
+Used DCodes :
+    D14
+*************************************************************
+
+*************************************************************
+Generating : Top Paste
+      File : STM3205P_PCB.GTP
+
+    Adding Layer      : Top Paste
+
+    Adding Layer      : Board
+
+    Adding Layer      : Top Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D14
+    D25
+    D26
+    D27
+    D28
+    D29
+    D30
+    D31
+    D32
+    D33
+    D34
+    D35
+    D36
+*************************************************************
+
+*************************************************************
+Generating : 3D Keepout
+      File : STM3205P_PCB.GM14
+
+    Adding Layer      : 3D Keepout
+
+    Adding Layer      : Board
+
+
+Used DCodes :
+    D14
+*************************************************************
+
+*************************************************************
+Generating : 3D Bodies
+      File : STM3205P_PCB.GM1
+
+    Adding Layer      : 3D Bodies
+
+    Adding Layer      : Board
+
+
+Used DCodes :
+    D14
+*************************************************************
+
+*************************************************************
+Generating : Top Overlay
+      File : STM3205P_PCB.GTO
+
+    Adding Layer      : Top Overlay
+
+    Adding Layer      : Board
+
+
+Used DCodes :
+    D10
+    D11
+    D12
+    D13
+    D14
+    D15
+    D16
+    D17
+    D18
+    D19
+    D20
+    D21
+    D22
+    D23
+    D24
+*************************************************************
+
+*************************************************************
+Generating : Notes
+      File : STM3205P_PCB.GM3
+
+    Adding Layer      : Notes
+
+    Adding Layer      : Board
+
+
+Used DCodes :
+    D14
+*************************************************************
+
+*************************************************************
+Generating : Top Layer
+      File : STM3205P_PCB.GTL
+
+    Adding Layer      : Top Layer
+
+    Adding Layer      : Board
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D11
+    D14
+    D25
+    D26
+    D27
+    D28
+    D29
+    D30
+    D31
+    D32
+    D33
+    D34
+    D35
+    D36
+    D72
+    D73
+    D74
+    D75
+    D76
+    D77
+    D78
+    D79
+    D80
+    D81
+    D82
+    D83
+    D84
+    D85
+    D86
+    D87
+    D88
+    D89
+    D90
+    D91
+    D92
+    D93
+    D94
+    D95
+*************************************************************
+
+*************************************************************
+Generating : Board
+      File : STM3205P_PCB.GM10
+
+    Adding Layer      : Board
+
+    Adding Layer      : Board
+
+
+Used DCodes :
+    D14
+*************************************************************
+
+*************************************************************
+Generating : Bottom Paste
+      File : STM3205P_PCB.GBP
+
+    Adding Layer      : Bottom Paste
+
+    Adding Layer      : Board
+
+    Adding Layer      : Bottom Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D14
+*************************************************************
+
+*************************************************************
+Generating : Bottom Pad Master
+      File : STM3205P_PCB.GPB
+
+    Adding Layer      : Bottom Layer
+
+    Adding Layer      : Multi-Layer
+
+    Adding Layer      : Board
+
+
+Used DCodes :
+    D14
+    D74
+    D75
+    D76
+    D77
+    D78
+    D79
+    D80
+    D81
+    D82
+    D83
+    D84
+    D85
+    D86
+    D87
+    D88
+    D89
+    D90
+    D91
+    D92
+*************************************************************
+
+*************************************************************
+Generating : Position Info
+      File : STM3205P_PCB.GM16
+
+    Adding Layer      : Position Info
+
+    Adding Layer      : Board
+
+
+Used DCodes :
+    D14
+*************************************************************
+
+*************************************************************
+Generating : Mechanical 2
+      File : STM3205P_PCB.GM2
+
+    Adding Layer      : Mechanical 2
+
+    Adding Layer      : Board
+
+
+Used DCodes :
+    D14
+*************************************************************
+
+*************************************************************
+Generating : Bottom Solder
+      File : STM3205P_PCB.GBS
+
+    Adding Layer      : Bottom Solder
+
+    Adding Layer      : Board
+
+    Adding Layer      : Bottom Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D14
+    D50
+    D51
+    D52
+    D53
+    D54
+    D55
+    D56
+    D57
+    D58
+    D59
+    D60
+    D61
+    D62
+    D63
+    D64
+    D65
+    D66
+    D67
+    D68
+    D69
+    D70
+    D71
+*************************************************************
+
+*************************************************************
+Generating : Int2 (GND)
+      File : STM3205P_PCB.GP2
+
+    Adding Layer      : Int2 (GND)
+
+    Adding Layer      : Board
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D14
+    D79
+    D96
+    D97
+    D98
+    D99
+    D100
+    D101
+    D102
+    D103
+    D104
+    D105
+    D106
+    D107
+*************************************************************
+
+*************************************************************
+Generating : Package Outline
+      File : STM3205P_PCB.GM13
+
+    Adding Layer      : Package Outline
+
+    Adding Layer      : Board
+
+
+Used DCodes :
+    D11
+    D14
+    D108
+*************************************************************
+
+*************************************************************
+Generating : Keep-Out Layer
+      File : STM3205P_PCB.GKO
+
+    Adding Layer      : Keep-Out Layer
+
+    Adding Layer      : Board
+
+
+Used DCodes :
+    D14
+*************************************************************
+
+*************************************************************
+Generating : Bottom Layer
+      File : STM3205P_PCB.GBL
+
+    Adding Layer      : Bottom Layer
+
+    Adding Layer      : Board
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D11
+    D14
+    D72
+    D73
+    D74
+    D75
+    D76
+    D77
+    D78
+    D79
+    D80
+    D81
+    D82
+    D83
+    D84
+    D85
+    D86
+    D87
+    D88
+    D89
+    D90
+    D91
+    D92
+    D93
+    D94
+    D95
+*************************************************************
+

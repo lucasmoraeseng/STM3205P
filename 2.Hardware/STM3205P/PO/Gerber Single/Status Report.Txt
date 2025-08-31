@@ -1,0 +1,10 @@
+Output: Report Board Stack
+Type  : Report Board Stack
+From  : PCB Document [STM3205P_PCB.PcbDoc]
+   Generated File[STM3205P_PCB.xls]
+
+
+Files Generated   : 1
+Documents Printed : 0
+
+Finished Output Generation At 17:06:39 On 31/08/2025

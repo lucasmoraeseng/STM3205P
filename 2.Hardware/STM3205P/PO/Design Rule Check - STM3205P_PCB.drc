@@ -1,12 +1,12 @@
 Protel Design System Design Rule Check
-PCB File : C:\Users\lucas\Documents\Github\STM3205P\2.Hardware\STM3205P\STM3205P_PCB.PcbDoc
+PCB File : C:\Users\lucas\Documents\GitHub\STM3205P\2.Hardware\STM3205P\STM3205P_PCB.PcbDoc
 Date     : 31/08/2025
-Time     : 12:33:39
+Time     : 17:06:14
 
 Processing Rule : Clearance Constraint (Gap=7mil) (All),(All)
 Rule Violations :0
 
-Processing Rule : Clearance Constraint (Gap=15mil) (InNetClass('HighVoltage')),(All)
+Processing Rule : Clearance Constraint (Gap=24mil) (InNetClass('HighVoltage')),(not InNetClass('HighVoltage'))
 Rule Violations :0
 
 Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
@@ -42,16 +42,16 @@ Rule Violations :0
 Processing Rule : Net Antennae (Tolerance=0mil) (All)
 Rule Violations :0
 
-Processing Rule : Room STM3205P_VoltageMeasure (Bounding Region = (6929.134mil, 6850.394mil, 20196.85mil, 15393.701mil) (InComponentClass('STM3205P_VoltageMeasure'))
-Rule Violations :0
-
-Processing Rule : Room STM3205P_DigitalOutputs (Bounding Region = (6811.024mil, 6968.504mil, 20314.961mil, 15275.591mil) (InComponentClass('STM3205P_DigitalOutputs'))
-Rule Violations :0
-
 Processing Rule : Room STM3205P_PowerSupply (Bounding Region = (6850.394mil, 6929.134mil, 20275.59mil, 15314.961mil) (InComponentClass('STM3205P_PowerSupply'))
 Rule Violations :0
 
+Processing Rule : Room STM3205P_VoltageMeasure (Bounding Region = (6929.134mil, 6850.394mil, 20196.85mil, 15393.701mil) (InComponentClass('STM3205P_VoltageMeasure'))
+Rule Violations :0
+
 Processing Rule : Room STM3205P_VoltageControl (Bounding Region = (6889.764mil, 6889.764mil, 20236.22mil, 15354.331mil) (InComponentClass('STM3205P_VoltageControl'))
+Rule Violations :0
+
+Processing Rule : Room STM3205P_DigitalOutputs (Bounding Region = (6811.024mil, 6968.504mil, 20314.961mil, 15275.591mil) (InComponentClass('STM3205P_DigitalOutputs'))
 Rule Violations :0
 
 Processing Rule : Room STM3205P_Controller (Bounding Region = (6653.543mil, 7125.984mil, 20472.441mil, 15118.11mil) (InComponentClass('STM3205P_Controller'))
