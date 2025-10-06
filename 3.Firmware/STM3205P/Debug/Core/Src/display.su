@@ -1,0 +1,11 @@
+../Core/Src/display.c:62:6:display_Init	8	static
+../Core/Src/display.c:93:6:display_WriteBus	24	static
+../Core/Src/display.c:138:6:display_EnableDisplay	16	static
+../Core/Src/display.c:182:6:display_DisableDisplay	16	static
+../Core/Src/display.c:226:6:display_DisableAll	8	static
+../Core/Src/display.c:252:6:display_DisplayNext	8	static
+../Core/Src/display.c:283:6:display_PrepareData	56	static
+../Core/Src/display.c:327:6:display_SetCharOnMemory	24	static
+../Core/Src/display.c:367:6:display_SetNumberOnMemory	32	static
+../Core/Src/display.c:420:9:display_GetNumberData	16	static
+../Core/Src/display.c:487:6:display_Float2Digits	24	static

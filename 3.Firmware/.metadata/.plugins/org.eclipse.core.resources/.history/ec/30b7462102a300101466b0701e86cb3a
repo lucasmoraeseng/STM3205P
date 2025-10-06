@@ -1,0 +1,57 @@
+/* ###################################################################
+**     Filename    : display.
+**     Project     : STM3205P
+**     Processor   : 
+**     Version     : Driver 01.00
+**     Compiler    : GNU C Compiler
+**     Date/Time   : Oct 6, 2025, 5:07:02 PM
+**     Abstract    :
+**     Author	   : lucas
+**
+**         This module contains user's application code.
+**     Settings    :
+**     Contents    :
+**         No public methods
+**
+** ###################################################################*/
+
+
+#ifndef SRC_DISPLAY_H_
+#define SRC_DISPLAY_H_
+
+//--------------------------------------------------------------------
+// Includes
+//--------------------------------------------------------------------
+#include "main.h"
+
+
+//--------------------------------------------------------------------
+// Definitions
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+// Typedef enum
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+// Typedef structs
+//--------------------------------------------------------------------
+
+
+//--------------------------------------------------------------------
+// Function prototype
+//--------------------------------------------------------------------
+extern void display_Init();
+extern void display_WriteBus(uint16_t data);
+extern void display_EnableDisplay(uint8_t display);
+extern void display_DisableDisplay(uint8_t display);
+extern void display_DisableAll();
+extern void display_DisplayNext();
+extern void display_PrepareData();
+
+//--------------------------------------------------------------------
+// General Variables
+//--------------------------------------------------------------------
+extern uint16_t display_data[5];
+
+#endif /* SRC_DISPLAY_H_ */

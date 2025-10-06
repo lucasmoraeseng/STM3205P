@@ -1,0 +1,122 @@
+/* ###################################################################
+**     Filename    : display.
+**     Project     : STM3205P
+**     Processor   : 
+**     Version     : Driver 01.00
+**     Compiler    : GNU C Compiler
+**     Date/Time   : Oct 6, 2025, 5:07:02 PM
+**     Abstract    :
+**     Author	   : lucas
+**
+**         This module contains user's application code.
+**     Settings    :
+**     Contents    :
+**         No public methods
+**
+** ###################################################################*/
+
+
+#ifndef SRC_DISPLAY_H_
+#define SRC_DISPLAY_H_
+
+//--------------------------------------------------------------------
+// Includes
+//--------------------------------------------------------------------
+#include "main.h"
+
+
+//--------------------------------------------------------------------
+// Definitions
+//--------------------------------------------------------------------
+// Display 1
+#define disp1_0  		0xFA
+#define disp1_1  		0x22
+#define disp1_2  		0xB9
+#define disp1_3  		0xAB
+#define disp1_4  		0x63
+#define disp1_5  		0xCB
+#define disp1_6  		0xF8
+#define disp1_7  		0xA2
+#define disp1_8  		0xFB
+#define disp1_9  		0xEB
+#define disp1_A  		0xF3
+#define disp1_B  		0x5B
+#define disp1_C  		0xD8
+#define disp1_D 		0x3B
+#define disp1_E  		0xD9
+#define disp1_F  		0xD1
+#define disp1_H  		0x73
+#define disp1_L  		0x58
+#define disp1_P  		0xF1
+#define disp1_U  		0x7A
+#define disp1_n  		0x13
+#define disp1_o  		0x1B
+#define disp1_r  		0x11
+#define disp1_t  		0x59
+#define disp1_y  		0x6B
+#define disp1_dash 		0x01
+#define disp1_underscore 0x08
+#define disp1_equal 	0x08
+#define disp1_degree 	0xE1
+#define disp1_clear 	0x00
+
+// Display 2
+#define	disp2_0	0xBB
+#define	disp2_1	0x82
+#define	disp2_2	0xF9
+#define	disp2_3	0xEB
+#define	disp2_4	0xC3
+#define	disp2_5	0x6B
+#define	disp2_6	0xF8
+#define	disp2_7	0xA2
+#define	disp2_8	0xFB
+#define	disp2_9	0xEB
+#define	disp2_A	0xF3
+#define	disp2_B	0x5B
+#define	disp2_C	0x78
+#define	disp2_D	0x9B
+#define	disp2_E	0x79
+#define	disp2_F	0x71
+#define	disp2_H	0xD3
+#define	disp2_L	0x58
+#define	disp2_P	0xF1
+#define	disp2_U	0x7A
+#define	disp2_n	0x13
+#define	disp2_o	0x1B
+#define	disp2_r	0x11
+#define	disp2_t	0x59
+#define	disp2_y	0xCB
+#define	disp2_dash	0x1
+#define	disp2_underscore	0x8
+#define	disp2_equal	0x9
+#define	disp2_degree	0xE1
+#define	disp2_clear	0x0
+
+
+//--------------------------------------------------------------------
+// Typedef enum
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+// Typedef structs
+//--------------------------------------------------------------------
+
+
+//--------------------------------------------------------------------
+// Function prototype
+//--------------------------------------------------------------------
+extern void display_Init();
+extern void display_WriteBus(uint16_t data);
+extern void display_EnableDisplay(uint8_t display);
+extern void display_DisableDisplay(uint8_t display);
+extern void display_DisableAll();
+extern void display_DisplayNext();
+extern void display_PrepareData();
+extern void display_SetCharOnMemory(uint8_t bus_high, uint8_t bus_low, uint8_t display);
+
+//--------------------------------------------------------------------
+// General Variables
+//--------------------------------------------------------------------
+extern uint16_t display_data[5];
+
+#endif /* SRC_DISPLAY_H_ */
