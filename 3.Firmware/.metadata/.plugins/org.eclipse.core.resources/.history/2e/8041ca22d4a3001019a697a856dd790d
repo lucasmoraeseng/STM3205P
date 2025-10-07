@@ -79,19 +79,6 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
     }
 }
 
-void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
-{
-    if (hadc->Instance == ADC1)
-    {
-        uint16_t value1 = HAL_ADC_GetValue(&hadc1);
-    }
-    else if (hadc->Instance == ADC2)
-    {
-        uint16_t value2 = HAL_ADC_GetValue(&hadc2);
-    }
-}
-
-
 /* USER CODE END 0 */
 
 /**

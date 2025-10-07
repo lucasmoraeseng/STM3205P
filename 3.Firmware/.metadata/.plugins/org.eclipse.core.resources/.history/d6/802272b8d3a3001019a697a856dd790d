@@ -79,19 +79,6 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
     }
 }
 
-void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
-{
-    if (hadc->Instance == ADC1)
-    {
-        uint16_t value1 = HAL_ADC_GetValue(&hadc1);
-    }
-    else if (hadc->Instance == ADC2)
-    {
-        uint16_t value2 = HAL_ADC_GetValue(&hadc2);
-    }
-}
-
-
 /* USER CODE END 0 */
 
 /**
@@ -129,10 +116,10 @@ int main(void)
   MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
   // Enable interrupt for TIM1
-  HAL_TIM_Base_Start_IT(&htim3);    // Timer with interruption
-  HAL_ADC_Start_IT(&hadc1);         // Start ADC1 with interruption
-  HAL_ADC_Start_IT(&hadc2);         // Start ADC2 with interruption
+  HAL_NVIC_SetPriority(TIM1_UP_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(TIM1_UP_IRQn);
 
+  HAL_TIM_Base_Start_IT(&htim1);
 
   display_Init();
 
