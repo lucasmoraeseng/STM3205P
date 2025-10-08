@@ -51,7 +51,7 @@ TIM_HandleTypeDef htim3;
 
 volatile float fvalue1 = 0.0f;
 volatile float fvalue2 = 0.0f;
-volatile uint16_t i_cnt = 0;
+volatile uint8_t i_cnt = 0;
 
 
 /* USER CODE END PV */

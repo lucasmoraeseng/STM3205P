@@ -815,3 +815,113 @@ Finished building: default.size.stdout
  
 Finished building: STM3205P.list
  
+18:37:28 **** Build of configuration Debug for project STM3205P ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_hal_msp.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_hal_msp.d" -MT"Core/Src/stm32f1xx_hal_msp.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_it.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_it.d" -MT"Core/Src/stm32f1xx_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_it.o"
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:75:9: warning: implicit declaration of function 'display_DisplayNext' [-Wimplicit-function-declaration]
+   75 |         display_DisplayNext();
+      |         ^~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'HAL_ADC_ConvCpltCallback':
+../Core/Src/main.c:86:18: warning: unused variable 'value1' [-Wunused-variable]
+   86 |         uint16_t value1 = HAL_ADC_GetValue(&hadc1);
+      |                  ^~~~~~
+../Core/Src/main.c:90:18: warning: unused variable 'value2' [-Wunused-variable]
+   90 |         uint16_t value2 = HAL_ADC_GetValue(&hadc2);
+      |                  ^~~~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:137:3: warning: implicit declaration of function 'display_Init'; did you mean 'display3_Pin'? [-Wimplicit-function-declaration]
+  137 |   display_Init();
+      |   ^~~~~~~~~~~~
+      |   display3_Pin
+../Core/Src/main.c:105:18: warning: unused variable 'disp_delay' [-Wunused-variable]
+  105 |         uint16_t disp_delay = 200;
+      |                  ^~~~~~~~~~
+arm-none-eabi-gcc -o "STM3205P.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\lucas\Documents\Github\STM3205P\3.Firmware\STM3205P\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM3205P.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM3205P.elf
+ 
+arm-none-eabi-size  STM3205P.elf 
+arm-none-eabi-objdump -h -S STM3205P.elf  > "STM3205P.list"
+   text	   data	    bss	    dec	    hex	filename
+  12352	     12	   1844	  14208	   3780	STM3205P.elf
+Finished building: default.size.stdout
+ 
+Finished building: STM3205P.list
+ 
+18:46:27 **** Incremental Build of configuration Debug for project STM3205P ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:80:9: warning: implicit declaration of function 'display_DisplayNext' [-Wimplicit-function-declaration]
+   80 |         display_DisplayNext();
+      |         ^~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:86:17: warning: implicit declaration of function 'display_PrepareData' [-Wimplicit-function-declaration]
+   86 |                 display_PrepareData(fvalue1, fvalue2);
+      |                 ^~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:153:3: warning: implicit declaration of function 'display_Init'; did you mean 'display3_Pin'? [-Wimplicit-function-declaration]
+  153 |   display_Init();
+      |   ^~~~~~~~~~~~
+      |   display3_Pin
+../Core/Src/main.c:121:18: warning: unused variable 'disp_delay' [-Wunused-variable]
+  121 |         uint16_t disp_delay = 200;
+      |                  ^~~~~~~~~~
+arm-none-eabi-gcc -o "STM3205P.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\lucas\Documents\Github\STM3205P\3.Firmware\STM3205P\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM3205P.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM3205P.elf
+ 
+arm-none-eabi-size  STM3205P.elf 
+arm-none-eabi-objdump -h -S STM3205P.elf  > "STM3205P.list"
+   text	   data	    bss	    dec	    hex	filename
+  16124	     12	   1852	  17988	   4644	STM3205P.elf
+Finished building: default.size.stdout
+ 
+Finished building: STM3205P.list
+ 
+18:46:51 **** Incremental Build of configuration Debug for project STM3205P ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:121:18: warning: unused variable 'disp_delay' [-Wunused-variable]
+  121 |         uint16_t disp_delay = 200;
+      |                  ^~~~~~~~~~
+arm-none-eabi-gcc -o "STM3205P.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\lucas\Documents\Github\STM3205P\3.Firmware\STM3205P\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM3205P.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM3205P.elf
+ 
+arm-none-eabi-size  STM3205P.elf 
+arm-none-eabi-objdump -h -S STM3205P.elf  > "STM3205P.list"
+   text	   data	    bss	    dec	    hex	filename
+  15216	     12	   1852	  17080	   42b8	STM3205P.elf
+Finished building: default.size.stdout
+ 
+Finished building: STM3205P.list
+ 
+18:47:04 **** Incremental Build of configuration Debug for project STM3205P ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "STM3205P.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\lucas\Documents\Github\STM3205P\3.Firmware\STM3205P\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM3205P.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM3205P.elf
+ 
+arm-none-eabi-size  STM3205P.elf 
+arm-none-eabi-objdump -h -S STM3205P.elf  > "STM3205P.list"
+   text	   data	    bss	    dec	    hex	filename
+  15212	     12	   1852	  17076	   42b4	STM3205P.elf
+Finished building: default.size.stdout
+ 
+Finished building: STM3205P.list
+ 
+18:47:51 **** Incremental Build of configuration Debug for project STM3205P ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "STM3205P.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\lucas\Documents\Github\STM3205P\3.Firmware\STM3205P\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM3205P.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM3205P.elf
+ 
+arm-none-eabi-size  STM3205P.elf 
+arm-none-eabi-objdump -h -S STM3205P.elf  > "STM3205P.list"
+   text	   data	    bss	    dec	    hex	filename
+  15212	     12	   1852	  17076	   42b4	STM3205P.elf
+Finished building: default.size.stdout
+ 
+Finished building: STM3205P.list
+ 

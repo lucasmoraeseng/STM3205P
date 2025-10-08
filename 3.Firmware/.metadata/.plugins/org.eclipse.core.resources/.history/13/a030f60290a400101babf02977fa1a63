@@ -21,7 +21,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "display.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -49,11 +49,6 @@ TIM_HandleTypeDef htim3;
 
 /* USER CODE BEGIN PV */
 
-volatile float fvalue1 = 0.0f;
-volatile float fvalue2 = 0.0f;
-volatile uint16_t i_cnt = 0;
-
-
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -79,14 +74,6 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
         //NV_SendClock();
     	display_DisplayNext();
 
-    	i_cnt++;
-
-    	if(i_cnt > 100)
-    	{
-    		display_PrepareData(fvalue1, fvalue2);
-    		i_cnt = 0;
-    	}
-
         // Optional: Small adjustable delay (in microseconds)
         // delay_us(2);   // <-- Implement if needed
     }
@@ -94,16 +81,13 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
 {
-
     if (hadc->Instance == ADC1)
     {
-    	uint16_t value1 = HAL_ADC_GetValue(&hadc1);
-        fvalue1 = value1 / 1241.2121f;
+        uint16_t value1 = HAL_ADC_GetValue(&hadc1);
     }
     else if (hadc->Instance == ADC2)
     {
         uint16_t value2 = HAL_ADC_GetValue(&hadc2);
-        fvalue2 = value2 / 1241.2121f;
     }
 }
 
@@ -118,7 +102,7 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
-	//uint16_t disp_delay = 200;
+	uint16_t disp_delay = 200;
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
