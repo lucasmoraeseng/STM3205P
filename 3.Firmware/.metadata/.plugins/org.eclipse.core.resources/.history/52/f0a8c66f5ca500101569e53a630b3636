@@ -53,8 +53,8 @@ TIM_HandleTypeDef htim3;
 
 RingBuffer_t RBVoltage;
 RingBuffer_t RBCurrent;
-uint16_t VoltageBuff[20];
-uint16_t CurrentBuff[20];
+uint16_t VoltageBuf[20];
+uint16_t CurrentBuf[20];
 
 
 /* USER CODE END PV */

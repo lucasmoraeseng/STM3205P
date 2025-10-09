@@ -51,10 +51,14 @@ TIM_HandleTypeDef htim3;
 
 /* USER CODE BEGIN PV */
 
-RingBuffer_t RBVoltage;
-RingBuffer_t RBCurrent;
-uint16_t VoltageBuff[20];
-uint16_t CurrentBuff[20];
+volatile float fvalue1 = 0.0f;
+volatile float fvalue2 = 0.0f;
+volatile uint16_t i_cnt = 0;
+
+volatile RingBuffer_t RBVoltage;
+volatile RingBuffer_t RBCurrent;
+volatile uint16_t VoltageBuf[20];
+volatile uint16_t CurrentBuf[20];
 
 
 /* USER CODE END PV */
@@ -82,9 +86,12 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
         //NV_SendClock();
     	display_DisplayNext();
 
-    	if(RingBuffer_Size(&RBVoltage) > 100)
+    	i_cnt++;
+
+    	if(i_cnt > 100)
     	{
-    		//display_PrepareData(fvalue1, fvalue2);
+    		display_PrepareData(fvalue1, fvalue2);
+    		i_cnt = 0;
     	}
 
         // Optional: Small adjustable delay (in microseconds)
@@ -98,12 +105,12 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
     if (hadc->Instance == ADC1)
     {
     	uint16_t value1 = HAL_ADC_GetValue(&hadc1);
-        RingBuffer_Put(&RBVoltage,(RBDataType) value1);
+        RingBuffer_Put();
     }
     else if (hadc->Instance == ADC2)
     {
         uint16_t value2 = HAL_ADC_GetValue(&hadc2);
-        RingBuffer_Put(&RBVoltage,(RBDataType) value2);
+        fvalue2 = value2 / 1241.2121f;
     }
 }
 
