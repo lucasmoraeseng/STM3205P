@@ -3,6 +3,8 @@
 	<item key="hasShownOverlayPopupBefore" value="true"/>
 	<item key="replaceBarOpen" value="true"/>
 	<list key="searchhistory">
+		<item value="voltage_meas"/>
+		<item value="voltage_meas_pin"/>
 		<item value="1000"/>
 		<item value="Tim1__UP"/>
 	</list>

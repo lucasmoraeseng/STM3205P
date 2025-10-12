@@ -53,8 +53,8 @@ TIM_HandleTypeDef htim3;
 
 RingBuffer_t RBVoltage;
 RingBuffer_t RBCurrent;
-uint16_t VoltageBuff[20];
-uint16_t CurrentBuff[20];
+uint16_t VoltageBuff[200];
+uint16_t CurrentBuff[200];
 
 
 /* USER CODE END PV */
@@ -80,12 +80,22 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
         // >>> Your code here <<<
         // Example: Toggle a pin or call your function
         //NV_SendClock();
-    	display_DisplayNext();
+        display_DisplayNext();
 
-    	if(RingBuffer_Size(&RBVoltage) > 100)
-    	{
-    		//display_PrepareData(fvalue1, fvalue2);
-    	}
+        if(RingBuffer_Size(&RBVoltage) >= 100)
+        {
+            /* Pegue o primeiro (mais antigo) valor de ambos os buffers sem removê-los
+               e converta para float antes de enviar para o display. */
+            RBDataType v_raw = RBVoltage.buffer[RBVoltage.tail];
+            RBDataType c_raw = RBCurrent.buffer[RBCurrent.tail];
+
+            float v_f = (float)v_raw / 117.02857;
+            float c_f = (float)c_raw / 772.8301;
+
+            display_PrepareData(v_f, c_f);
+            RingBuffer_Reset(&RBVoltage);
+            RingBuffer_Reset(&RBCurrent);
+        }
 
         // Optional: Small adjustable delay (in microseconds)
         // delay_us(2);   // <-- Implement if needed
@@ -97,13 +107,13 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
 
     if (hadc->Instance == ADC1)
     {
-    	uint16_t value1 = HAL_ADC_GetValue(&hadc1);
+        uint16_t value1 = HAL_ADC_GetValue(&hadc1);
         RingBuffer_Put(&RBVoltage,(RBDataType) value1);
     }
     else if (hadc->Instance == ADC2)
     {
         uint16_t value2 = HAL_ADC_GetValue(&hadc2);
-        RingBuffer_Put(&RBVoltage,(RBDataType) value2);
+        RingBuffer_Put(&RBCurrent,(RBDataType) value2);
     }
 }
 
@@ -127,8 +137,8 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-  RingBuffer_Init(&RBVoltage,(RBDataType*) &VoltageBuff, 20);
-  RingBuffer_Init(&RBCurrent,(RBDataType*) &CurrentBuff, 20);
+  RingBuffer_Init(&RBVoltage,(RBDataType*) &VoltageBuff, 200);
+  RingBuffer_Init(&RBCurrent,(RBDataType*) &CurrentBuff, 200);
 
   /* USER CODE END Init */
 
@@ -153,6 +163,7 @@ int main(void)
 
 
   display_Init();
+  display_PrepareData(0.0f,0.0f);
 
   /* USER CODE END 2 */
 
@@ -255,7 +266,17 @@ static void MX_ADC1_Init(void)
     Error_Handler();
   }
   /* USER CODE BEGIN ADC1_Init 2 */
+	__HAL_RCC_PWR_CLK_ENABLE();      // enable PWR clock if not already
+	PWR->CSR &= ~PWR_CSR_EWUP;       // clear EWUP (disable external wakeup pin)
+	__NOP();                         // small delay
 
+	GPIO_InitTypeDef GPIO_InitStruct = {0};
+	__HAL_RCC_GPIOA_CLK_ENABLE();
+
+	GPIO_InitStruct.Pin = GPIO_PIN_0;
+	GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
+	GPIO_InitStruct.Pull = GPIO_NOPULL;
+	HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
   /* USER CODE END ADC1_Init 2 */
 
 }
