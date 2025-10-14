@@ -157,13 +157,13 @@ int main(void)
   MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
   // Enable interrupt for TIM1
-  //HAL_TIM_Base_Start_IT(&htim3);    // Timer with interruption
-  //HAL_ADC_Start_IT(&hadc1);         // Start ADC1 with interruption
-  //HAL_ADC_Start_IT(&hadc2);         // Start ADC2 with interruption
+  HAL_TIM_Base_Start_IT(&htim3);    // Timer with interruption
+  HAL_ADC_Start_IT(&hadc1);         // Start ADC1 with interruption
+  HAL_ADC_Start_IT(&hadc2);         // Start ADC2 with interruption
 
 
-  //display_Init();
-  //display_PrepareData(0.0f,0.0f);
+  display_Init();
+  display_PrepareData(0.0f,0.0f);
 
   /* USER CODE END 2 */
 
