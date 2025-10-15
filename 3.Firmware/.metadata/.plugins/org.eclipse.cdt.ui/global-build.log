@@ -1,102 +1,4 @@
-17:37:25 **** Build of configuration Debug for project STM3205P ****
-make -j12 all 
-arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o"
-arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.o"
-arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc_ex.o"
-arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o"
-arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.o"
-arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.o"
-arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.o"
-arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.o"
-arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o"
-arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.o"
-arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.o"
-arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o"
-arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.o"
-arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.o"
-arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o"
-arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o"
-arm-none-eabi-gcc -mcpu=cortex-m3 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Core/Startup/startup_stm32f103c6tx.d" -MT"Core/Startup/startup_stm32f103c6tx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Startup/startup_stm32f103c6tx.o" "../Core/Startup/startup_stm32f103c6tx.s"
-arm-none-eabi-gcc "../Core/Src/display.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/display.d" -MT"Core/Src/display.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/display.o"
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc "../Core/Src/stm32f1xx_hal_msp.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_hal_msp.d" -MT"Core/Src/stm32f1xx_hal_msp.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_hal_msp.o"
-arm-none-eabi-gcc "../Core/Src/stm32f1xx_it.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_it.d" -MT"Core/Src/stm32f1xx_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_it.o"
-arm-none-eabi-gcc "../Core/Src/syscalls.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/syscalls.d" -MT"Core/Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/syscalls.o"
-arm-none-eabi-gcc "../Core/Src/sysmem.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sysmem.d" -MT"Core/Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/sysmem.o"
-arm-none-eabi-gcc "../Core/Src/system_stm32f1xx.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/system_stm32f1xx.d" -MT"Core/Src/system_stm32f1xx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/system_stm32f1xx.o"
-../Core/Src/display.c: In function 'display_Init':
-../Core/Src/display.c:63:27: error: 'SHCP2_GPIO' undeclared (first use in this function); did you mean 'SHCP2_Pin'?
-   63 |         HAL_GPIO_WritePin(SHCP2_GPIO, SHCP2_Pin, GPIO_PIN_RESET);
-      |                           ^~~~~~~~~~
-      |                           SHCP2_Pin
-../Core/Src/display.c:63:27: note: each undeclared identifier is reported only once for each function it appears in
-make: *** [Core/Src/subdir.mk:37: Core/Src/display.o] Error 1
-make: *** Waiting for unfinished jobs....
-../Core/Src/stm32f1xx_it.c: In function 'TIM1_UP_IRQHandler':
-../Core/Src/stm32f1xx_it.c:205:25: error: 'htim1' undeclared (first use in this function)
-  205 |     HAL_TIM_IRQHandler(&htim1);
-      |                         ^~~~~
-../Core/Src/stm32f1xx_it.c:205:25: note: each undeclared identifier is reported only once for each function it appears in
-make: *** [Core/Src/subdir.mk:37: Core/Src/stm32f1xx_it.o] Error 1
-"make -j12 all" terminated with exit code 2. Build might be incomplete.
-17:38:26 **** Incremental Build of configuration Debug for project STM3205P ****
-make -j12 all 
-arm-none-eabi-gcc "../Core/Src/display.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/display.d" -MT"Core/Src/display.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/display.o"
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc "../Core/Src/stm32f1xx_hal_msp.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_hal_msp.d" -MT"Core/Src/stm32f1xx_hal_msp.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_hal_msp.o"
-arm-none-eabi-gcc "../Core/Src/stm32f1xx_it.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_it.d" -MT"Core/Src/stm32f1xx_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_it.o"
-../Core/Src/display.c: In function 'display_Init':
-../Core/Src/display.c:63:27: error: 'SHCP2_GPIO' undeclared (first use in this function); did you mean 'SHCP2_Pin'?
-   63 |         HAL_GPIO_WritePin(SHCP2_GPIO, SHCP2_Pin, GPIO_PIN_RESET);
-      |                           ^~~~~~~~~~
-      |                           SHCP2_Pin
-../Core/Src/display.c:63:27: note: each undeclared identifier is reported only once for each function it appears in
-make: *** [Core/Src/subdir.mk:37: Core/Src/display.o] Error 1
-make: *** Waiting for unfinished jobs....
-"make -j12 all" terminated with exit code 2. Build might be incomplete.
-17:39:15 **** Incremental Build of configuration Debug for project STM3205P ****
-make -j12 all 
-arm-none-eabi-gcc "../Core/Src/display.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/display.d" -MT"Core/Src/display.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/display.o"
-arm-none-eabi-gcc -o "STM3205P.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\lucas\Documents\Github\STM3205P\3.Firmware\STM3205P\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM3205P.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: STM3205P.elf
- 
-arm-none-eabi-size  STM3205P.elf 
-arm-none-eabi-objdump -h -S STM3205P.elf  > "STM3205P.list"
-   text	   data	    bss	    dec	    hex	filename
-  11088	     12	   1828	  12928	   3280	STM3205P.elf
-Finished building: default.size.stdout
- 
-Finished building: STM3205P.list
- 
-17:39:44 **** Incremental Build of configuration Debug for project STM3205P ****
-make -j12 all 
-arm-none-eabi-size  STM3205P.elf 
-   text	   data	    bss	    dec	    hex	filename
-  11088	     12	   1828	  12928	   3280	STM3205P.elf
-Finished building: default.size.stdout
- 
-17:40:56 **** Incremental Build of configuration Debug for project STM3205P ****
-make -j12 all 
-arm-none-eabi-gcc "../Core/Src/display.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/display.d" -MT"Core/Src/display.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/display.o"
-arm-none-eabi-gcc -o "STM3205P.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\lucas\Documents\Github\STM3205P\3.Firmware\STM3205P\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM3205P.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: STM3205P.elf
- 
-arm-none-eabi-size  STM3205P.elf 
-arm-none-eabi-objdump -h -S STM3205P.elf  > "STM3205P.list"
-   text	   data	    bss	    dec	    hex	filename
-  11164	     12	   1828	  13004	   32cc	STM3205P.elf
-Finished building: default.size.stdout
- 
-Finished building: STM3205P.list
- 
-17:41:02 **** Incremental Build of configuration Debug for project STM3205P ****
-make -j12 all 
-arm-none-eabi-size  STM3205P.elf 
-   text	   data	    bss	    dec	    hex	filename
-  11164	     12	   1828	  13004	   32cc	STM3205P.elf
-Finished building: default.size.stdout
- 
-17:44:13 **** Incremental Build of configuration Debug for project STM3205P ****
+09:38:07 **** Incremental Build of configuration Debug for project STM3205P ****
 make -j12 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
 arm-none-eabi-gcc -o "STM3205P.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\lucas\Documents\Github\STM3205P\3.Firmware\STM3205P\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM3205P.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
@@ -105,799 +7,431 @@ Finished building target: STM3205P.elf
 arm-none-eabi-size  STM3205P.elf 
 arm-none-eabi-objdump -h -S STM3205P.elf  > "STM3205P.list"
    text	   data	    bss	    dec	    hex	filename
-  11328	     12	   1828	  13168	   3370	STM3205P.elf
+  12688	     12	   1948	  14648	   3938	STM3205P.elf
 Finished building: default.size.stdout
  
 Finished building: STM3205P.list
  
-17:44:17 **** Incremental Build of configuration Debug for project STM3205P ****
+09:33:04 **** Build of configuration Debug for project ADCTest ****
 make -j12 all 
-arm-none-eabi-size  STM3205P.elf 
-   text	   data	    bss	    dec	    hex	filename
-  11328	     12	   1828	  13168	   3370	STM3205P.elf
-Finished building: default.size.stdout
- 
-17:51:05 **** Incremental Build of configuration Debug for project STM3205P ****
-make -j12 all 
-arm-none-eabi-gcc "../Core/Src/display.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/display.d" -MT"Core/Src/display.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/display.o"
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "STM3205P.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\lucas\Documents\Github\STM3205P\3.Firmware\STM3205P\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM3205P.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: STM3205P.elf
- 
-arm-none-eabi-size  STM3205P.elf 
-arm-none-eabi-objdump -h -S STM3205P.elf  > "STM3205P.list"
-   text	   data	    bss	    dec	    hex	filename
-  11340	     24	   1832	  13196	   338c	STM3205P.elf
-Finished building: default.size.stdout
- 
-Finished building: STM3205P.list
- 
-17:51:10 **** Incremental Build of configuration Debug for project STM3205P ****
-make -j12 all 
-arm-none-eabi-size  STM3205P.elf 
-   text	   data	    bss	    dec	    hex	filename
-  11340	     24	   1832	  13196	   338c	STM3205P.elf
-Finished building: default.size.stdout
- 
-17:52:07 **** Incremental Build of configuration Debug for project STM3205P ****
-make -j12 all 
-arm-none-eabi-gcc "../Core/Src/display.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/display.d" -MT"Core/Src/display.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/display.o"
-arm-none-eabi-gcc -o "STM3205P.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\lucas\Documents\Github\STM3205P\3.Firmware\STM3205P\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM3205P.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: STM3205P.elf
- 
-arm-none-eabi-size  STM3205P.elf 
-arm-none-eabi-objdump -h -S STM3205P.elf  > "STM3205P.list"
-   text	   data	    bss	    dec	    hex	filename
-  11340	     24	   1832	  13196	   338c	STM3205P.elf
-Finished building: default.size.stdout
- 
-Finished building: STM3205P.list
- 
-17:52:50 **** Incremental Build of configuration Debug for project STM3205P ****
-make -j12 all 
-arm-none-eabi-size  STM3205P.elf 
-   text	   data	    bss	    dec	    hex	filename
-  11340	     24	   1832	  13196	   338c	STM3205P.elf
-Finished building: default.size.stdout
- 
-17:54:24 **** Incremental Build of configuration Debug for project STM3205P ****
-make -j12 all 
-arm-none-eabi-gcc "../Core/Src/display.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/display.d" -MT"Core/Src/display.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/display.o"
-arm-none-eabi-gcc -o "STM3205P.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\lucas\Documents\Github\STM3205P\3.Firmware\STM3205P\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM3205P.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: STM3205P.elf
- 
-arm-none-eabi-size  STM3205P.elf 
-arm-none-eabi-objdump -h -S STM3205P.elf  > "STM3205P.list"
-   text	   data	    bss	    dec	    hex	filename
-  11340	     24	   1832	  13196	   338c	STM3205P.elf
-Finished building: default.size.stdout
- 
-Finished building: STM3205P.list
- 
-17:55:39 **** Incremental Build of configuration Debug for project STM3205P ****
-make -j12 all 
-arm-none-eabi-gcc "../Core/Src/display.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/display.d" -MT"Core/Src/display.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/display.o"
-arm-none-eabi-gcc -o "STM3205P.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\lucas\Documents\Github\STM3205P\3.Firmware\STM3205P\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM3205P.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: STM3205P.elf
- 
-arm-none-eabi-size  STM3205P.elf 
-arm-none-eabi-objdump -h -S STM3205P.elf  > "STM3205P.list"
-   text	   data	    bss	    dec	    hex	filename
-  11340	     24	   1832	  13196	   338c	STM3205P.elf
-Finished building: default.size.stdout
- 
-Finished building: STM3205P.list
- 
-17:56:28 **** Incremental Build of configuration Debug for project STM3205P ****
-make -j12 all 
-arm-none-eabi-gcc "../Core/Src/display.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/display.d" -MT"Core/Src/display.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/display.o"
-arm-none-eabi-gcc -o "STM3205P.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\lucas\Documents\Github\STM3205P\3.Firmware\STM3205P\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM3205P.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: STM3205P.elf
- 
-arm-none-eabi-size  STM3205P.elf 
-arm-none-eabi-objdump -h -S STM3205P.elf  > "STM3205P.list"
-   text	   data	    bss	    dec	    hex	filename
-  11340	     24	   1832	  13196	   338c	STM3205P.elf
-Finished building: default.size.stdout
- 
-Finished building: STM3205P.list
- 
-17:59:56 **** Incremental Build of configuration Debug for project STM3205P ****
-make -j12 all 
-arm-none-eabi-gcc "../Core/Src/display.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/display.d" -MT"Core/Src/display.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/display.o"
-arm-none-eabi-gcc -o "STM3205P.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\lucas\Documents\Github\STM3205P\3.Firmware\STM3205P\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM3205P.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: STM3205P.elf
- 
-arm-none-eabi-size  STM3205P.elf 
-arm-none-eabi-objdump -h -S STM3205P.elf  > "STM3205P.list"
-   text	   data	    bss	    dec	    hex	filename
-  11340	     24	   1832	  13196	   338c	STM3205P.elf
-Finished building: default.size.stdout
- 
-Finished building: STM3205P.list
- 
-18:01:11 **** Incremental Build of configuration Debug for project STM3205P ****
-make -j12 all 
-arm-none-eabi-gcc "../Core/Src/display.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/display.d" -MT"Core/Src/display.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/display.o"
-arm-none-eabi-gcc -o "STM3205P.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\lucas\Documents\Github\STM3205P\3.Firmware\STM3205P\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM3205P.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: STM3205P.elf
- 
-arm-none-eabi-size  STM3205P.elf 
-arm-none-eabi-objdump -h -S STM3205P.elf  > "STM3205P.list"
-   text	   data	    bss	    dec	    hex	filename
-  11340	     24	   1832	  13196	   338c	STM3205P.elf
-Finished building: default.size.stdout
- 
-Finished building: STM3205P.list
- 
-18:01:47 **** Incremental Build of configuration Debug for project STM3205P ****
-make -j12 all 
-arm-none-eabi-gcc "../Core/Src/display.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/display.d" -MT"Core/Src/display.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/display.o"
-arm-none-eabi-gcc -o "STM3205P.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\lucas\Documents\Github\STM3205P\3.Firmware\STM3205P\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM3205P.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: STM3205P.elf
- 
-arm-none-eabi-size  STM3205P.elf 
-arm-none-eabi-objdump -h -S STM3205P.elf  > "STM3205P.list"
-   text	   data	    bss	    dec	    hex	filename
-  11340	     24	   1832	  13196	   338c	STM3205P.elf
-Finished building: default.size.stdout
- 
-Finished building: STM3205P.list
- 
-18:02:19 **** Incremental Build of configuration Debug for project STM3205P ****
-make -j12 all 
-arm-none-eabi-gcc "../Core/Src/display.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/display.d" -MT"Core/Src/display.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/display.o"
-arm-none-eabi-gcc -o "STM3205P.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\lucas\Documents\Github\STM3205P\3.Firmware\STM3205P\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM3205P.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: STM3205P.elf
- 
-arm-none-eabi-size  STM3205P.elf 
-arm-none-eabi-objdump -h -S STM3205P.elf  > "STM3205P.list"
-   text	   data	    bss	    dec	    hex	filename
-  11340	     24	   1832	  13196	   338c	STM3205P.elf
-Finished building: default.size.stdout
- 
-Finished building: STM3205P.list
- 
-18:02:47 **** Incremental Build of configuration Debug for project STM3205P ****
-make -j12 all 
-arm-none-eabi-gcc "../Core/Src/display.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/display.d" -MT"Core/Src/display.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/display.o"
-arm-none-eabi-gcc -o "STM3205P.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\lucas\Documents\Github\STM3205P\3.Firmware\STM3205P\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM3205P.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: STM3205P.elf
- 
-arm-none-eabi-size  STM3205P.elf 
-arm-none-eabi-objdump -h -S STM3205P.elf  > "STM3205P.list"
-   text	   data	    bss	    dec	    hex	filename
-  11340	     24	   1832	  13196	   338c	STM3205P.elf
-Finished building: default.size.stdout
- 
-Finished building: STM3205P.list
- 
-18:16:01 **** Incremental Build of configuration Debug for project STM3205P ****
-make -j12 all 
-arm-none-eabi-gcc "../Core/Src/display.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/display.d" -MT"Core/Src/display.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/display.o"
-arm-none-eabi-gcc -o "STM3205P.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\lucas\Documents\Github\STM3205P\3.Firmware\STM3205P\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM3205P.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: STM3205P.elf
- 
-arm-none-eabi-size  STM3205P.elf 
-arm-none-eabi-objdump -h -S STM3205P.elf  > "STM3205P.list"
-   text	   data	    bss	    dec	    hex	filename
-  11340	     24	   1832	  13196	   338c	STM3205P.elf
-Finished building: default.size.stdout
- 
-Finished building: STM3205P.list
- 
-18:16:50 **** Incremental Build of configuration Debug for project STM3205P ****
-make -j12 all 
-arm-none-eabi-gcc "../Core/Src/display.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/display.d" -MT"Core/Src/display.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/display.o"
-arm-none-eabi-gcc -o "STM3205P.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\lucas\Documents\Github\STM3205P\3.Firmware\STM3205P\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM3205P.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: STM3205P.elf
- 
-arm-none-eabi-size  STM3205P.elf 
-arm-none-eabi-objdump -h -S STM3205P.elf  > "STM3205P.list"
-   text	   data	    bss	    dec	    hex	filename
-  11340	     24	   1832	  13196	   338c	STM3205P.elf
-Finished building: default.size.stdout
- 
-Finished building: STM3205P.list
- 
-18:39:48 **** Incremental Build of configuration Debug for project STM3205P ****
-make -j12 all 
-arm-none-eabi-gcc "../Core/Src/display.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/display.d" -MT"Core/Src/display.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/display.o"
-arm-none-eabi-gcc -o "STM3205P.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\lucas\Documents\Github\STM3205P\3.Firmware\STM3205P\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM3205P.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: STM3205P.elf
- 
-arm-none-eabi-size  STM3205P.elf 
-arm-none-eabi-objdump -h -S STM3205P.elf  > "STM3205P.list"
-   text	   data	    bss	    dec	    hex	filename
-  11340	     24	   1832	  13196	   338c	STM3205P.elf
-Finished building: default.size.stdout
- 
-Finished building: STM3205P.list
- 
-18:40:18 **** Incremental Build of configuration Debug for project STM3205P ****
-make -j12 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "STM3205P.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\lucas\Documents\Github\STM3205P\3.Firmware\STM3205P\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM3205P.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: STM3205P.elf
- 
-arm-none-eabi-size  STM3205P.elf 
-arm-none-eabi-objdump -h -S STM3205P.elf  > "STM3205P.list"
-   text	   data	    bss	    dec	    hex	filename
-  11492	     24	   1832	  13348	   3424	STM3205P.elf
-Finished building: default.size.stdout
- 
-Finished building: STM3205P.list
- 
-18:43:19 **** Incremental Build of configuration Debug for project STM3205P ****
-make -j12 all 
-arm-none-eabi-gcc "../Core/Src/display.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/display.d" -MT"Core/Src/display.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/display.o"
-arm-none-eabi-gcc -o "STM3205P.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\lucas\Documents\Github\STM3205P\3.Firmware\STM3205P\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM3205P.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: STM3205P.elf
- 
-arm-none-eabi-size  STM3205P.elf 
-arm-none-eabi-objdump -h -S STM3205P.elf  > "STM3205P.list"
-   text	   data	    bss	    dec	    hex	filename
-  11488	     12	   1844	  13344	   3420	STM3205P.elf
-Finished building: default.size.stdout
- 
-Finished building: STM3205P.list
- 
-18:53:58 **** Incremental Build of configuration Debug for project STM3205P ****
-make -j12 all 
-arm-none-eabi-gcc "../Core/Src/display.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/display.d" -MT"Core/Src/display.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/display.o"
-arm-none-eabi-gcc -o "STM3205P.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\lucas\Documents\Github\STM3205P\3.Firmware\STM3205P\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM3205P.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: STM3205P.elf
- 
-arm-none-eabi-size  STM3205P.elf 
-arm-none-eabi-objdump -h -S STM3205P.elf  > "STM3205P.list"
-   text	   data	    bss	    dec	    hex	filename
-  11488	     12	   1844	  13344	   3420	STM3205P.elf
-Finished building: default.size.stdout
- 
-Finished building: STM3205P.list
- 
-19:03:04 **** Incremental Build of configuration Debug for project STM3205P ****
-make -j12 all 
-arm-none-eabi-gcc "../Core/Src/display.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/display.d" -MT"Core/Src/display.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/display.o"
-arm-none-eabi-gcc -o "STM3205P.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\lucas\Documents\Github\STM3205P\3.Firmware\STM3205P\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM3205P.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: STM3205P.elf
- 
-arm-none-eabi-size  STM3205P.elf 
-arm-none-eabi-objdump -h -S STM3205P.elf  > "STM3205P.list"
-   text	   data	    bss	    dec	    hex	filename
-  11488	     12	   1844	  13344	   3420	STM3205P.elf
-Finished building: default.size.stdout
- 
-Finished building: STM3205P.list
- 
-19:19:28 **** Incremental Build of configuration Debug for project STM3205P ****
-make -j12 all 
-arm-none-eabi-gcc "../Core/Src/display.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/display.d" -MT"Core/Src/display.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/display.o"
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "STM3205P.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\lucas\Documents\Github\STM3205P\3.Firmware\STM3205P\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM3205P.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: STM3205P.elf
- 
-arm-none-eabi-size  STM3205P.elf 
-arm-none-eabi-objdump -h -S STM3205P.elf  > "STM3205P.list"
-   text	   data	    bss	    dec	    hex	filename
-  11712	     12	   1844	  13568	   3500	STM3205P.elf
-Finished building: default.size.stdout
- 
-Finished building: STM3205P.list
- 
-19:19:32 **** Incremental Build of configuration Debug for project STM3205P ****
-make -j12 all 
-arm-none-eabi-size  STM3205P.elf 
-   text	   data	    bss	    dec	    hex	filename
-  11712	     12	   1844	  13568	   3500	STM3205P.elf
-Finished building: default.size.stdout
- 
-19:21:55 **** Incremental Build of configuration Debug for project STM3205P ****
-make -j12 all 
-arm-none-eabi-gcc "../Core/Src/display.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/display.d" -MT"Core/Src/display.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/display.o"
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "STM3205P.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\lucas\Documents\Github\STM3205P\3.Firmware\STM3205P\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM3205P.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: STM3205P.elf
- 
-arm-none-eabi-size  STM3205P.elf 
-arm-none-eabi-objdump -h -S STM3205P.elf  > "STM3205P.list"
-   text	   data	    bss	    dec	    hex	filename
-  11916	     12	   1844	  13772	   35cc	STM3205P.elf
-Finished building: default.size.stdout
- 
-Finished building: STM3205P.list
- 
-19:27:55 **** Incremental Build of configuration Debug for project STM3205P ****
-make -j12 all 
-arm-none-eabi-gcc "../Core/Src/display.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/display.d" -MT"Core/Src/display.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/display.o"
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "STM3205P.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\lucas\Documents\Github\STM3205P\3.Firmware\STM3205P\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM3205P.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: STM3205P.elf
- 
-arm-none-eabi-size  STM3205P.elf 
-arm-none-eabi-objdump -h -S STM3205P.elf  > "STM3205P.list"
-   text	   data	    bss	    dec	    hex	filename
-  12148	     12	   1844	  14004	   36b4	STM3205P.elf
-Finished building: default.size.stdout
- 
-Finished building: STM3205P.list
- 
-19:32:50 **** Incremental Build of configuration Debug for project STM3205P ****
-make -j12 all 
-arm-none-eabi-gcc "../Core/Src/display.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/display.d" -MT"Core/Src/display.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/display.o"
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "STM3205P.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\lucas\Documents\Github\STM3205P\3.Firmware\STM3205P\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM3205P.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: STM3205P.elf
- 
-arm-none-eabi-size  STM3205P.elf 
-arm-none-eabi-objdump -h -S STM3205P.elf  > "STM3205P.list"
-   text	   data	    bss	    dec	    hex	filename
-  12148	     12	   1844	  14004	   36b4	STM3205P.elf
-Finished building: default.size.stdout
- 
-Finished building: STM3205P.list
- 
-19:35:41 **** Incremental Build of configuration Debug for project STM3205P ****
-make -j12 all 
-arm-none-eabi-gcc "../Core/Src/display.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/display.d" -MT"Core/Src/display.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/display.o"
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "STM3205P.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\lucas\Documents\Github\STM3205P\3.Firmware\STM3205P\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM3205P.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: STM3205P.elf
- 
-arm-none-eabi-size  STM3205P.elf 
-arm-none-eabi-objdump -h -S STM3205P.elf  > "STM3205P.list"
-   text	   data	    bss	    dec	    hex	filename
-  12148	     12	   1844	  14004	   36b4	STM3205P.elf
-Finished building: default.size.stdout
- 
-Finished building: STM3205P.list
- 
-19:39:30 **** Incremental Build of configuration Debug for project STM3205P ****
-make -j12 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "STM3205P.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\lucas\Documents\Github\STM3205P\3.Firmware\STM3205P\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM3205P.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: STM3205P.elf
- 
-arm-none-eabi-size  STM3205P.elf 
-arm-none-eabi-objdump -h -S STM3205P.elf  > "STM3205P.list"
-   text	   data	    bss	    dec	    hex	filename
-  12444	     12	   1844	  14300	   37dc	STM3205P.elf
-Finished building: default.size.stdout
- 
-Finished building: STM3205P.list
- 
-19:43:43 **** Incremental Build of configuration Debug for project STM3205P ****
-make -j12 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "STM3205P.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\lucas\Documents\Github\STM3205P\3.Firmware\STM3205P\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM3205P.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: STM3205P.elf
- 
-arm-none-eabi-size  STM3205P.elf 
-arm-none-eabi-objdump -h -S STM3205P.elf  > "STM3205P.list"
-   text	   data	    bss	    dec	    hex	filename
-  12740	     12	   1844	  14596	   3904	STM3205P.elf
-Finished building: default.size.stdout
- 
-Finished building: STM3205P.list
- 
-19:45:33 **** Incremental Build of configuration Debug for project STM3205P ****
-make -j12 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "STM3205P.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\lucas\Documents\Github\STM3205P\3.Firmware\STM3205P\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM3205P.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: STM3205P.elf
- 
-arm-none-eabi-size  STM3205P.elf 
-arm-none-eabi-objdump -h -S STM3205P.elf  > "STM3205P.list"
-   text	   data	    bss	    dec	    hex	filename
-  13028	     12	   1844	  14884	   3a24	STM3205P.elf
-Finished building: default.size.stdout
- 
-Finished building: STM3205P.list
- 
-20:20:16 **** Incremental Build of configuration Debug for project STM3205P ****
-make -j12 all 
-arm-none-eabi-gcc "../Core/Src/display.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/display.d" -MT"Core/Src/display.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/display.o"
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-In file included from ../Core/Src/display.c:23:
-../Core/Src/display.h:118:57: error: unknown type name 'bool'
-  118 | extern void display_SetNumberOnMemory(uint8_t bus_high, bool dot_high, uint8_t bus_low, bool dot_low, uint8_t display);
-      |                                                         ^~~~
-../Core/Src/display.h:27:1: note: 'bool' is defined in header '<stdbool.h>'; did you forget to '#include <stdbool.h>'?
-   26 | #include "math.h"
-  +++ |+#include <stdbool.h>
-   27 | 
-../Core/Src/display.h:118:89: error: unknown type name 'bool'
-  118 | extern void display_SetNumberOnMemory(uint8_t bus_high, bool dot_high, uint8_t bus_low, bool dot_low, uint8_t display);
-      |                                                                                         ^~~~
-../Core/Src/display.h:118:89: note: 'bool' is defined in header '<stdbool.h>'; did you forget to '#include <stdbool.h>'?
-In file included from ../Core/Src/main.c:21:
-../Core/Src/display.h:118:57: error: unknown type name 'bool'
-  118 | extern void display_SetNumberOnMemory(uint8_t bus_high, bool dot_high, uint8_t bus_low, bool dot_low, uint8_t display);
-      |                                                         ^~~~
-../Core/Src/display.c:283:6: error: conflicting types for 'display_PrepareData'; have 'void(float,  float)'
-  283 | void display_PrepareData(float voltage, float current)
-      |      ^~~~~~~~~~~~~~~~~~~
-../Core/Src/display.h:27:1: note: 'bool' is defined in header '<stdbool.h>'; did you forget to '#include <stdbool.h>'?
-   26 | #include "math.h"
-  +++ |+#include <stdbool.h>
-   27 | 
-../Core/Src/display.c:284:1: note: an argument type that has a default promotion cannot match an empty parameter name list declaration
-  284 | {
-      | ^
-../Core/Src/display.h:118:89: error: unknown type name 'bool'
-  118 | extern void display_SetNumberOnMemory(uint8_t bus_high, bool dot_high, uint8_t bus_low, bool dot_low, uint8_t display);
-      |                                                                                         ^~~~
-../Core/Src/display.h:116:13: note: previous declaration of 'display_PrepareData' with type 'void()'
-  116 | extern void display_PrepareData();
-      |             ^~~~~~~~~~~~~~~~~~~
-../Core/Src/display.h:118:89: note: 'bool' is defined in header '<stdbool.h>'; did you forget to '#include <stdbool.h>'?
-../Core/Src/display.c: In function 'display_PrepareData':
-../Core/Src/display.c:305:49: error: 'value' undeclared (first use in this function)
-  305 |                 voltage_int = (uint16_t)(roundf(value * 1000)); // Convert to integer
-      |                                                 ^~~~~
-../Core/Src/display.c:305:49: note: each undeclared identifier is reported only once for each function it appears in
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.o"
+arm-none-eabi-gcc -mcpu=cortex-m3 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Core/Startup/startup_stm32f103c8tx.d" -MT"Core/Startup/startup_stm32f103c8tx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Startup/startup_stm32f103c8tx.o" "../Core/Startup/startup_stm32f103c8tx.s"
+arm-none-eabi-gcc "../Core/Src/RingBuffer.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/RingBuffer.d" -MT"Core/Src/RingBuffer.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/RingBuffer.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_hal_msp.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_hal_msp.d" -MT"Core/Src/stm32f1xx_hal_msp.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_it.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_it.d" -MT"Core/Src/stm32f1xx_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_it.o"
+arm-none-eabi-gcc "../Core/Src/syscalls.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/syscalls.d" -MT"Core/Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/syscalls.o"
+arm-none-eabi-gcc "../Core/Src/sysmem.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sysmem.d" -MT"Core/Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/sysmem.o"
+arm-none-eabi-gcc "../Core/Src/system_stm32f1xx.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/system_stm32f1xx.d" -MT"Core/Src/system_stm32f1xx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/system_stm32f1xx.o"
 ../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:93:18: warning: unused variable 'disp_delay' [-Wunused-variable]
-   93 |         uint16_t disp_delay = 200;
-      |                  ^~~~~~~~~~
-../Core/Src/display.c:329:9: warning: implicit declaration of function 'display_SetNumberOnMemory'; did you mean 'display_SetCharOnMemory'? [-Wimplicit-function-declaration]
-  329 |         display_SetNumberOnMemory(vd1, true, cd1, true, 1);
-      |         ^~~~~~~~~~~~~~~~~~~~~~~~~
-      |         display_SetCharOnMemory
-../Core/Src/display.c:329:40: error: 'true' undeclared (first use in this function)
-  329 |         display_SetNumberOnMemory(vd1, true, cd1, true, 1);
-      |                                        ^~~~
-../Core/Src/display.c:24:1: note: 'true' is defined in header '<stdbool.h>'; did you forget to '#include <stdbool.h>'?
-   23 | #include "display.h"
-  +++ |+#include <stdbool.h>
-   24 | 
-../Core/Src/display.c:330:48: error: 'false' undeclared (first use in this function)
-  330 |                 display_SetNumberOnMemory(vd2, false, cd2, false, 2);
-      |                                                ^~~~~
-../Core/Src/display.c:330:48: note: 'false' is defined in header '<stdbool.h>'; did you forget to '#include <stdbool.h>'?
-../Core/Src/display.c: At top level:
-../Core/Src/display.c:399:50: error: unknown type name 'bool'
-  399 | void display_SetNumberOnMemory(uint8_t bus_high, bool dot_high, uint8_t bus_low, bool dot_low, uint8_t display)
-      |                                                  ^~~~
-../Core/Src/display.c:399:50: note: 'bool' is defined in header '<stdbool.h>'; did you forget to '#include <stdbool.h>'?
-../Core/Src/display.c:399:82: error: unknown type name 'bool'
-  399 | void display_SetNumberOnMemory(uint8_t bus_high, bool dot_high, uint8_t bus_low, bool dot_low, uint8_t display)
-      |                                                                                  ^~~~
-../Core/Src/display.c:399:82: note: 'bool' is defined in header '<stdbool.h>'; did you forget to '#include <stdbool.h>'?
-make: *** [Core/Src/subdir.mk:37: Core/Src/main.o] Error 1
-make: *** Waiting for unfinished jobs....
-../Core/Src/display.c: In function 'display_GetNumberData':
-../Core/Src/display.c:500:1: warning: control reaches end of non-void function [-Wreturn-type]
-  500 | }
-      | ^
-make: *** [Core/Src/subdir.mk:37: Core/Src/display.o] Error 1
+../Core/Src/main.c:150:28: warning: implicit declaration of function 'RingBuffer_Read'; did you mean 'RingBuffer_Get'? [-Wimplicit-function-declaration]
+  150 |           uint16_t count = RingBuffer_Read(&RBVoltage, data, sizeof(data));
+      |                            ^~~~~~~~~~~~~~~
+      |                            RingBuffer_Get
+arm-none-eabi-gcc -o "ADCTest.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\lucas\Documents\Github\STM3205P\3.Firmware\ADCTest\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADCTest.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.15.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/main.o: in function `main':
+C:/Users/lucas/Documents/Github/STM3205P/3.Firmware/ADCTest/Debug/../Core/Src/main.c:150:(.text.main+0x36): undefined reference to `RingBuffer_Read'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:64: ADCTest.elf] Error 1
 "make -j12 all" terminated with exit code 2. Build might be incomplete.
-20:22:41 **** Incremental Build of configuration Debug for project STM3205P ****
+09:35:18 **** Incremental Build of configuration Debug for project ADCTest ****
 make -j12 all 
-arm-none-eabi-gcc "../Core/Src/display.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/display.d" -MT"Core/Src/display.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/display.o"
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-../Core/Src/display.c:283:6: error: conflicting types for 'display_PrepareData'; have 'void(float,  float)'
-  283 | void display_PrepareData(float voltage, float current)
-      |      ^~~~~~~~~~~~~~~~~~~
-../Core/Src/display.c:284:1: note: an argument type that has a default promotion cannot match an empty parameter name list declaration
-  284 | {
-      | ^
-In file included from ../Core/Src/display.c:23:
-../Core/Src/display.h:117:13: note: previous declaration of 'display_PrepareData' with type 'void()'
-  117 | extern void display_PrepareData();
-      |             ^~~~~~~~~~~~~~~~~~~
-../Core/Src/display.c: In function 'display_SetNumberOnMemory':
-../Core/Src/display.c:401:26: error: too few arguments to function 'display_GetNumberData'
-  401 |         uint16_t dataH = display_GetNumberData(bus_high);
-      |                          ^~~~~~~~~~~~~~~~~~~~~
-../Core/Src/display.h:120:16: note: declared here
-  120 | extern uint8_t display_GetNumberData(uint8_t number, uint8_t display);
-      |                ^~~~~~~~~~~~~~~~~~~~~
-../Core/Src/display.c:402:26: error: too few arguments to function 'display_GetNumberData'
-  402 |         uint16_t dataL = display_GetNumberData(bus_low);
-      |                          ^~~~~~~~~~~~~~~~~~~~~
-../Core/Src/display.h:120:16: note: declared here
-  120 | extern uint8_t display_GetNumberData(uint8_t number, uint8_t display);
-      |                ^~~~~~~~~~~~~~~~~~~~~
-../Core/Src/display.c: In function 'display_GetNumberData':
-../Core/Src/display.c:500:1: warning: control reaches end of non-void function [-Wreturn-type]
-  500 | }
-      | ^
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
 ../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:93:18: warning: unused variable 'disp_delay' [-Wunused-variable]
-   93 |         uint16_t disp_delay = 200;
-      |                  ^~~~~~~~~~
-make: *** [Core/Src/subdir.mk:37: Core/Src/display.o] Error 1
-make: *** Waiting for unfinished jobs....
-"make -j12 all" terminated with exit code 2. Build might be incomplete.
-20:23:11 **** Incremental Build of configuration Debug for project STM3205P ****
+../Core/Src/main.c:141:30: warning: passing argument 2 of 'RingBuffer_Init' from incompatible pointer type [-Wincompatible-pointer-types]
+  141 |   RingBuffer_Init(&RBVoltage,&VoltageBuff,200);
+      |                              ^~~~~~~~~~~~
+      |                              |
+      |                              uint16_t (*)[200] {aka short unsigned int (*)[200]}
+In file included from ../Core/Src/main.c:26:
+../Core/Src/RingBuffer.h:56:52: note: expected 'uint16_t *' {aka 'short unsigned int *'} but argument is of type 'uint16_t (*)[200]' {aka 'short unsigned int (*)[200]'}
+   56 | void RingBuffer_Init(RingBuffer_t *rb, RBDataType* buffer, uint16_t size);
+      |                                                    ^
+../Core/Src/main.c:142:30: warning: passing argument 2 of 'RingBuffer_Init' from incompatible pointer type [-Wincompatible-pointer-types]
+  142 |   RingBuffer_Init(&RBCurrent,&CurrentBuff,200);
+      |                              ^~~~~~~~~~~~
+      |                              |
+      |                              uint16_t (*)[200] {aka short unsigned int (*)[200]}
+../Core/Src/RingBuffer.h:56:52: note: expected 'uint16_t *' {aka 'short unsigned int *'} but argument is of type 'uint16_t (*)[200]' {aka 'short unsigned int (*)[200]'}
+   56 | void RingBuffer_Init(RingBuffer_t *rb, RBDataType* buffer, uint16_t size);
+      |                                                    ^
+../Core/Src/main.c:153:55: warning: passing argument 2 of 'RingBuffer_Get' from incompatible pointer type [-Wincompatible-pointer-types]
+  153 |           uint16_t count = RingBuffer_Get(&RBVoltage, data);
+      |                                                       ^~~~
+      |                                                       |
+      |                                                       uint8_t * {aka unsigned char *}
+../Core/Src/RingBuffer.h:78:51: note: expected 'uint16_t *' {aka 'short unsigned int *'} but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   78 | bool RingBuffer_Get(RingBuffer_t *rb, RBDataType *data);
+      |                                                   ^
+arm-none-eabi-gcc -o "ADCTest.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\lucas\Documents\Github\STM3205P\3.Firmware\ADCTest\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADCTest.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADCTest.elf
+ 
+arm-none-eabi-size  ADCTest.elf 
+arm-none-eabi-objdump -h -S ADCTest.elf  > "ADCTest.list"
+   text	   data	    bss	    dec	    hex	filename
+  13816	     92	   2964	  16872	   41e8	ADCTest.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADCTest.list
+ 
+09:35:37 **** Incremental Build of configuration Debug for project ADCTest ****
 make -j12 all 
-arm-none-eabi-gcc "../Core/Src/display.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/display.d" -MT"Core/Src/display.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/display.o"
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-../Core/Src/display.c: In function 'display_SetNumberOnMemory':
-../Core/Src/display.c:401:26: error: too few arguments to function 'display_GetNumberData'
-  401 |         uint16_t dataH = display_GetNumberData(bus_high);
-      |                          ^~~~~~~~~~~~~~~~~~~~~
-In file included from ../Core/Src/display.c:23:
-../Core/Src/display.h:119:16: note: declared here
-  119 | extern uint8_t display_GetNumberData(uint8_t number, uint8_t display);
-      |                ^~~~~~~~~~~~~~~~~~~~~
-../Core/Src/display.c:402:26: error: too few arguments to function 'display_GetNumberData'
-  402 |         uint16_t dataL = display_GetNumberData(bus_low);
-      |                          ^~~~~~~~~~~~~~~~~~~~~
-../Core/Src/display.h:119:16: note: declared here
-  119 | extern uint8_t display_GetNumberData(uint8_t number, uint8_t display);
-      |                ^~~~~~~~~~~~~~~~~~~~~
-../Core/Src/display.c: In function 'display_GetNumberData':
-../Core/Src/display.c:500:1: warning: control reaches end of non-void function [-Wreturn-type]
-  500 | }
-      | ^
-make: *** [Core/Src/subdir.mk:37: Core/Src/display.o] Error 1
-make: *** Waiting for unfinished jobs....
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
 ../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:93:18: warning: unused variable 'disp_delay' [-Wunused-variable]
-   93 |         uint16_t disp_delay = 200;
-      |                  ^~~~~~~~~~
-"make -j12 all" terminated with exit code 2. Build might be incomplete.
-20:23:47 **** Incremental Build of configuration Debug for project STM3205P ****
-make -j12 all 
-arm-none-eabi-gcc "../Core/Src/display.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/display.d" -MT"Core/Src/display.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/display.o"
-../Core/Src/display.c: In function 'display_GetNumberData':
-../Core/Src/display.c:500:1: warning: control reaches end of non-void function [-Wreturn-type]
-  500 | }
-      | ^
-arm-none-eabi-gcc -o "STM3205P.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\lucas\Documents\Github\STM3205P\3.Firmware\STM3205P\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM3205P.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: STM3205P.elf
+../Core/Src/main.c:141:30: warning: passing argument 2 of 'RingBuffer_Init' from incompatible pointer type [-Wincompatible-pointer-types]
+  141 |   RingBuffer_Init(&RBVoltage,&VoltageBuff,200);
+      |                              ^~~~~~~~~~~~
+      |                              |
+      |                              uint16_t (*)[200] {aka short unsigned int (*)[200]}
+In file included from ../Core/Src/main.c:26:
+../Core/Src/RingBuffer.h:56:52: note: expected 'uint16_t *' {aka 'short unsigned int *'} but argument is of type 'uint16_t (*)[200]' {aka 'short unsigned int (*)[200]'}
+   56 | void RingBuffer_Init(RingBuffer_t *rb, RBDataType* buffer, uint16_t size);
+      |                                                    ^
+../Core/Src/main.c:142:30: warning: passing argument 2 of 'RingBuffer_Init' from incompatible pointer type [-Wincompatible-pointer-types]
+  142 |   RingBuffer_Init(&RBCurrent,&CurrentBuff,200);
+      |                              ^~~~~~~~~~~~
+      |                              |
+      |                              uint16_t (*)[200] {aka short unsigned int (*)[200]}
+../Core/Src/RingBuffer.h:56:52: note: expected 'uint16_t *' {aka 'short unsigned int *'} but argument is of type 'uint16_t (*)[200]' {aka 'short unsigned int (*)[200]'}
+   56 | void RingBuffer_Init(RingBuffer_t *rb, RBDataType* buffer, uint16_t size);
+      |                                                    ^
+arm-none-eabi-gcc -o "ADCTest.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\lucas\Documents\Github\STM3205P\3.Firmware\ADCTest\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADCTest.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADCTest.elf
  
-arm-none-eabi-size  STM3205P.elf 
-arm-none-eabi-objdump -h -S STM3205P.elf  > "STM3205P.list"
+arm-none-eabi-size  ADCTest.elf 
+arm-none-eabi-objdump -h -S ADCTest.elf  > "ADCTest.list"
    text	   data	    bss	    dec	    hex	filename
-  11460	     12	   1844	  13316	   3404	STM3205P.elf
+  13820	     92	   2964	  16876	   41ec	ADCTest.elf
 Finished building: default.size.stdout
  
-Finished building: STM3205P.list
+Finished building: ADCTest.list
  
-20:24:05 **** Incremental Build of configuration Debug for project STM3205P ****
+09:36:26 **** Incremental Build of configuration Debug for project ADCTest ****
 make -j12 all 
-arm-none-eabi-gcc "../Core/Src/display.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/display.d" -MT"Core/Src/display.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/display.o"
-arm-none-eabi-gcc -o "STM3205P.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\lucas\Documents\Github\STM3205P\3.Firmware\STM3205P\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM3205P.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: STM3205P.elf
- 
-arm-none-eabi-size  STM3205P.elf 
-arm-none-eabi-objdump -h -S STM3205P.elf  > "STM3205P.list"
+arm-none-eabi-size  ADCTest.elf 
    text	   data	    bss	    dec	    hex	filename
-  11460	     12	   1844	  13316	   3404	STM3205P.elf
+  13820	     92	   2964	  16876	   41ec	ADCTest.elf
 Finished building: default.size.stdout
  
-Finished building: STM3205P.list
- 
-20:25:32 **** Incremental Build of configuration Debug for project STM3205P ****
+09:40:03 **** Incremental Build of configuration Debug for project ADCTest ****
 make -j12 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "STM3205P.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\lucas\Documents\Github\STM3205P\3.Firmware\STM3205P\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM3205P.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: STM3205P.elf
- 
-arm-none-eabi-size  STM3205P.elf 
-arm-none-eabi-objdump -h -S STM3205P.elf  > "STM3205P.list"
+arm-none-eabi-size  ADCTest.elf 
    text	   data	    bss	    dec	    hex	filename
-  14000	     12	   1844	  15856	   3df0	STM3205P.elf
+  13820	     92	   2964	  16876	   41ec	ADCTest.elf
 Finished building: default.size.stdout
  
-Finished building: STM3205P.list
- 
-20:48:04 **** Incremental Build of configuration Debug for project STM3205P ****
+09:40:20 **** Incremental Build of configuration Debug for project ADCTest ****
 make -j12 all 
-arm-none-eabi-gcc "../Core/Src/display.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/display.d" -MT"Core/Src/display.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/display.o"
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-../Core/Src/display.c: In function 'display_PrepareData':
-../Core/Src/display.c:300:9: warning: implicit declaration of function 'display_Float2Digits' [-Wimplicit-function-declaration]
-  300 |         display_Float2Digits(voltage, &v_digits);
-      |         ^~~~~~~~~~~~~~~~~~~~
-../Core/Src/display.c: At top level:
-../Core/Src/display.c:486:6: warning: conflicting types for 'display_Float2Digits'; have 'void(float,  Digits4_t *)'
-  486 | void display_Float2Digits(float value, Digits4_t *digits)
-      |      ^~~~~~~~~~~~~~~~~~~~
-../Core/Src/display.c:300:9: note: previous implicit declaration of 'display_Float2Digits' with type 'void(float,  Digits4_t *)'
-  300 |         display_Float2Digits(voltage, &v_digits);
-      |         ^~~~~~~~~~~~~~~~~~~~
-../Core/Src/display.c: In function 'display_Float2Digits':
-../Core/Src/display.c:493:47: error: 'voltage' undeclared (first use in this function)
-  493 |                 value_int = (uint16_t)(roundf(voltage * 1000));
-      |                                               ^~~~~~~
-../Core/Src/display.c:493:47: note: each undeclared identifier is reported only once for each function it appears in
-make: *** [Core/Src/subdir.mk:37: Core/Src/display.o] Error 1
-make: *** Waiting for unfinished jobs....
-"make -j12 all" terminated with exit code 2. Build might be incomplete.
-20:48:25 **** Incremental Build of configuration Debug for project STM3205P ****
-make -j12 all 
-arm-none-eabi-gcc "../Core/Src/display.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/display.d" -MT"Core/Src/display.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/display.o"
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-../Core/Src/display.c: In function 'display_Float2Digits':
-../Core/Src/display.c:493:47: error: 'voltage' undeclared (first use in this function)
-  493 |                 value_int = (uint16_t)(roundf(voltage * 1000));
-      |                                               ^~~~~~~
-../Core/Src/display.c:493:47: note: each undeclared identifier is reported only once for each function it appears in
-make: *** [Core/Src/subdir.mk:37: Core/Src/display.o] Error 1
-make: *** Waiting for unfinished jobs....
-"make -j12 all" terminated with exit code 2. Build might be incomplete.
-20:48:41 **** Incremental Build of configuration Debug for project STM3205P ****
-make -j12 all 
-arm-none-eabi-gcc "../Core/Src/display.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/display.d" -MT"Core/Src/display.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/display.o"
-../Core/Src/display.c: In function 'display_PrepareData':
-../Core/Src/display.c:290:20: warning: 'v_digits.dot_position' is used uninitialized [-Wuninitialized]
-  290 |         if(v_digits.dot_position)
-      |            ~~~~~~~~^~~~~~~~~~~~~
-../Core/Src/display.c:285:19: note: 'v_digits' declared here
-  285 |         Digits4_t v_digits;
-      |                   ^~~~~~~~
-../Core/Src/display.c:292:31: warning: 'v_digits.dot_position' may be used uninitialized [-Wmaybe-uninitialized]
-  292 |                 v_dot[v_digits.dot_position - 1] = 1;
-      |                       ~~~~~~~~^~~~~~~~~~~~~
-../Core/Src/display.c:285:19: note: 'v_digits' declared here
-  285 |         Digits4_t v_digits;
-      |                   ^~~~~~~~
-../Core/Src/display.c:295:20: warning: 'c_digits.dot_position' is used uninitialized [-Wuninitialized]
-  295 |         if(c_digits.dot_position)
-      |            ~~~~~~~~^~~~~~~~~~~~~
-../Core/Src/display.c:286:19: note: 'c_digits' declared here
-  286 |         Digits4_t c_digits;
-      |                   ^~~~~~~~
-../Core/Src/display.c:297:31: warning: 'c_digits.dot_position' may be used uninitialized [-Wmaybe-uninitialized]
-  297 |                 c_dot[c_digits.dot_position - 1] = 1;
-      |                       ~~~~~~~~^~~~~~~~~~~~~
-../Core/Src/display.c:286:19: note: 'c_digits' declared here
-  286 |         Digits4_t c_digits;
-      |                   ^~~~~~~~
-arm-none-eabi-gcc -o "STM3205P.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\lucas\Documents\Github\STM3205P\3.Firmware\STM3205P\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM3205P.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: STM3205P.elf
- 
-arm-none-eabi-size  STM3205P.elf 
-arm-none-eabi-objdump -h -S STM3205P.elf  > "STM3205P.list"
+arm-none-eabi-size  ADCTest.elf 
    text	   data	    bss	    dec	    hex	filename
-  13996	     12	   1844	  15852	   3dec	STM3205P.elf
+  13820	     92	   2964	  16876	   41ec	ADCTest.elf
 Finished building: default.size.stdout
  
-Finished building: STM3205P.list
- 
-20:48:56 **** Incremental Build of configuration Debug for project STM3205P ****
+09:56:22 **** Incremental Build of configuration Debug for project ADCTest ****
 make -j12 all 
-arm-none-eabi-gcc "../Core/Src/display.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/display.d" -MT"Core/Src/display.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/display.o"
-arm-none-eabi-gcc -o "STM3205P.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\lucas\Documents\Github\STM3205P\3.Firmware\STM3205P\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM3205P.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: STM3205P.elf
- 
-arm-none-eabi-size  STM3205P.elf 
-arm-none-eabi-objdump -h -S STM3205P.elf  > "STM3205P.list"
+arm-none-eabi-size  ADCTest.elf 
    text	   data	    bss	    dec	    hex	filename
-  13996	     12	   1844	  15852	   3dec	STM3205P.elf
+  13820	     92	   2964	  16876	   41ec	ADCTest.elf
 Finished building: default.size.stdout
  
-Finished building: STM3205P.list
- 
-20:49:00 **** Incremental Build of configuration Debug for project STM3205P ****
+10:13:59 **** Incremental Build of configuration Debug for project ADCTest ****
 make -j12 all 
-arm-none-eabi-size  STM3205P.elf 
-   text	   data	    bss	    dec	    hex	filename
-  13996	     12	   1844	  15852	   3dec	STM3205P.elf
-Finished building: default.size.stdout
- 
-20:50:01 **** Incremental Build of configuration Debug for project STM3205P ****
-make -j12 all 
-arm-none-eabi-size  STM3205P.elf 
-   text	   data	    bss	    dec	    hex	filename
-  13996	     12	   1844	  15852	   3dec	STM3205P.elf
-Finished building: default.size.stdout
- 
-20:50:17 **** Incremental Build of configuration Debug for project STM3205P ****
-make -j12 all 
-arm-none-eabi-size  STM3205P.elf 
-   text	   data	    bss	    dec	    hex	filename
-  13996	     12	   1844	  15852	   3dec	STM3205P.elf
-Finished building: default.size.stdout
- 
-20:50:35 **** Incremental Build of configuration Debug for project STM3205P ****
-make -j12 all 
-arm-none-eabi-size  STM3205P.elf 
-   text	   data	    bss	    dec	    hex	filename
-  13996	     12	   1844	  15852	   3dec	STM3205P.elf
-Finished building: default.size.stdout
- 
-20:51:53 **** Incremental Build of configuration Debug for project STM3205P ****
-make -j12 all 
-arm-none-eabi-gcc "../Core/Src/display.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/display.d" -MT"Core/Src/display.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/display.o"
-arm-none-eabi-gcc -o "STM3205P.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\lucas\Documents\Github\STM3205P\3.Firmware\STM3205P\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM3205P.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: STM3205P.elf
- 
-arm-none-eabi-size  STM3205P.elf 
-arm-none-eabi-objdump -h -S STM3205P.elf  > "STM3205P.list"
-   text	   data	    bss	    dec	    hex	filename
-  13988	     12	   1844	  15844	   3de4	STM3205P.elf
-Finished building: default.size.stdout
- 
-Finished building: STM3205P.list
- 
-18:37:28 **** Build of configuration Debug for project STM3205P ****
-make -j12 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc "../Core/Src/stm32f1xx_hal_msp.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_hal_msp.d" -MT"Core/Src/stm32f1xx_hal_msp.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_hal_msp.o"
-arm-none-eabi-gcc "../Core/Src/stm32f1xx_it.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_it.d" -MT"Core/Src/stm32f1xx_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_it.o"
-../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
-../Core/Src/main.c:75:9: warning: implicit declaration of function 'display_DisplayNext' [-Wimplicit-function-declaration]
-   75 |         display_DisplayNext();
-      |         ^~~~~~~~~~~~~~~~~~~
-../Core/Src/main.c: In function 'HAL_ADC_ConvCpltCallback':
-../Core/Src/main.c:86:18: warning: unused variable 'value1' [-Wunused-variable]
-   86 |         uint16_t value1 = HAL_ADC_GetValue(&hadc1);
-      |                  ^~~~~~
-../Core/Src/main.c:90:18: warning: unused variable 'value2' [-Wunused-variable]
-   90 |         uint16_t value2 = HAL_ADC_GetValue(&hadc2);
-      |                  ^~~~~~
+arm-none-eabi-gcc "../Core/Src/RingBuffer.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/RingBuffer.d" -MT"Core/Src/RingBuffer.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/RingBuffer.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
 ../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:137:3: warning: implicit declaration of function 'display_Init'; did you mean 'display3_Pin'? [-Wimplicit-function-declaration]
-  137 |   display_Init();
-      |   ^~~~~~~~~~~~
-      |   display3_Pin
-../Core/Src/main.c:105:18: warning: unused variable 'disp_delay' [-Wunused-variable]
-  105 |         uint16_t disp_delay = 200;
-      |                  ^~~~~~~~~~
+../Core/Src/main.c:141:30: warning: passing argument 2 of 'RingBuffer_Init' from incompatible pointer type [-Wincompatible-pointer-types]
+  141 |   RingBuffer_Init(&RBVoltage,&VoltageBuff,200);
+      |                              ^~~~~~~~~~~~
+      |                              |
+      |                              uint16_t (*)[200] {aka short unsigned int (*)[200]}
+In file included from ../Core/Src/main.c:26:
+../Core/Src/RingBuffer.h:56:52: note: expected 'uint16_t *' {aka 'short unsigned int *'} but argument is of type 'uint16_t (*)[200]' {aka 'short unsigned int (*)[200]'}
+   56 | void RingBuffer_Init(RingBuffer_t *rb, RBDataType* buffer, uint16_t size);
+      |                                                    ^
+../Core/Src/main.c:142:30: warning: passing argument 2 of 'RingBuffer_Init' from incompatible pointer type [-Wincompatible-pointer-types]
+  142 |   RingBuffer_Init(&RBCurrent,&CurrentBuff,200);
+      |                              ^~~~~~~~~~~~
+      |                              |
+      |                              uint16_t (*)[200] {aka short unsigned int (*)[200]}
+../Core/Src/RingBuffer.h:56:52: note: expected 'uint16_t *' {aka 'short unsigned int *'} but argument is of type 'uint16_t (*)[200]' {aka 'short unsigned int (*)[200]'}
+   56 | void RingBuffer_Init(RingBuffer_t *rb, RBDataType* buffer, uint16_t size);
+      |                                                    ^
+arm-none-eabi-gcc -o "ADCTest.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\lucas\Documents\Github\STM3205P\3.Firmware\ADCTest\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADCTest.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADCTest.elf
+ 
+arm-none-eabi-size  ADCTest.elf 
+arm-none-eabi-objdump -h -S ADCTest.elf  > "ADCTest.list"
+   text	   data	    bss	    dec	    hex	filename
+  13756	     92	   2964	  16812	   41ac	ADCTest.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADCTest.list
+ 
+10:15:58 **** Incremental Build of configuration Debug for project ADCTest ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADCTest.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\lucas\Documents\Github\STM3205P\3.Firmware\ADCTest\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADCTest.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADCTest.elf
+ 
+arm-none-eabi-size  ADCTest.elf 
+arm-none-eabi-objdump -h -S ADCTest.elf  > "ADCTest.list"
+   text	   data	    bss	    dec	    hex	filename
+  13756	     92	   2964	  16812	   41ac	ADCTest.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADCTest.list
+ 
+10:16:10 **** Incremental Build of configuration Debug for project ADCTest ****
+make -j12 all 
+arm-none-eabi-size  ADCTest.elf 
+   text	   data	    bss	    dec	    hex	filename
+  13756	     92	   2964	  16812	   41ac	ADCTest.elf
+Finished building: default.size.stdout
+ 
+10:18:14 **** Incremental Build of configuration Debug for project ADCTest ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADCTest.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\lucas\Documents\Github\STM3205P\3.Firmware\ADCTest\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADCTest.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADCTest.elf
+ 
+arm-none-eabi-size  ADCTest.elf 
+arm-none-eabi-objdump -h -S ADCTest.elf  > "ADCTest.list"
+   text	   data	    bss	    dec	    hex	filename
+  14512	     92	   2964	  17568	   44a0	ADCTest.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADCTest.list
+ 
+10:18:31 **** Incremental Build of configuration Debug for project ADCTest ****
+make -j12 all 
+arm-none-eabi-size  ADCTest.elf 
+   text	   data	    bss	    dec	    hex	filename
+  14512	     92	   2964	  17568	   44a0	ADCTest.elf
+Finished building: default.size.stdout
+ 
+10:23:27 **** Incremental Build of configuration Debug for project ADCTest ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_hal_msp.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_hal_msp.d" -MT"Core/Src/stm32f1xx_hal_msp.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_hal_msp.o"
+../Core/Src/main.c: In function 'UART_Print':
+../Core/Src/main.c:100:45: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  100 |     HAL_UART_Transmit(huart, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
+      |                                             ^~~~~~
+../Core/Src/main.c:25:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   24 | #include "RingBuffer.h"
+  +++ |+#include <string.h>
+   25 | /* USER CODE END Includes */
+../Core/Src/main.c:100:45: warning: incompatible implicit declaration of built-in function 'strlen' [-Wbuiltin-declaration-mismatch]
+  100 |     HAL_UART_Transmit(huart, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
+      |                                             ^~~~~~
+../Core/Src/main.c:100:45: note: include '<string.h>' or provide a declaration of 'strlen'
+arm-none-eabi-gcc -o "ADCTest.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\lucas\Documents\Github\STM3205P\3.Firmware\ADCTest\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADCTest.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADCTest.elf
+ 
+arm-none-eabi-size  ADCTest.elf 
+arm-none-eabi-objdump -h -S ADCTest.elf  > "ADCTest.list"
+   text	   data	    bss	    dec	    hex	filename
+  10928	     12	   2636	  13576	   3508	ADCTest.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADCTest.list
+ 
+10:25:57 **** Incremental Build of configuration Debug for project ADCTest ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'UART_Print':
+../Core/Src/main.c:100:45: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  100 |     HAL_UART_Transmit(huart, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
+      |                                             ^~~~~~
+../Core/Src/main.c:25:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   24 | #include "RingBuffer.h"
+  +++ |+#include <string.h>
+   25 | /* USER CODE END Includes */
+../Core/Src/main.c:100:45: warning: incompatible implicit declaration of built-in function 'strlen' [-Wbuiltin-declaration-mismatch]
+  100 |     HAL_UART_Transmit(huart, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
+      |                                             ^~~~~~
+../Core/Src/main.c:100:45: note: include '<string.h>' or provide a declaration of 'strlen'
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:163:14: warning: implicit declaration of function 'RingBuffer_GetSingle'; did you mean 'RingBuffer_Size'? [-Wimplicit-function-declaration]
+  163 |       while (RingBuffer_GetSingle(&RBVoltage, &value))
+      |              ^~~~~~~~~~~~~~~~~~~~
+      |              RingBuffer_Size
+../Core/Src/main.c:165:19: warning: implicit declaration of function 'snprintf' [-Wimplicit-function-declaration]
+  165 |           int n = snprintf(msg, sizeof(msg), "V:%u\r\n", (unsigned int)value);
+      |                   ^~~~~~~~
+../Core/Src/main.c:25:1: note: include '<stdio.h>' or provide a declaration of 'snprintf'
+   24 | #include "RingBuffer.h"
+  +++ |+#include <stdio.h>
+   25 | /* USER CODE END Includes */
+../Core/Src/main.c:165:19: warning: incompatible implicit declaration of built-in function 'snprintf' [-Wbuiltin-declaration-mismatch]
+  165 |           int n = snprintf(msg, sizeof(msg), "V:%u\r\n", (unsigned int)value);
+      |                   ^~~~~~~~
+../Core/Src/main.c:165:19: note: include '<stdio.h>' or provide a declaration of 'snprintf'
+../Core/Src/main.c:172:19: warning: incompatible implicit declaration of built-in function 'snprintf' [-Wbuiltin-declaration-mismatch]
+  172 |           int n = snprintf(msg, sizeof(msg), "I:%u\r\n", (unsigned int)value);
+      |                   ^~~~~~~~
+../Core/Src/main.c:172:19: note: include '<stdio.h>' or provide a declaration of 'snprintf'
+arm-none-eabi-gcc -o "ADCTest.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\lucas\Documents\Github\STM3205P\3.Firmware\ADCTest\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADCTest.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.15.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/main.o: in function `main':
+C:/Users/lucas/Documents/Github/STM3205P/3.Firmware/ADCTest/Debug/../Core/Src/main.c:163:(.text.main+0x80): undefined reference to `RingBuffer_GetSingle'
+C:/ST/STM32CubeIDE_1.15.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/Users/lucas/Documents/Github/STM3205P/3.Firmware/ADCTest/Debug/../Core/Src/main.c:170:(.text.main+0xb2): undefined reference to `RingBuffer_GetSingle'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:64: ADCTest.elf] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+10:26:29 **** Incremental Build of configuration Debug for project ADCTest ****
+make -j12 all 
+arm-none-eabi-gcc -o "ADCTest.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\lucas\Documents\Github\STM3205P\3.Firmware\ADCTest\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADCTest.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.15.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/main.o: in function `main':
+C:/Users/lucas/Documents/Github/STM3205P/3.Firmware/ADCTest/Debug/../Core/Src/main.c:163:(.text.main+0x80): undefined reference to `RingBuffer_GetSingle'
+C:/ST/STM32CubeIDE_1.15.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/Users/lucas/Documents/Github/STM3205P/3.Firmware/ADCTest/Debug/../Core/Src/main.c:170:(.text.main+0xb2): undefined reference to `RingBuffer_GetSingle'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:64: ADCTest.elf] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+10:26:56 **** Incremental Build of configuration Debug for project ADCTest ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'UART_Print':
+../Core/Src/main.c:100:45: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  100 |     HAL_UART_Transmit(huart, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
+      |                                             ^~~~~~
+../Core/Src/main.c:25:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   24 | #include "RingBuffer.h"
+  +++ |+#include <string.h>
+   25 | /* USER CODE END Includes */
+../Core/Src/main.c:100:45: warning: incompatible implicit declaration of built-in function 'strlen' [-Wbuiltin-declaration-mismatch]
+  100 |     HAL_UART_Transmit(huart, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
+      |                                             ^~~~~~
+../Core/Src/main.c:100:45: note: include '<string.h>' or provide a declaration of 'strlen'
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:165:19: warning: implicit declaration of function 'snprintf' [-Wimplicit-function-declaration]
+  165 |           int n = snprintf(msg, sizeof(msg), "V:%u\r\n", (unsigned int)value);
+      |                   ^~~~~~~~
+../Core/Src/main.c:25:1: note: include '<stdio.h>' or provide a declaration of 'snprintf'
+   24 | #include "RingBuffer.h"
+  +++ |+#include <stdio.h>
+   25 | /* USER CODE END Includes */
+../Core/Src/main.c:165:19: warning: incompatible implicit declaration of built-in function 'snprintf' [-Wbuiltin-declaration-mismatch]
+  165 |           int n = snprintf(msg, sizeof(msg), "V:%u\r\n", (unsigned int)value);
+      |                   ^~~~~~~~
+../Core/Src/main.c:165:19: note: include '<stdio.h>' or provide a declaration of 'snprintf'
+../Core/Src/main.c:172:19: warning: incompatible implicit declaration of built-in function 'snprintf' [-Wbuiltin-declaration-mismatch]
+  172 |           int n = snprintf(msg, sizeof(msg), "I:%u\r\n", (unsigned int)value);
+      |                   ^~~~~~~~
+../Core/Src/main.c:172:19: note: include '<stdio.h>' or provide a declaration of 'snprintf'
+arm-none-eabi-gcc -o "ADCTest.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\lucas\Documents\Github\STM3205P\3.Firmware\ADCTest\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADCTest.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADCTest.elf
+ 
+arm-none-eabi-size  ADCTest.elf 
+arm-none-eabi-objdump -h -S ADCTest.elf  > "ADCTest.list"
+   text	   data	    bss	    dec	    hex	filename
+  14512	     92	   2964	  17568	   44a0	ADCTest.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADCTest.list
+ 
+10:27:31 **** Incremental Build of configuration Debug for project ADCTest ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADCTest.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\lucas\Documents\Github\STM3205P\3.Firmware\ADCTest\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADCTest.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADCTest.elf
+ 
+arm-none-eabi-size  ADCTest.elf 
+arm-none-eabi-objdump -h -S ADCTest.elf  > "ADCTest.list"
+   text	   data	    bss	    dec	    hex	filename
+  14512	     92	   2964	  17568	   44a0	ADCTest.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADCTest.list
+ 
+10:27:36 **** Incremental Build of configuration Debug for project ADCTest ****
+make -j12 all 
+arm-none-eabi-size  ADCTest.elf 
+   text	   data	    bss	    dec	    hex	filename
+  14512	     92	   2964	  17568	   44a0	ADCTest.elf
+Finished building: default.size.stdout
+ 
+10:27:39 **** Incremental Build of configuration Debug for project ADCTest ****
+make -j12 all 
+arm-none-eabi-size  ADCTest.elf 
+   text	   data	    bss	    dec	    hex	filename
+  14512	     92	   2964	  17568	   44a0	ADCTest.elf
+Finished building: default.size.stdout
+ 
+10:45:57 **** Incremental Build of configuration Debug for project ADCTest ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_hal_msp.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_hal_msp.d" -MT"Core/Src/stm32f1xx_hal_msp.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_hal_msp.o"
+arm-none-eabi-gcc -o "ADCTest.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\lucas\Documents\Github\STM3205P\3.Firmware\ADCTest\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADCTest.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADCTest.elf
+ 
+arm-none-eabi-size  ADCTest.elf 
+arm-none-eabi-objdump -h -S ADCTest.elf  > "ADCTest.list"
+   text	   data	    bss	    dec	    hex	filename
+  14628	     92	   2964	  17684	   4514	ADCTest.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADCTest.list
+ 
+10:46:05 **** Incremental Build of configuration Debug for project ADCTest ****
+make -j12 all 
+arm-none-eabi-size  ADCTest.elf 
+   text	   data	    bss	    dec	    hex	filename
+  14628	     92	   2964	  17684	   4514	ADCTest.elf
+Finished building: default.size.stdout
+ 
+10:51:42 **** Build of configuration Debug for project STM3205P ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/RingBuffer.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/RingBuffer.d" -MT"Core/Src/RingBuffer.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/RingBuffer.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
 arm-none-eabi-gcc -o "STM3205P.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\lucas\Documents\Github\STM3205P\3.Firmware\STM3205P\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM3205P.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: STM3205P.elf
  
 arm-none-eabi-size  STM3205P.elf 
 arm-none-eabi-objdump -h -S STM3205P.elf  > "STM3205P.list"
    text	   data	    bss	    dec	    hex	filename
-  12352	     12	   1844	  14208	   3780	STM3205P.elf
+  12804	     12	   1948	  14764	   39ac	STM3205P.elf
 Finished building: default.size.stdout
  
 Finished building: STM3205P.list
  
-18:46:27 **** Incremental Build of configuration Debug for project STM3205P ****
+10:52:58 **** Incremental Build of configuration Debug for project STM3205P ****
+make -j12 all 
+arm-none-eabi-size  STM3205P.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12804	     12	   1948	  14764	   39ac	STM3205P.elf
+Finished building: default.size.stdout
+ 
+10:53:45 **** Incremental Build of configuration Debug for project STM3205P ****
 make -j12 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
 ../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
-../Core/Src/main.c:80:9: warning: implicit declaration of function 'display_DisplayNext' [-Wimplicit-function-declaration]
-   80 |         display_DisplayNext();
-      |         ^~~~~~~~~~~~~~~~~~~
-../Core/Src/main.c:86:17: warning: implicit declaration of function 'display_PrepareData' [-Wimplicit-function-declaration]
-   86 |                 display_PrepareData(fvalue1, fvalue2);
-      |                 ^~~~~~~~~~~~~~~~~~~
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:153:3: warning: implicit declaration of function 'display_Init'; did you mean 'display3_Pin'? [-Wimplicit-function-declaration]
-  153 |   display_Init();
-      |   ^~~~~~~~~~~~
-      |   display3_Pin
-../Core/Src/main.c:121:18: warning: unused variable 'disp_delay' [-Wunused-variable]
-  121 |         uint16_t disp_delay = 200;
-      |                  ^~~~~~~~~~
-arm-none-eabi-gcc -o "STM3205P.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\lucas\Documents\Github\STM3205P\3.Firmware\STM3205P\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM3205P.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: STM3205P.elf
- 
-arm-none-eabi-size  STM3205P.elf 
-arm-none-eabi-objdump -h -S STM3205P.elf  > "STM3205P.list"
-   text	   data	    bss	    dec	    hex	filename
-  16124	     12	   1852	  17988	   4644	STM3205P.elf
-Finished building: default.size.stdout
- 
-Finished building: STM3205P.list
- 
-18:46:51 **** Incremental Build of configuration Debug for project STM3205P ****
-make -j12 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:121:18: warning: unused variable 'disp_delay' [-Wunused-variable]
-  121 |         uint16_t disp_delay = 200;
-      |                  ^~~~~~~~~~
-arm-none-eabi-gcc -o "STM3205P.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\lucas\Documents\Github\STM3205P\3.Firmware\STM3205P\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM3205P.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: STM3205P.elf
- 
-arm-none-eabi-size  STM3205P.elf 
-arm-none-eabi-objdump -h -S STM3205P.elf  > "STM3205P.list"
-   text	   data	    bss	    dec	    hex	filename
-  15216	     12	   1852	  17080	   42b8	STM3205P.elf
-Finished building: default.size.stdout
- 
-Finished building: STM3205P.list
- 
-18:47:04 **** Incremental Build of configuration Debug for project STM3205P ****
+../Core/Src/main.c:87:37: error: 'fvalue1' undeclared (first use in this function); did you mean 'false'?
+   87 |                 display_PrepareData(fvalue1, fvalue2);
+      |                                     ^~~~~~~
+      |                                     false
+../Core/Src/main.c:87:37: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:87:46: error: 'fvalue2' undeclared (first use in this function); did you mean 'false'?
+   87 |                 display_PrepareData(fvalue1, fvalue2);
+      |                                              ^~~~~~~
+      |                                              false
+make: *** [Core/Src/subdir.mk:40: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+11:01:51 **** Incremental Build of configuration Debug for project STM3205P ****
 make -j12 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
 arm-none-eabi-gcc -o "STM3205P.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\lucas\Documents\Github\STM3205P\3.Firmware\STM3205P\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM3205P.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
@@ -906,12 +440,27 @@ Finished building target: STM3205P.elf
 arm-none-eabi-size  STM3205P.elf 
 arm-none-eabi-objdump -h -S STM3205P.elf  > "STM3205P.list"
    text	   data	    bss	    dec	    hex	filename
-  15212	     12	   1852	  17076	   42b4	STM3205P.elf
+  17828	     12	   2668	  20508	   501c	STM3205P.elf
 Finished building: default.size.stdout
  
 Finished building: STM3205P.list
  
-18:47:51 **** Incremental Build of configuration Debug for project STM3205P ****
+11:03:41 **** Incremental Build of configuration Debug for project STM3205P ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:96:13: warning: implicit declaration of function 'RingBuffer_Clear'; did you mean 'RingBuffer_Get'? [-Wimplicit-function-declaration]
+   96 |             RingBuffer_Clear(&RBVoltage);
+      |             ^~~~~~~~~~~~~~~~
+      |             RingBuffer_Get
+arm-none-eabi-gcc -o "STM3205P.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\lucas\Documents\Github\STM3205P\3.Firmware\STM3205P\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM3205P.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.15.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/main.o: in function `HAL_TIM_PeriodElapsedCallback':
+C:/Users/lucas/Documents/Github/STM3205P/3.Firmware/STM3205P/Debug/../Core/Src/main.c:96:(.text.HAL_TIM_PeriodElapsedCallback+0xa0): undefined reference to `RingBuffer_Clear'
+C:/ST/STM32CubeIDE_1.15.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/Users/lucas/Documents/Github/STM3205P/3.Firmware/STM3205P/Debug/../Core/Src/main.c:97:(.text.HAL_TIM_PeriodElapsedCallback+0xa6): undefined reference to `RingBuffer_Clear'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:64: STM3205P.elf] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+11:04:12 **** Incremental Build of configuration Debug for project STM3205P ****
 make -j12 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
 arm-none-eabi-gcc -o "STM3205P.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\lucas\Documents\Github\STM3205P\3.Firmware\STM3205P\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM3205P.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
@@ -920,8 +469,15 @@ Finished building target: STM3205P.elf
 arm-none-eabi-size  STM3205P.elf 
 arm-none-eabi-objdump -h -S STM3205P.elf  > "STM3205P.list"
    text	   data	    bss	    dec	    hex	filename
-  15212	     12	   1852	  17076	   42b4	STM3205P.elf
+  17876	     12	   2668	  20556	   504c	STM3205P.elf
 Finished building: default.size.stdout
  
 Finished building: STM3205P.list
+ 
+11:04:15 **** Incremental Build of configuration Debug for project STM3205P ****
+make -j12 all 
+arm-none-eabi-size  STM3205P.elf 
+   text	   data	    bss	    dec	    hex	filename
+  17876	     12	   2668	  20556	   504c	STM3205P.elf
+Finished building: default.size.stdout
  

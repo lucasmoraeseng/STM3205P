@@ -1,0 +1,9 @@
+../Core/Src/RingBuffer.c:54:6:RingBuffer_Init	1
+../Core/Src/RingBuffer.c:75:6:RingBuffer_Reset	1
+../Core/Src/RingBuffer.c:97:6:RingBuffer_Put	2
+../Core/Src/RingBuffer.c:130:6:RingBuffer_Get	2
+../Core/Src/RingBuffer.c:157:6:RingBuffer_IsEmpty	3
+../Core/Src/RingBuffer.c:174:6:RingBuffer_IsFull	1
+../Core/Src/RingBuffer.c:191:10:RingBuffer_Capacity	1
+../Core/Src/RingBuffer.c:208:10:RingBuffer_Size	3
+../Core/Src/RingBuffer.c:240:7:RingBuffer_Average	3
