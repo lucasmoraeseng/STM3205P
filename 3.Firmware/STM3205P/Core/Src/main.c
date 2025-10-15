@@ -23,6 +23,7 @@
 /* USER CODE BEGIN Includes */
 #include "display.h"
 #include "RingBuffer.h"
+#include "DAC8830.h"
 
 /* USER CODE END Includes */
 
@@ -129,6 +130,8 @@ int main(void)
 
   /* USER CODE BEGIN 1 */
 	//uint16_t disp_delay = 200;
+	DAC8830_t dac_voltage;
+	uint16_t value = 0;
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -164,7 +167,9 @@ int main(void)
 
   //display_Init();
   //display_PrepareData(0.0f,0.0f);
+  DAC8830_Init(&dac_voltage,&hspi1,DAC_CS0_GPIO_Port,DAC_CS0_Pin,3.3f);
 
+  DAC8830_WriteRaw(&dac_voltage,0);
   /* USER CODE END 2 */
 
   /* Infinite loop */

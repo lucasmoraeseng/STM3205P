@@ -1,3 +1,4 @@
+"./Core/Src/DAC8830.o"
 "./Core/Src/RingBuffer.o"
 "./Core/Src/display.o"
 "./Core/Src/main.o"
