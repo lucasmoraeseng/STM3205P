@@ -271,32 +271,32 @@ DocumentPath=PO\Design Rule Check - STM3205P_PCB.html
 DItemRevisionGUID=
 
 [Parameter1]
-Name=_ApprovedBy
-Value=
+Name=_Revision
+Value=1.1
 
 [Parameter2]
-Name=_Author
-Value=Lucas da Silva
+Name=_ProjectName
+Value=STM3205P
 
 [Parameter3]
-Name=_CheckedBy
-Value=
+Name=_Engineer
+Value=Lucas da Silva
 
 [Parameter4]
 Name=_DrawnBy
 Value=Lucas da Silva
 
 [Parameter5]
-Name=_Engineer
-Value=Lucas da Silva
+Name=_CheckedBy
+Value=
 
 [Parameter6]
-Name=_ProjectName
-Value=STM3205P
+Name=_Author
+Value=Lucas da Silva
 
 [Parameter7]
-Name=_Revision
-Value=1.0
+Name=_ApprovedBy
+Value=
 
 [Parameter8]
 Name=POName
@@ -424,7 +424,7 @@ OutputDefault20=0
 [OutputGroup2]
 Name=Simulator Outputs
 Description=
-TargetPrinter=HP Smart Tank 580-590 series [E221D0]
+TargetPrinter=OneNote (Desktop) - Protegido
 PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintJobKind=1|PrintWhat=1
 
 [OutputGroup3]
