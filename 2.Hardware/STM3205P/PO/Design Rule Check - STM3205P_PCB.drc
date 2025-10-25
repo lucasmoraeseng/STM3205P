@@ -1,7 +1,7 @@
 Protel Design System Design Rule Check
-PCB File : C:\Users\lucas\Documents\GitHub\STM3205P\2.Hardware\STM3205P\STM3205P_PCB.PcbDoc
-Date     : 31/08/2025
-Time     : 17:06:14
+PCB File : C:\Users\lucas\Documents\Github\STM3205P\2.Hardware\STM3205P\STM3205P_PCB.PcbDoc
+Date     : 25/10/2025
+Time     : 12:49:30
 
 Processing Rule : Clearance Constraint (Gap=7mil) (All),(All)
 Rule Violations :0
@@ -72,4 +72,4 @@ Rule Violations :0
 
 Violations Detected : 0
 Waived Violations : 0
-Time Elapsed        : 00:00:02
+Time Elapsed        : 00:00:01
