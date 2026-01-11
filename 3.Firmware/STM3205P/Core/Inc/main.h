@@ -7,7 +7,7 @@
   ******************************************************************************
   * @attention
   *
-  * Copyright (c) 2025 STMicroelectronics.
+  * Copyright (c) 2026 STMicroelectronics.
   * All rights reserved.
   *
   * This software is licensed under terms that can be found in the LICENSE file
@@ -49,6 +49,8 @@ extern "C" {
 
 /* USER CODE END EM */
 
+void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
+
 /* Exported functions prototypes ---------------------------------------------*/
 void Error_Handler(void);
 
@@ -57,66 +59,9 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define key_in1_Pin GPIO_PIN_13
-#define key_in1_GPIO_Port GPIOC
-#define key_in2_Pin GPIO_PIN_14
-#define key_in2_GPIO_Port GPIOC
-#define key_in3_Pin GPIO_PIN_15
-#define key_in3_GPIO_Port GPIOC
-#define voltage_meas_Pin GPIO_PIN_0
-#define voltage_meas_GPIO_Port GPIOA
-#define current_meas_Pin GPIO_PIN_1
-#define current_meas_GPIO_Port GPIOA
-#define temp_monitor_Pin GPIO_PIN_2
-#define temp_monitor_GPIO_Port GPIOA
-#define rel1_Pin GPIO_PIN_3
-#define rel1_GPIO_Port GPIOA
-#define DAC_CS1_Pin GPIO_PIN_4
-#define DAC_CS1_GPIO_Port GPIOA
-#define DAC_CS0_Pin GPIO_PIN_6
-#define DAC_CS0_GPIO_Port GPIOA
-#define by_Pin GPIO_PIN_1
-#define by_GPIO_Port GPIOB
-#define STCP2_Pin GPIO_PIN_13
-#define STCP2_GPIO_Port GPIOB
-#define SHCP2_Pin GPIO_PIN_14
-#define SHCP2_GPIO_Port GPIOB
-#define SD2_Pin GPIO_PIN_15
-#define SD2_GPIO_Port GPIOB
-#define display1_Pin GPIO_PIN_8
-#define display1_GPIO_Port GPIOA
-#define display2_Pin GPIO_PIN_9
-#define display2_GPIO_Port GPIOA
-#define display3_Pin GPIO_PIN_10
-#define display3_GPIO_Port GPIOA
-#define display4_Pin GPIO_PIN_11
-#define display4_GPIO_Port GPIOA
-#define display5_Pin GPIO_PIN_12
-#define display5_GPIO_Port GPIOA
-#define rel3_Pin GPIO_PIN_15
-#define rel3_GPIO_Port GPIOA
-#define rel2_Pin GPIO_PIN_3
-#define rel2_GPIO_Port GPIOB
-#define key_out1_Pin GPIO_PIN_4
-#define key_out1_GPIO_Port GPIOB
-#define key_out2_Pin GPIO_PIN_5
-#define key_out2_GPIO_Port GPIOB
-#define key_out3_Pin GPIO_PIN_6
-#define key_out3_GPIO_Port GPIOB
-#define key_out4_Pin GPIO_PIN_7
-#define key_out4_GPIO_Port GPIOB
-#define Bkey_right_Pin GPIO_PIN_8
-#define Bkey_right_GPIO_Port GPIOB
-#define Bkey_left_Pin GPIO_PIN_9
-#define Bkey_left_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
-extern ADC_HandleTypeDef hadc1;
-extern ADC_HandleTypeDef hadc2;
 
-extern SPI_HandleTypeDef hspi1;
-
-extern TIM_HandleTypeDef htim1;
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus
