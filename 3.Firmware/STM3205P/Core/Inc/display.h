@@ -104,21 +104,35 @@
 // Typedef structs
 //--------------------------------------------------------------------
 // Structure to hold separated digits
-typedef struct {
-    uint8_t d1; // Thousands / tens / int part
-    uint8_t d1_dot; // Dot for d1
-    uint8_t d2; // Hundreds / units
-    uint8_t d2_dot; // Dot for d1
-    uint8_t d3; // Tens / tenths
-    uint8_t d3_dot; // Dot for d1
-    uint8_t d4; // Units / hundredths
-    uint8_t d4_dot; // Dot for d1
+typedef struct 
+{
+    uint8_t d1;         // Thousands / tens / int part
+    uint8_t d1_dot;     // Dot for d1
+    uint8_t d2;         // Hundreds / units
+    uint8_t d2_dot;     // Dot for d2
+    uint8_t d3;         // Tens / tenths
+    uint8_t d3_dot;     // Dot for d3
+    uint8_t d4;         // Units / hundredths
+    uint8_t d4_dot;     // Dot for d4
 } Digits4_t;
+
+typedef struct{
+    Digits4_t display1;
+    Digits4_t display2;
+    HAL_74HC595_t hAL_74HC595; 
+    float value_display1;
+    float value_display2;
+    uint8_t blink_display;          // 0 - none; 1 - display1; 2 - display2
+    uint8_t blink_state;            // 0 - off; 1 - on
+    uint8_t blink_index;
+} Display_t;
 
 //--------------------------------------------------------------------
 // Function prototype
 //--------------------------------------------------------------------
-extern void display_Init();
+extern void display_Init(Display_t *obj,GPIO_TypeDef *SD_Port, uint16_t SD_Pin,
+                      GPIO_TypeDef *RCLK_Port, uint16_t RCLK_Pin,
+                      GPIO_TypeDef *SRCLK_Port, uint16_t SRCLK_Pin);
 // extern void display_WriteBus(uint16_t data);
 // extern void display_EnableDisplay(uint8_t display);
 // extern void display_DisableDisplay(uint8_t display);

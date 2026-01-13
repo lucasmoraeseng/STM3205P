@@ -19,7 +19,6 @@
 //--------------------------------------------------------------------
 // Includes
 //--------------------------------------------------------------------
-
 #include "display.h"
 
 //--------------------------------------------------------------------
@@ -58,9 +57,15 @@ HAL_74HC595_t display_obj;
  *  		
  *	
 ###################################################################*/
-void display_Init()
+void display_Init(Display_t *obj,GPIO_TypeDef *SD_Port, uint16_t SD_Pin,
+                      GPIO_TypeDef *RCLK_Port, uint16_t RCLK_Pin,
+                      GPIO_TypeDef *SRCLK_Port, uint16_t SRCLK_Pin)
 {
-	
+    HAL_74HC595_Init(&obj->hAL_74HC595,
+                      SD_Port, SD_Pin,
+                      RCLK_Port, RCLK_Pin,
+                      SRCLK_Port, SRCLK_Pin,
+                      2);
 
 }
 
