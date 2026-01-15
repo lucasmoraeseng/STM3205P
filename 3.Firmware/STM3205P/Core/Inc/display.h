@@ -30,6 +30,24 @@
 //--------------------------------------------------------------------
 // Definitions
 //--------------------------------------------------------------------
+#define STCP2_Pin GPIO_PIN_1
+#define STCP2_GPIO_Port GPIOB
+#define SHCP2_Pin GPIO_PIN_10
+#define SHCP2_GPIO_Port GPIOB
+#define SD2_Pin GPIO_PIN_11
+#define SD2_GPIO_Port GPIOB
+#define display1_Pin GPIO_PIN_12
+#define display1_GPIO_Port GPIOB
+#define display2_Pin GPIO_PIN_13
+#define display2_GPIO_Port GPIOB
+#define display3_Pin GPIO_PIN_14
+#define display3_GPIO_Port GPIOB
+#define display4_Pin GPIO_PIN_15
+#define display4_GPIO_Port GPIOB
+#define display5_Pin GPIO_PIN_8
+#define display5_GPIO_Port GPIOA
+
+
 // Display 1
 #define disp1_0  		0xFA
 #define disp1_1  		0x22
@@ -120,19 +138,28 @@ typedef struct{
     Digits4_t display1;
     Digits4_t display2;
     HAL_74HC595_t hAL_74HC595; 
+    uint8_t disp_cnt;
     float value_display1;
     float value_display2;
     uint8_t blink_display;          // 0 - none; 1 - display1; 2 - display2
     uint8_t blink_state;            // 0 - off; 1 - on
     uint8_t blink_index;
+    uint8_t ledOVP;
+    uint8_t ledOCP;
+    uint8_t ledCC;
+    uint8_t ledCV;
+    uint8_t ledOUT;
+    uint8_t ledM1;
+    uint8_t ledM2;
+    uint8_t ledM3;
+    uint8_t ledM4;
+    uint8_t ledM5;
 } Display_t;
 
 //--------------------------------------------------------------------
 // Function prototype
 //--------------------------------------------------------------------
-extern void display_Init(Display_t *obj,GPIO_TypeDef *SD_Port, uint16_t SD_Pin,
-                      GPIO_TypeDef *RCLK_Port, uint16_t RCLK_Pin,
-                      GPIO_TypeDef *SRCLK_Port, uint16_t SRCLK_Pin);
+extern void display_Init(Display_t *obj);
 // extern void display_WriteBus(uint16_t data);
 // extern void display_EnableDisplay(uint8_t display);
 // extern void display_DisableDisplay(uint8_t display);
@@ -143,6 +170,7 @@ extern void display_Init(Display_t *obj,GPIO_TypeDef *SD_Port, uint16_t SD_Pin,
 // extern void display_SetNumberOnMemory(uint8_t bus_high, uint8_t dot_high, uint8_t bus_low, uint8_t dot_low, uint8_t display);
 // extern uint8_t display_GetNumberData(uint8_t number, uint8_t display);
 // extern void display_Float2Digits(float value, Digits4_t *digits);
+extern void display_update(Display_t *obj);
 
 //--------------------------------------------------------------------
 // General Variables

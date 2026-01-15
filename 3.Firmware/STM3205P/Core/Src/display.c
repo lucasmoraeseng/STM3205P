@@ -57,16 +57,23 @@ HAL_74HC595_t display_obj;
  *  		
  *	
 ###################################################################*/
-void display_Init(Display_t *obj,GPIO_TypeDef *SD_Port, uint16_t SD_Pin,
-                      GPIO_TypeDef *RCLK_Port, uint16_t RCLK_Pin,
-                      GPIO_TypeDef *SRCLK_Port, uint16_t SRCLK_Pin)
-{
-    HAL_74HC595_Init(&obj->hAL_74HC595,
-                      SD_Port, SD_Pin,
-                      RCLK_Port, RCLK_Pin,
-                      SRCLK_Port, SRCLK_Pin,
-                      2);
+void display_Init(Display_t *obj)
+{    
+    HAL_GPIO_WritePin(display1_GPIO_Port, display1_Pin, GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(display2_GPIO_Port, display2_Pin, GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(display3_GPIO_Port, display3_Pin, GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(display4_GPIO_Port, display4_Pin, GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(display5_GPIO_Port, display5_Pin, GPIO_PIN_RESET);
 
+    HAL_74HC595_Init(&obj->hAL_74HC595,
+                      SD2_GPIO_Port, SD2_Pin,
+                      STCP2_GPIO_Port, STCP2_Pin,
+                      SHCP2_GPIO_Port, SHCP2_Pin,
+                      2);
+     
+    uint8_t data[2] = {0x00, 0x00};                  
+
+    HAL_74HC595_WriteData(&obj->hAL_74HC595, data);
 }
 
 
@@ -527,6 +534,76 @@ void display_Init(Display_t *obj,GPIO_TypeDef *SD_Port, uint16_t SD_Pin,
 // 		digits->dot_position = 0;
 // 	}
 // }
+
+// /* ###################################################################
+//  * Function:
+//  * Author: Moraes, L.
+//  * Date: Oct 6, 2025
+//  * Revision: 1.0
+//  * --------------------
+//  * Initialize struct of current sensor, calculating it's parameters
+//  *
+//  *  arg1: input arg1
+//  *
+//  *  arg2: input arg2
+//  *
+//  *  returns: void
+//  *
+//  *
+// ###################################################################*/
+void display_update(Display_t *obj)
+{
+    uint8_t data[2] = {0x00, 0x00};
+    
+    HAL_GPIO_WritePin(display1_GPIO_Port, display1_Pin, GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(display2_GPIO_Port, display2_Pin, GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(display3_GPIO_Port, display3_Pin, GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(display4_GPIO_Port, display4_Pin, GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(display5_GPIO_Port, display5_Pin, GPIO_PIN_RESET);
+
+    if(obj->disp_cnt == 0)
+    {
+        data[0] = disp1_0;
+        data[1] = disp2_0;
+        HAL_74HC595_WriteData(&obj->hAL_74HC595, data);
+        HAL_GPIO_WritePin(display1_GPIO_Port, display1_Pin, GPIO_PIN_SET);
+    }    
+    else if(obj->disp_cnt == 1)
+    {
+        data[0] = disp1_1;
+        data[1] = disp2_1;
+        HAL_74HC595_WriteData(&obj->hAL_74HC595, data);
+        HAL_GPIO_WritePin(display2_GPIO_Port, display2_Pin, GPIO_PIN_SET);
+    }    
+    else if(obj->disp_cnt == 2)
+    {
+        data[0] = disp1_2;
+        data[1] = disp2_2;
+        HAL_74HC595_WriteData(&obj->hAL_74HC595, data);
+        HAL_GPIO_WritePin(display3_GPIO_Port, display3_Pin, GPIO_PIN_SET);
+    }    
+    else if(obj->disp_cnt == 3)
+    {
+        data[0] = disp1_3;
+        data[1] = disp2_3;
+        HAL_74HC595_WriteData(&obj->hAL_74HC595, data);
+        HAL_GPIO_WritePin(display4_GPIO_Port, display4_Pin, GPIO_PIN_SET);
+    }    
+    else if(obj->disp_cnt == 4)
+    {        
+        data[0] = 0;
+        data[1] = 0;
+        HAL_74HC595_WriteData(&obj->hAL_74HC595, data);
+        HAL_GPIO_WritePin(display5_GPIO_Port, display5_Pin, GPIO_PIN_SET);
+    }
+
+    obj->disp_cnt ++;
+    if(obj->disp_cnt > 4)
+    {
+        obj->disp_cnt = 0;
+    }
+}
+
 
 
 
