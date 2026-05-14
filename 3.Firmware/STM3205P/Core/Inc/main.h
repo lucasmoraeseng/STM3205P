@@ -75,8 +75,8 @@ void Error_Handler(void);
 #define TEMP_MONITOR_GPIO_Port GPIOA
 #define DAC_CS1_Pin GPIO_PIN_4
 #define DAC_CS1_GPIO_Port GPIOA
-#define DAC_SCLK_Pin GPIO_PIN_5
-#define DAC_SCLK_GPIO_Port GPIOA
+#define DAC_SCK_Pin GPIO_PIN_5
+#define DAC_SCK_GPIO_Port GPIOA
 #define DAC_CS0_Pin GPIO_PIN_6
 #define DAC_CS0_GPIO_Port GPIOA
 #define DAC_SPI_Pin GPIO_PIN_7
