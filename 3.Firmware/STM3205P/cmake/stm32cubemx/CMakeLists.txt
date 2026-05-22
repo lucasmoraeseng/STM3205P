@@ -19,6 +19,10 @@ set(MX_Include_Dirs
 
 # STM32CubeMX generated application sources
 set(MX_Application_Src
+    ${CMAKE_CURRENT_SOURCE_DIR}/../../Core/Src/display.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/../../Core/Src/DAC8830.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/../../Core/Src/HAL_74HC595.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/../../Core/Src/RingBuffer.c
     ${CMAKE_CURRENT_SOURCE_DIR}/../../Core/Src/main.c
     ${CMAKE_CURRENT_SOURCE_DIR}/../../Core/Src/stm32f1xx_it.c
     ${CMAKE_CURRENT_SOURCE_DIR}/../../Core/Src/stm32f1xx_hal_msp.c
