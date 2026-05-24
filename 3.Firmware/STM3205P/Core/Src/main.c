@@ -37,6 +37,38 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
+typedef union
+{
+    struct
+    {
+        uint16_t M1 : 1;
+        uint16_t M2 : 1;
+        uint16_t M3 : 1;
+        uint16_t M4 : 1;
+
+        uint16_t Lock : 1;
+        uint16_t OCP : 1;
+        uint16_t OVP : 1;
+        uint16_t OnOff : 1;
+
+        uint16_t LeftArrow : 1;
+        uint16_t RightArrow : 1;
+        uint16_t VoltageCurrent : 1;
+
+        uint16_t Reserved : 5;
+    } Bits;
+
+    uint16_t Value;
+
+} keyboard_keys_t;
+
+typedef struct
+{
+    keyboard_keys_t Keys;
+
+    int8_t Dial;
+
+} keyboard_t;
 
 /* USER CODE END PTD */
 
@@ -67,6 +99,10 @@ ADC_ChannelConfTypeDef cfgVoltageADC;
 ADC_ChannelConfTypeDef cfgCurrentADC;
 ADC_ChannelConfTypeDef cfgTemperatureADC;
 
+keyboard_t Keyboard;
+
+uint16_t frameCounter = 0;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -91,6 +127,12 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
     }
     else if(htim->Instance == TIM2)
     {
+        display.frame_cnt++;
+        if(display.frame_cnt % 512 == 0)
+        {
+            display.blink_state = !display.blink_state;
+        }
+
         display_update(&display);
     }
     else if(htim->Instance == TIM3)
@@ -115,7 +157,139 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
 
 void PanelRead()
 {
-    HAL_GPIO_WritePin
+    HAL_GPIO_WritePin(key_in1_GPIO_Port, key_in1_Pin, GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(key_in2_GPIO_Port, key_in2_Pin, GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(key_in3_GPIO_Port, key_in3_Pin, GPIO_PIN_RESET);
+
+    HAL_Delay(1);
+
+    // In1 - High
+    HAL_GPIO_WritePin(key_in1_GPIO_Port, key_in1_Pin, GPIO_PIN_SET);
+
+    HAL_Delay(1);
+
+    if(HAL_GPIO_ReadPin(key_out1_GPIO_Port, key_out1_Pin) == GPIO_PIN_SET)
+    {
+        Keyboard.Keys.Bits.M1 = 1;
+    }
+    else
+    {
+        Keyboard.Keys.Bits.M1 = 0;
+    }
+
+    if(HAL_GPIO_ReadPin(key_out2_GPIO_Port, key_out2_Pin) == GPIO_PIN_SET)
+    {
+        Keyboard.Keys.Bits.M4 = 1;
+    }
+    else
+    {
+        Keyboard.Keys.Bits.M4 = 0;
+    }
+
+    if(HAL_GPIO_ReadPin(key_out3_GPIO_Port, key_out3_Pin) == GPIO_PIN_SET)
+    {
+        Keyboard.Keys.Bits.M2 = 1;
+    }
+    else
+    {
+        Keyboard.Keys.Bits.M2 = 0;
+    }
+
+    if(HAL_GPIO_ReadPin(key_out4_GPIO_Port, key_out4_Pin) == GPIO_PIN_SET)
+    {
+        Keyboard.Keys.Bits.M3 = 1;
+    }
+    else
+    {
+        Keyboard.Keys.Bits.M3 = 0;
+    }
+
+    HAL_GPIO_WritePin(key_in1_GPIO_Port, key_in1_Pin, GPIO_PIN_RESET);
+
+    // In2 - High
+    HAL_GPIO_WritePin(key_in2_GPIO_Port, key_in2_Pin, GPIO_PIN_SET);
+
+    HAL_Delay(1);
+
+    if(HAL_GPIO_ReadPin(key_out1_GPIO_Port, key_out1_Pin) == GPIO_PIN_SET)
+    {
+        Keyboard.Keys.Bits.Lock = 1;
+    }
+    else
+    {
+        Keyboard.Keys.Bits.Lock = 0;
+    }
+
+    if(HAL_GPIO_ReadPin(key_out2_GPIO_Port, key_out2_Pin) == GPIO_PIN_SET)
+    {
+        Keyboard.Keys.Bits.OnOff = 1;
+    }
+    else
+    {
+        Keyboard.Keys.Bits.OnOff = 0;
+    }
+
+    if(HAL_GPIO_ReadPin(key_out3_GPIO_Port, key_out3_Pin) == GPIO_PIN_SET)
+    {
+        Keyboard.Keys.Bits.OCP = 1;
+    }
+    else
+    {
+        Keyboard.Keys.Bits.OCP = 0;
+    }
+
+    if(HAL_GPIO_ReadPin(key_out4_GPIO_Port, key_out4_Pin) == GPIO_PIN_SET)
+    {
+        Keyboard.Keys.Bits.OVP = 1;
+    }
+    else
+    {
+        Keyboard.Keys.Bits.OVP = 0;
+    }
+
+    HAL_GPIO_WritePin(key_in2_GPIO_Port, key_in2_Pin, GPIO_PIN_RESET);
+
+    // In3 - High
+    HAL_GPIO_WritePin(key_in3_GPIO_Port, key_in3_Pin, GPIO_PIN_SET);
+
+    HAL_Delay(1);
+    // if(HAL_GPIO_ReadPin(key_out1_GPIO_Port,key_out1_Pin) == GPIO_PIN_SET)
+    // {
+    //     Keyboard.Keys.Bits.LOCK = 1;
+    // }
+    // else
+    // {
+    //     Keyboard.Keys.Bits.LOCK = 0;
+    // }
+
+    if(HAL_GPIO_ReadPin(key_out2_GPIO_Port, key_out2_Pin) == GPIO_PIN_SET)
+    {
+        Keyboard.Keys.Bits.LeftArrow = 1;
+    }
+    else
+    {
+        Keyboard.Keys.Bits.LeftArrow = 0;
+    }
+
+    if(HAL_GPIO_ReadPin(key_out3_GPIO_Port, key_out3_Pin) == GPIO_PIN_SET)
+    {
+        Keyboard.Keys.Bits.RightArrow = 1;
+    }
+    else
+    {
+        Keyboard.Keys.Bits.RightArrow = 0;
+    }
+
+    if(HAL_GPIO_ReadPin(key_out4_GPIO_Port, key_out4_Pin) == GPIO_PIN_SET)
+    {
+        Keyboard.Keys.Bits.VoltageCurrent = 1;
+    }
+    else
+    {
+        Keyboard.Keys.Bits.VoltageCurrent = 0;
+    }
+
+    HAL_GPIO_WritePin(key_in3_GPIO_Port, key_in3_Pin, GPIO_PIN_RESET);
 }
 
 /* USER CODE END 0 */
@@ -160,6 +334,10 @@ int main(void)
     /* USER CODE BEGIN Init */
     display_Init(&display);
     display_PrepareData(&display, 12.34f, 56.78f);
+
+    display.blink_display = 2;
+    display.blink_index = 1;
+
     // display_PrepareData(0.0f, 0.0f);
 
     /* USER CODE END Init */
@@ -194,6 +372,19 @@ int main(void)
     /* USER CODE BEGIN WHILE */
     while(1)
     {
+        PanelRead();
+
+        display.ledM1 = Keyboard.Keys.Bits.M1;
+        display.ledM2 = Keyboard.Keys.Bits.M2;
+        display.ledM3 = Keyboard.Keys.Bits.M3;
+        display.ledM4 = Keyboard.Keys.Bits.M4;
+        display.ledM5 = Keyboard.Keys.Bits.LeftArrow;
+
+        display.ledOUT = Keyboard.Keys.Bits.OnOff;
+        display.ledCC = Keyboard.Keys.Bits.Lock;
+        display.ledOCP = Keyboard.Keys.Bits.OCP;
+        display.ledOVP = Keyboard.Keys.Bits.OVP;
+        display.ledCV = Keyboard.Keys.Bits.RightArrow;
 
         /* USER CODE END WHILE */
 
@@ -549,8 +740,14 @@ static void MX_GPIO_Init(void)
     /*Configure GPIO pin Output Level */
     HAL_GPIO_WritePin(GPIOB, STCP2_Pin | SHCP2_Pin | SD2_Pin | display1_Pin | display2_Pin | display3_Pin | display4_Pin | REL3_Pin | REL2_Pin | key_in1_Pin | key_in2_Pin, GPIO_PIN_RESET);
 
-    /*Configure GPIO pins : BKeyLeft_Pin key_out4_Pin key_out2_Pin */
-    GPIO_InitStruct.Pin = BKeyLeft_Pin | key_out4_Pin | key_out2_Pin;
+    /*Configure GPIO pin : BKeyLeft_Pin */
+    GPIO_InitStruct.Pin = BKeyLeft_Pin;
+    GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+    GPIO_InitStruct.Pull = GPIO_PULLUP;
+    HAL_GPIO_Init(BKeyLeft_GPIO_Port, &GPIO_InitStruct);
+
+    /*Configure GPIO pins : key_out4_Pin key_out2_Pin */
+    GPIO_InitStruct.Pin = key_out4_Pin | key_out2_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
     GPIO_InitStruct.Pull = GPIO_PULLDOWN;
     HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
@@ -569,8 +766,8 @@ static void MX_GPIO_Init(void)
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-    /*Configure GPIO pins : OCP_Pin key_out1_Pin key_out3_Pin BKeyRight_Pin */
-    GPIO_InitStruct.Pin = OCP_Pin | key_out1_Pin | key_out3_Pin | BKeyRight_Pin;
+    /*Configure GPIO pins : OCP_Pin key_out1_Pin key_out3_Pin */
+    GPIO_InitStruct.Pin = OCP_Pin | key_out1_Pin | key_out3_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
     GPIO_InitStruct.Pull = GPIO_PULLDOWN;
     HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
@@ -590,6 +787,12 @@ static void MX_GPIO_Init(void)
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
     HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+    /*Configure GPIO pin : BKeyRight_Pin */
+    GPIO_InitStruct.Pin = BKeyRight_Pin;
+    GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+    GPIO_InitStruct.Pull = GPIO_PULLUP;
+    HAL_GPIO_Init(BKeyRight_GPIO_Port, &GPIO_InitStruct);
 
     /* USER CODE BEGIN MX_GPIO_Init_2 */
 

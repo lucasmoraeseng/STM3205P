@@ -281,8 +281,8 @@ void display_PrepareData(Display_t *obj, float voltage, float current)
 {
     Digits4_t v_digits;
     Digits4_t c_digits;
-    uint8_t v_dot[4] = {0, 0, 0, 0};
-    uint8_t c_dot[4] = {0, 0, 0, 0};
+    // uint8_t v_dot[4] = {0, 0, 0, 0};
+    // uint8_t c_dot[4] = {0, 0, 0, 0};
 
     display_Float2Digits(voltage, &v_digits);
     display_Float2Digits(current, &c_digits);
@@ -580,6 +580,15 @@ void display_update(Display_t *obj)
     {
         data[0] = display_GetNumberData(obj->display2.d2, 2) | (obj->display2.d2_dot ? disp_dot : 0x00);
         data[1] = display_GetNumberData(obj->display1.d2, 1) | (obj->display1.d2_dot ? disp_dot : 0x00);
+
+        if(obj->blink_index == 2)
+        {
+            if(obj->blink_display == 1)
+                data[0] = obj->blink_state ? 0x00 : data[0];
+            else if(obj->blink_display == 2)
+                data[1] = obj->blink_state ? 0x00 : data[1];
+        }
+
         HAL_74HC595_WriteData(&obj->hAL_74HC595, data);
         HAL_GPIO_WritePin(display1_GPIO_Port, display1_Pin, GPIO_PIN_SET);
     }
@@ -587,6 +596,15 @@ void display_update(Display_t *obj)
     {
         data[0] = display_GetNumberData(obj->display2.d1, 2) | (obj->display2.d1_dot ? disp_dot : 0x00);
         data[1] = display_GetNumberData(obj->display1.d1, 1) | (obj->display1.d1_dot ? disp_dot : 0x00);
+
+        if(obj->blink_index == 1)
+        {
+            if(obj->blink_display == 1)
+                data[0] = obj->blink_state ? 0x00 : data[0];
+            else if(obj->blink_display == 2)
+                data[1] = obj->blink_state ? 0x00 : data[1];
+        }
+
         HAL_74HC595_WriteData(&obj->hAL_74HC595, data);
         HAL_GPIO_WritePin(display2_GPIO_Port, display2_Pin, GPIO_PIN_SET);
     }
@@ -594,6 +612,19 @@ void display_update(Display_t *obj)
     {
         data[0] = 0;
         data[1] = 0;
+
+        data[0] |= (obj->ledOUT << 0);
+        data[0] |= (obj->ledM5 << 1);
+        data[0] |= (obj->ledM4 << 2);
+        data[0] |= (obj->ledCV << 4);
+        data[0] |= (obj->ledM2 << 7);
+
+        data[1] |= (obj->ledCC << 0);
+        data[1] |= (obj->ledM3 << 1);
+        data[1] |= (obj->ledOCP << 3);
+        data[1] |= (obj->ledOVP << 5);
+        data[1] |= (obj->ledM1 << 7);
+
         HAL_74HC595_WriteData(&obj->hAL_74HC595, data);
         HAL_GPIO_WritePin(display3_GPIO_Port, display3_Pin, GPIO_PIN_SET);
     }
@@ -601,6 +632,15 @@ void display_update(Display_t *obj)
     {
         data[0] = display_GetNumberData(obj->display2.d3, 2) | (obj->display2.d3_dot ? disp_dot : 0x00);
         data[1] = display_GetNumberData(obj->display1.d3, 1) | (obj->display1.d3_dot ? disp_dot : 0x00);
+
+        if(obj->blink_index == 3)
+        {
+            if(obj->blink_display == 1)
+                data[0] = obj->blink_state ? 0x00 : data[0];
+            else if(obj->blink_display == 2)
+                data[1] = obj->blink_state ? 0x00 : data[1];
+        }
+
         HAL_74HC595_WriteData(&obj->hAL_74HC595, data);
         HAL_GPIO_WritePin(display4_GPIO_Port, display4_Pin, GPIO_PIN_SET);
     }
@@ -608,6 +648,15 @@ void display_update(Display_t *obj)
     {
         data[0] = display_GetNumberData(obj->display2.d4, 2) | (obj->display2.d4_dot ? disp_dot : 0x00);
         data[1] = display_GetNumberData(obj->display1.d4, 1) | (obj->display1.d4_dot ? disp_dot : 0x00);
+
+        if(obj->blink_index == 4)
+        {
+            if(obj->blink_display == 1)
+                data[0] = obj->blink_state ? 0x00 : data[0];
+            else if(obj->blink_display == 2)
+                data[1] = obj->blink_state ? 0x00 : data[1];
+        }
+
         HAL_74HC595_WriteData(&obj->hAL_74HC595, data);
         HAL_GPIO_WritePin(display5_GPIO_Port, display5_Pin, GPIO_PIN_SET);
     }
