@@ -1,21 +1,21 @@
 /* USER CODE BEGIN Header */
 /**
-  ******************************************************************************
-  * @file           : main.h
-  * @brief          : Header for main.c file.
-  *                   This file contains the common defines of the application.
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2026 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * @file           : main.h
+ * @brief          : Header for main.c file.
+ *                   This file contains the common defines of the application.
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2026 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
+ ******************************************************************************
+ */
 /* USER CODE END Header */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
@@ -23,36 +23,69 @@
 #define __MAIN_H
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f1xx_hal.h"
 
-/* Private includes ----------------------------------------------------------*/
-/* USER CODE BEGIN Includes */
+    /* Private includes ----------------------------------------------------------*/
+    /* USER CODE BEGIN Includes */
 
-/* USER CODE END Includes */
+    /* USER CODE END Includes */
 
-/* Exported types ------------------------------------------------------------*/
-/* USER CODE BEGIN ET */
+    /* Exported types ------------------------------------------------------------*/
+    /* USER CODE BEGIN ET */
+    typedef union
+    {
+        struct
+        {
+            uint16_t M1 : 1;
+            uint16_t M2 : 1;
+            uint16_t M3 : 1;
+            uint16_t M4 : 1;
 
-/* USER CODE END ET */
+            uint16_t Lock : 1;
+            uint16_t OCP : 1;
+            uint16_t OVP : 1;
+            uint16_t OnOff : 1;
 
-/* Exported constants --------------------------------------------------------*/
-/* USER CODE BEGIN EC */
+            uint16_t LeftArrow : 1;
+            uint16_t RightArrow : 1;
+            uint16_t VoltageCurrent : 1;
 
-/* USER CODE END EC */
+            uint16_t Reserved : 5;
+        } Bits;
 
-/* Exported macro ------------------------------------------------------------*/
-/* USER CODE BEGIN EM */
+        uint16_t Value;
 
-/* USER CODE END EM */
+    } keyboard_keys_t;
 
-void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
+    typedef struct
+    {
+        keyboard_keys_t Keys;
 
-/* Exported functions prototypes ---------------------------------------------*/
-void Error_Handler(void);
+        int8_t Dial;
+
+    } keyboard_t;
+
+    /* USER CODE END ET */
+
+    /* Exported constants --------------------------------------------------------*/
+    /* USER CODE BEGIN EC */
+
+    /* USER CODE END EC */
+
+    /* Exported macro ------------------------------------------------------------*/
+    /* USER CODE BEGIN EM */
+
+    /* USER CODE END EM */
+
+    void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
+
+    /* Exported functions prototypes ---------------------------------------------*/
+    void Error_Handler(void);
 
 /* USER CODE BEGIN EFP */
 
@@ -120,9 +153,9 @@ void Error_Handler(void);
 #define BKeyRight_Pin GPIO_PIN_9
 #define BKeyRight_GPIO_Port GPIOB
 
-/* USER CODE BEGIN Private defines */
+    /* USER CODE BEGIN Private defines */
 
-/* USER CODE END Private defines */
+    /* USER CODE END Private defines */
 
 #ifdef __cplusplus
 }

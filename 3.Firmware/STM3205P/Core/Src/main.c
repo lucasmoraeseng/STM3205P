@@ -32,43 +32,12 @@
 #include "DAC8830.h"
 #include "RingBuffer.h"
 #include "display.h"
+#include "flash.h"
 
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-typedef union
-{
-    struct
-    {
-        uint16_t M1 : 1;
-        uint16_t M2 : 1;
-        uint16_t M3 : 1;
-        uint16_t M4 : 1;
-
-        uint16_t Lock : 1;
-        uint16_t OCP : 1;
-        uint16_t OVP : 1;
-        uint16_t OnOff : 1;
-
-        uint16_t LeftArrow : 1;
-        uint16_t RightArrow : 1;
-        uint16_t VoltageCurrent : 1;
-
-        uint16_t Reserved : 5;
-    } Bits;
-
-    uint16_t Value;
-
-} keyboard_keys_t;
-
-typedef struct
-{
-    keyboard_keys_t Keys;
-
-    int8_t Dial;
-
-} keyboard_t;
 
 /* USER CODE END PTD */
 
@@ -302,15 +271,6 @@ int main(void)
 {
 
     /* USER CODE BEGIN 1 */
-    // display.display1.d1 = disp1_1;
-    // display.display1.d2 = disp1_2;
-    // display.display1.d3 = disp1_3;
-    // display.display1.d4 = disp1_4;
-
-    // display.display2.d1 = disp2_6;
-    // display.display2.d2 = disp2_7;
-    // display.display2.d3 = disp2_8;
-    // display.display2.d4 = disp2_9;
 
     cfgVoltageADC.Channel = ADC_CHANNEL_1;
     cfgVoltageADC.Rank = ADC_REGULAR_RANK_1;
@@ -323,6 +283,7 @@ int main(void)
     cfgTemperatureADC.Channel = ADC_CHANNEL_3;
     cfgTemperatureADC.Rank = ADC_REGULAR_RANK_1;
     cfgTemperatureADC.SamplingTime = ADC_SAMPLETIME_1CYCLE_5;
+    Flash_ReadSettings(&flashData);
 
     /* USER CODE END 1 */
 
@@ -333,10 +294,10 @@ int main(void)
 
     /* USER CODE BEGIN Init */
     display_Init(&display);
-    display_PrepareData(&display, 12.34f, 56.78f);
+    display_PrepareData(&display, flashData.memory1.Voltage, flashData.memory1.Current);
 
-    display.blink_display = 2;
-    display.blink_index = 1;
+    // display.blink_display = 2;
+    // display.blink_index = 1;
 
     // display_PrepareData(0.0f, 0.0f);
 
