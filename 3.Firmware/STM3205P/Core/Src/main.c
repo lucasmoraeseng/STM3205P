@@ -296,10 +296,12 @@ int main(void)
     display_Init(&display);
     display_PrepareData(&display, flashData.memory1.Voltage, flashData.memory1.Current);
 
+    display.ledM1 = Keyboard.Keys.Bits.M1;
+    display.ledOCP = flashData.memory1.OCP;
+    display.ledOVP = flashData.memory1.OVP;
+
     // display.blink_display = 2;
     // display.blink_index = 1;
-
-    // display_PrepareData(0.0f, 0.0f);
 
     /* USER CODE END Init */
 
@@ -335,17 +337,16 @@ int main(void)
     {
         PanelRead();
 
-        display.ledM1 = Keyboard.Keys.Bits.M1;
-        display.ledM2 = Keyboard.Keys.Bits.M2;
-        display.ledM3 = Keyboard.Keys.Bits.M3;
-        display.ledM4 = Keyboard.Keys.Bits.M4;
-        display.ledM5 = Keyboard.Keys.Bits.LeftArrow;
+        // display.ledM2 = Keyboard.Keys.Bits.M2;
+        // display.ledM3 = Keyboard.Keys.Bits.M3;
+        // display.ledM4 = Keyboard.Keys.Bits.M4;
+        // display.ledM5 = Keyboard.Keys.Bits.LeftArrow;
 
-        display.ledOUT = Keyboard.Keys.Bits.OnOff;
-        display.ledCC = Keyboard.Keys.Bits.Lock;
-        display.ledOCP = Keyboard.Keys.Bits.OCP;
-        display.ledOVP = Keyboard.Keys.Bits.OVP;
-        display.ledCV = Keyboard.Keys.Bits.RightArrow;
+        // display.ledOUT = Keyboard.Keys.Bits.OnOff;
+        // display.ledCC = Keyboard.Keys.Bits.Lock;
+        // display.ledOCP = Keyboard.Keys.Bits.OCP;
+        // display.ledOVP = Keyboard.Keys.Bits.OVP;
+        // display.ledCV = Keyboard.Keys.Bits.RightArrow;
 
         /* USER CODE END WHILE */
 

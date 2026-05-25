@@ -37,11 +37,11 @@ const data_storage_t DefaultFlashData =
     {
         .Signature = FLASH_SIGNATURE,
 
-        .memory1 = {5.0f, 1.0f},
-        .memory2 = {3.3f, 2.0f},
-        .memory3 = {12.0f, 3.0f},
-        .memory4 = {24.0f, 4.0f},
-        .memory5 = {32.0f, 5.0f}};
+        .memory1 = {5.0f, 1.0f, true, false},
+        .memory2 = {3.3f, 2.0f, false, false},
+        .memory3 = {12.0f, 3.0f, false, false},
+        .memory4 = {24.0f, 4.0f, false, false},
+        .memory5 = {32.0f, 5.0f, false, false}};
 
 //--------------------------------------------------------------------
 // Code

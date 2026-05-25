@@ -26,7 +26,7 @@
 // Definitions
 //--------------------------------------------------------------------
 #define FLASH_USER_START_ADDR 0x08007C00
-#define FLASH_SIGNATURE 0xDEADBEEF
+#define FLASH_SIGNATURE 0xDEADB33F
 
 //--------------------------------------------------------------------
 // Typedef structs
@@ -35,6 +35,8 @@ typedef struct
 {
     float Voltage;
     float Current;
+    uint8_t OVP;
+    uint8_t OCP;
 } settings_t;
 
 typedef struct
