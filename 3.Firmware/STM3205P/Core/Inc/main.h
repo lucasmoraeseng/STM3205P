@@ -66,7 +66,7 @@ extern "C"
     {
         keyboard_keys_t Keys;
 
-        int8_t Dial;
+        int8_t DialValue;
 
     } keyboard_t;
 
