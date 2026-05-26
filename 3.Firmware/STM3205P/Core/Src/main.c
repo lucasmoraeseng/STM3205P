@@ -69,8 +69,13 @@ ADC_ChannelConfTypeDef cfgCurrentADC;
 ADC_ChannelConfTypeDef cfgTemperatureADC;
 
 keyboard_t Keyboard;
+keyboard_t KeyboardPrev;
 
-uint16_t frameCounter = 0;
+uint32_t frameCounter = 0;
+
+uint8_t enChangeValue = 0;
+uint8_t digitToChange = 0;
+uint32_t startBlink = 0;
 
 /* USER CODE END PV */
 
@@ -296,7 +301,7 @@ int main(void)
     display_Init(&display);
     display_PrepareData(&display, flashData.memory1.Voltage, flashData.memory1.Current);
 
-    display.ledM1 = Keyboard.Keys.Bits.M1;
+    display.ledM1 = true;
     display.ledOCP = flashData.memory1.OCP;
     display.ledOVP = flashData.memory1.OVP;
 
@@ -336,6 +341,151 @@ int main(void)
     while(1)
     {
         PanelRead();
+
+        if(display.ledOUT)
+        {
+        }
+        else
+        {
+            if(Keyboard.Keys.Bits.M1 && !KeyboardPrev.Keys.Bits.M1)
+            {
+                KeyboardPrev.Keys.Bits.M1 = 1;
+            }
+            else if(!Keyboard.Keys.Bits.M1 && KeyboardPrev.Keys.Bits.M1)
+            {
+                display.ledM2 = false;
+                display.ledM3 = false;
+                display.ledM4 = false;
+                display.ledM5 = false;
+                display.ledM1 = true;
+                KeyboardPrev.Keys.Bits.M1 = 0;
+                display_PrepareData(&display, flashData.memory1.Voltage, flashData.memory1.Current);
+                display.ledOCP = flashData.memory1.OCP;
+                display.ledOVP = flashData.memory1.OVP;
+            }
+
+            if(Keyboard.Keys.Bits.M2 && !KeyboardPrev.Keys.Bits.M2)
+            {
+                KeyboardPrev.Keys.Bits.M2 = 1;
+            }
+            else if(!Keyboard.Keys.Bits.M2 && KeyboardPrev.Keys.Bits.M2)
+            {
+                display.ledM1 = false;
+                display.ledM3 = false;
+                display.ledM4 = false;
+                display.ledM5 = false;
+                display.ledM2 = true;
+                KeyboardPrev.Keys.Bits.M2 = 0;
+                display_PrepareData(&display, flashData.memory2.Voltage, flashData.memory2.Current);
+                display.ledOCP = flashData.memory2.OCP;
+                display.ledOVP = flashData.memory2.OVP;
+            }
+
+            if(Keyboard.Keys.Bits.M3 && !KeyboardPrev.Keys.Bits.M3)
+            {
+                KeyboardPrev.Keys.Bits.M3 = 1;
+            }
+            else if(!Keyboard.Keys.Bits.M3 && KeyboardPrev.Keys.Bits.M3)
+            {
+                display.ledM1 = false;
+                display.ledM2 = false;
+                display.ledM4 = false;
+                display.ledM5 = false;
+                display.ledM3 = true;
+                KeyboardPrev.Keys.Bits.M3 = 0;
+                display_PrepareData(&display, flashData.memory3.Voltage, flashData.memory3.Current);
+                display.ledOCP = flashData.memory3.OCP;
+                display.ledOVP = flashData.memory3.OVP;
+            }
+
+            if(Keyboard.Keys.Bits.M4 && !KeyboardPrev.Keys.Bits.M4)
+            {
+                KeyboardPrev.Keys.Bits.M4 = 1;
+            }
+            else if(!Keyboard.Keys.Bits.M4 && KeyboardPrev.Keys.Bits.M4)
+            {
+                display.ledM1 = false;
+                display.ledM2 = false;
+                display.ledM3 = false;
+                display.ledM5 = false;
+                display.ledM4 = true;
+                KeyboardPrev.Keys.Bits.M4 = 0;
+                display_PrepareData(&display, flashData.memory4.Voltage, flashData.memory4.Current);
+                display.ledOCP = flashData.memory4.OCP;
+                display.ledOVP = flashData.memory4.OVP;
+            }
+
+            if(Keyboard.Keys.Bits.VoltageCurrent && !KeyboardPrev.Keys.Bits.VoltageCurrent)
+            {
+                KeyboardPrev.Keys.Bits.VoltageCurrent = 1;
+            }
+            else if(!Keyboard.Keys.Bits.VoltageCurrent && KeyboardPrev.Keys.Bits.VoltageCurrent)
+            {
+                KeyboardPrev.Keys.Bits.VoltageCurrent = 0;
+                if(enChangeValue)
+                {
+                    if(display.blink_display == 1)
+                    {
+                        display.blink_display = 2;
+                    }
+                    else
+                    {
+                        display.blink_display = 1;
+                    }
+                }
+                else
+                {
+                    enChangeValue = true;
+                    display.blink_display = 1;
+                    display.blink_index = 1;
+                }
+
+                startBlink = display.frame_cnt;
+            }
+
+            if(Keyboard.Keys.Bits.LeftArrow && !KeyboardPrev.Keys.Bits.LeftArrow)
+            {
+                KeyboardPrev.Keys.Bits.LeftArrow = 1;
+            }
+            else if(!Keyboard.Keys.Bits.LeftArrow && KeyboardPrev.Keys.Bits.LeftArrow)
+            {
+                KeyboardPrev.Keys.Bits.LeftArrow = 0;
+                if(enChangeValue)
+                {
+                    if(display.blink_index > 1)
+                    {
+                        display.blink_index--;
+                    }
+                }
+                startBlink = display.frame_cnt;
+            }
+
+            if(Keyboard.Keys.Bits.RightArrow && !KeyboardPrev.Keys.Bits.RightArrow)
+            {
+                KeyboardPrev.Keys.Bits.RightArrow = 1;
+            }
+            else if(!Keyboard.Keys.Bits.RightArrow && KeyboardPrev.Keys.Bits.RightArrow)
+            {
+                KeyboardPrev.Keys.Bits.RightArrow = 0;
+                if(enChangeValue)
+                {
+                    if(display.blink_index < 4)
+                    {
+                        display.blink_index++;
+                    }
+                }
+                startBlink = display.frame_cnt;
+            }
+
+            if(enChangeValue)
+            {
+                if(display.frame_cnt - startBlink > 10000)
+                {
+                    enChangeValue = false;
+                    display.blink_display = 0;
+                }
+            }
+        }
 
         // display.ledM2 = Keyboard.Keys.Bits.M2;
         // display.ledM3 = Keyboard.Keys.Bits.M3;
