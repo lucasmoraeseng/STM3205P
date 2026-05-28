@@ -69,6 +69,8 @@ ADC_ChannelConfTypeDef cfgCurrentADC;
 ADC_ChannelConfTypeDef cfgTemperatureADC;
 
 uint8_t DialPrevState = 0;
+uint8_t DialStep = 0;
+int8_t DialDirection = 0;
 
 settings_t actualData;
 
@@ -149,7 +151,7 @@ void PanelRead()
     //----------------------------------------------------------------
     HAL_GPIO_WritePin(key_in1_GPIO_Port, key_in1_Pin, GPIO_PIN_SET);
 
-    HAL_Delay(1);
+    // HAL_Delay(1);
 
     Keyboard.Keys.Bits.M1 =
         HAL_GPIO_ReadPin(key_out1_GPIO_Port, key_out1_Pin);
@@ -170,7 +172,7 @@ void PanelRead()
     //----------------------------------------------------------------
     HAL_GPIO_WritePin(key_in2_GPIO_Port, key_in2_Pin, GPIO_PIN_SET);
 
-    HAL_Delay(1);
+    // HAL_Delay(1);
 
     Keyboard.Keys.Bits.Lock =
         HAL_GPIO_ReadPin(key_out1_GPIO_Port, key_out1_Pin);
@@ -191,7 +193,7 @@ void PanelRead()
     //----------------------------------------------------------------
     HAL_GPIO_WritePin(key_in3_GPIO_Port, key_in3_Pin, GPIO_PIN_SET);
 
-    HAL_Delay(1);
+    // HAL_Delay(1);
 
     Keyboard.Keys.Bits.LeftArrow =
         HAL_GPIO_ReadPin(key_out2_GPIO_Port, key_out2_Pin);
@@ -208,7 +210,10 @@ void PanelRead()
     // Rotary encoder read
     //----------------------------------------------------------------
 
-    // Default = no movement
+    //----------------------------------------------------------------
+    // Rotary encoder read
+    //----------------------------------------------------------------
+
     Keyboard.DialValue = 0;
 
     // Read encoder pins
@@ -221,76 +226,85 @@ void PanelRead()
     // Build current state
     uint8_t currentState = (A << 1) | B;
 
-    // State transition decoder
-    switch(DialPrevState)
+    // Ignore repeated states
+    if(currentState != DialPrevState)
     {
-    //------------------------------------------------------------
-    // 00
-    //------------------------------------------------------------
-    case 0b00:
-
-        if(currentState == 0b10)
+        switch(DialStep)
         {
-            Keyboard.DialValue = 1;
+        //--------------------------------------------------------
+        // Waiting for start
+        //--------------------------------------------------------
+        case 0:
+
+            if((DialPrevState == 0b00) && (currentState == 0b10))
+            {
+                DialDirection = 1;
+                DialStep = 1;
+            }
+            else if((DialPrevState == 0b00) && (currentState == 0b01))
+            {
+                DialDirection = -1;
+                DialStep = 1;
+            }
+
+            break;
+
+        //--------------------------------------------------------
+        // Second state must be 11
+        //--------------------------------------------------------
+        case 1:
+
+            if(currentState == 0b11)
+            {
+                DialStep = 2;
+            }
+            else
+            {
+                DialStep = 0;
+                DialDirection = 0;
+            }
+
+            break;
+
+        //--------------------------------------------------------
+        // Third state
+        //--------------------------------------------------------
+        case 2:
+
+            if((DialDirection == 1) && (currentState == 0b01))
+            {
+                DialStep = 3;
+            }
+            else if((DialDirection == -1) && (currentState == 0b10))
+            {
+                DialStep = 3;
+            }
+            else
+            {
+                DialStep = 0;
+                DialDirection = 0;
+            }
+
+            break;
+
+        //--------------------------------------------------------
+        // Final state must return to 00
+        //--------------------------------------------------------
+        case 3:
+
+            if(currentState == 0b00)
+            {
+                Keyboard.DialValue = DialDirection;
+            }
+
+            DialStep = 0;
+            DialDirection = 0;
+
+            break;
         }
-        else if(currentState == 0b01)
-        {
-            Keyboard.DialValue = -1;
-        }
 
-        break;
-
-    //------------------------------------------------------------
-    // 10
-    //------------------------------------------------------------
-    case 0b10:
-
-        if(currentState == 0b11)
-        {
-            Keyboard.DialValue = 1;
-        }
-        else if(currentState == 0b00)
-        {
-            Keyboard.DialValue = -1;
-        }
-
-        break;
-
-    //------------------------------------------------------------
-    // 11
-    //------------------------------------------------------------
-    case 0b11:
-
-        if(currentState == 0b01)
-        {
-            Keyboard.DialValue = 1;
-        }
-        else if(currentState == 0b10)
-        {
-            Keyboard.DialValue = -1;
-        }
-
-        break;
-
-    //------------------------------------------------------------
-    // 01
-    //------------------------------------------------------------
-    case 0b01:
-
-        if(currentState == 0b00)
-        {
-            Keyboard.DialValue = 1;
-        }
-        else if(currentState == 0b11)
-        {
-            Keyboard.DialValue = -1;
-        }
-
-        break;
+        DialPrevState = currentState;
     }
-
-    // Save current state
-    DialPrevState = currentState;
 }
 
 /* USER CODE END 0 */
