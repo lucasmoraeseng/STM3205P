@@ -36,7 +36,6 @@
 #include "keyboard.h"
 #include "stm32f1xx_hal.h"
 
-
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -66,7 +65,6 @@ TIM_HandleTypeDef htim2;
 UART_HandleTypeDef huart1;
 
 /* USER CODE BEGIN PV */
-Display_t display;
 ADC_ChannelConfTypeDef cfgVoltageADC;
 ADC_ChannelConfTypeDef cfgCurrentADC;
 ADC_ChannelConfTypeDef cfgTemperatureADC;
@@ -207,7 +205,7 @@ int main(void)
     /* USER CODE BEGIN WHILE */
     while(1)
     {
-        PanelRead();
+        Keyboard_Read();
 
         if(display.ledOUT)
         {
@@ -391,156 +389,17 @@ int main(void)
                     startBlink = display.frame_cnt;
                     if(display.blink_display == 2)
                     {
-                        if(actualData.Voltage < 32000 && Keyboard.DialValue > 0)
-                        {
-                            if(actualData.Voltage < 10000)
-                            {
-                                if(display.blink_index == 1)
-                                {
-                                    actualData.Voltage += 1000;
-                                }
-                                else if(display.blink_index == 2)
-                                {
-                                    actualData.Voltage += 100;
-                                }
-                                else if(display.blink_index == 3)
-                                {
-                                    actualData.Voltage += 10;
-                                }
-                                else if(display.blink_index == 4)
-                                {
-                                    actualData.Voltage += 1;
-                                }
-                            }
-                            else
-                            {
-                                if(display.blink_index == 1)
-                                {
-                                    actualData.Voltage += 10000;
-                                }
-                                else if(display.blink_index == 2)
-                                {
-                                    actualData.Voltage += 1000;
-                                }
-                                else if(display.blink_index == 3)
-                                {
-                                    actualData.Voltage += 100;
-                                }
-                                else if(display.blink_index == 4)
-                                {
-                                    actualData.Voltage += 10;
-                                }
-                            }
-                        }
-                        else if(actualData.Voltage > 0 && Keyboard.DialValue < 0)
-                        {
-                            if(actualData.Voltage < 10000)
-                            {
-                                if(display.blink_index == 1)
-                                {
-                                    actualData.Voltage -= 1000;
-                                }
-                                else if(display.blink_index == 2)
-                                {
-                                    actualData.Voltage -= 100;
-                                }
-                                else if(display.blink_index == 3)
-                                {
-                                    actualData.Voltage -= 10;
-                                }
-                                else if(display.blink_index == 4)
-                                {
-                                    actualData.Voltage -= 1;
-                                }
-                            }
-                            else
-                            {
-                                if(display.blink_index == 1)
-                                {
-                                    actualData.Voltage -= 10000;
-                                }
-                                else if(display.blink_index == 2)
-                                {
-                                    actualData.Voltage -= 1000;
-                                }
-                                else if(display.blink_index == 3)
-                                {
-                                    actualData.Voltage -= 100;
-                                }
-                                else if(display.blink_index == 4)
-                                {
-                                    actualData.Voltage -= 10;
-                                }
-                            }
-                        }
+                        Keyboard_VoltageAdjust();
                     }
                     else if(display.blink_display == 1)
                     {
-                        if(actualData.Current < 5000 && Keyboard.DialValue > 0)
-                        {
-                            if(display.blink_index == 1)
-                            {
-                                actualData.Current += 1000;
-                            }
-                            else if(display.blink_index == 2)
-                            {
-                                actualData.Current += 100;
-                            }
-                            else if(display.blink_index == 3)
-                            {
-                                actualData.Current += 10;
-                            }
-                            else if(display.blink_index == 4)
-                            {
-                                actualData.Current += 1;
-                            }
-                        }
-                        else if(actualData.Current > 0 && Keyboard.DialValue < 0)
-                        {
-                            if(display.blink_index == 1)
-                            {
-                                actualData.Current -= 1000;
-                            }
-                            else if(display.blink_index == 2)
-                            {
-                                actualData.Current -= 100;
-                            }
-                            else if(display.blink_index == 3)
-                            {
-                                actualData.Current -= 10;
-                            }
-                            else if(display.blink_index == 4)
-                            {
-                                actualData.Current -= 1;
-                            }
-                        }
-                    }
-
-                    Keyboard.DialValue = 0;
-                    if(actualData.Voltage > 32000)
-                    {
-                        actualData.Voltage = 32000;
-                    }
-                    if(actualData.Current > 5000)
-                    {
-                        actualData.Current = 5000;
+                        Keyboard_CurrentAdjust();
                     }
 
                     display_PrepareDataACCX3(&display, actualData);
                 }
             }
         }
-
-        // display.ledM2 = Keyboard.Keys.Bits.M2;
-        // display.ledM3 = Keyboard.Keys.Bits.M3;
-        // display.ledM4 = Keyboard.Keys.Bits.M4;
-        // display.ledM5 = Keyboard.Keys.Bits.LeftArrow;
-
-        // display.ledOUT = Keyboard.Keys.Bits.OnOff;
-        // display.ledCC = Keyboard.Keys.Bits.Lock;
-        // display.ledOCP = Keyboard.Keys.Bits.OCP;
-        // display.ledOVP = Keyboard.Keys.Bits.OVP;
-        // display.ledCV = Keyboard.Keys.Bits.RightArrow;
 
         /* USER CODE END WHILE */
 

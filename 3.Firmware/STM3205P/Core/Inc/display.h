@@ -22,6 +22,7 @@
 // Includes
 //--------------------------------------------------------------------
 #include "HAL_74HC595.h"
+#include "data_types.h"
 #include "stm32f1xx_hal.h"
 #include <math.h>
 #include <stdint.h>
@@ -112,8 +113,6 @@
 
 #define disp_dot 0x04
 
-#define accx3_t int32_t // num x 1000 so 1.234 is represented as 1234
-
 //--------------------------------------------------------------------
 // Typedef enum
 //--------------------------------------------------------------------
@@ -179,5 +178,6 @@ extern void display_update(Display_t *obj);
 //--------------------------------------------------------------------
 extern HAL_74HC595_t display_obj;
 extern settings_accx3_t actualData;
+extern Display_t display;
 
 #endif /* SRC_DISPLAY_H_ */

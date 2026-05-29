@@ -32,8 +32,8 @@
 // Variables
 //--------------------------------------------------------------------
 HAL_74HC595_t display_obj;
-
 settings_accx3_t actualData;
+Display_t display;
 
 //--------------------------------------------------------------------
 // Code
@@ -331,8 +331,8 @@ void display_PrepareDataACCX3(Display_t *obj, settings_accx3_t data)
     // uint8_t v_dot[4] = {0, 0, 0, 0};
     // uint8_t c_dot[4] = {0, 0, 0, 0};
 
-    display_ACCX32Digits(data.voltage, &v_digits);
-    display_ACCX32Digits(data.current, &c_digits);
+    display_ACCX32Digits(data.Voltage, &v_digits);
+    display_ACCX32Digits(data.Current, &c_digits);
 
     obj->display1 = v_digits;
     obj->display2 = c_digits;

@@ -17,7 +17,7 @@
 // Includes
 //--------------------------------------------------------------------
 
-#include "display.h"
+#include "data_types.h"
 #include "stdbool.h"
 #include "stdint.h"
 #include "stm32f1xx_hal.h"
@@ -32,31 +32,6 @@
 //--------------------------------------------------------------------
 // Typedef structs
 //--------------------------------------------------------------------
-typedef struct
-{
-    float Voltage;
-    float Current;
-    uint8_t OVP;
-    uint8_t OCP;
-} settings_float_t;
-
-typedef struct
-{
-    accx3_t Voltage;
-    accx3_t Current;
-    uint8_t OVP;
-    uint8_t OCP;
-} settings_accx3_t;
-
-typedef struct
-{
-    uint32_t Signature;
-    settings_accx3_t memory1;
-    settings_accx3_t memory2;
-    settings_accx3_t memory3;
-    settings_accx3_t memory4;
-    settings_accx3_t memory5;
-} data_storage_t;
 
 //--------------------------------------------------------------------
 // Function prototype

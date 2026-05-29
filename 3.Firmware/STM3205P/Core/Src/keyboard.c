@@ -19,6 +19,7 @@
 // Includes
 //--------------------------------------------------------------------
 #include "keyboard.h"
+#include "display.h"
 
 //--------------------------------------------------------------------
 // Definitions
@@ -250,86 +251,178 @@ void Keyboard_Read()
 ###################################################################*/
 void Keyboard_VoltageAdjust()
 {
+    uint32_t multiplier = 0;
+    uint32_t digit_1 = 0;
+    uint32_t digit_2 = 0;
+    uint32_t digit_3 = 0;
+    uint32_t digit_4 = 0;
+
+    if(actualData.Voltage < 10000)
+    {
+        multiplier = 1000;
+    }
+    else if(actualData.Voltage < 100000)
+    {
+        multiplier = 10000;
+    }
+    else if(actualData.Voltage < 1000000)
+    {
+        multiplier = 100000;
+    }
+    else
+    {
+        multiplier = 1000000;
+    }
+
+    digit_1 = multiplier;
+    digit_2 = multiplier / 10;
+    digit_3 = multiplier / 100;
+    digit_4 = multiplier / 1000;
+
     if(actualData.Voltage < VOLTAGE_LIMIT_SUPERIOR && Keyboard.DialValue > 0)
     {
-        if(actualData.Voltage < 10000)
+        if(display.blink_index == 1)
         {
-            if(display.blink_index == 1)
-            {
-                actualData.Voltage += 1000;
-            }
-            else if(display.blink_index == 2)
-            {
-                actualData.Voltage += 100;
-            }
-            else if(display.blink_index == 3)
-            {
-                actualData.Voltage += 10;
-            }
-            else if(display.blink_index == 4)
-            {
-                actualData.Voltage += 1;
-            }
+            actualData.Voltage += digit_1;
         }
-        else
+        else if(display.blink_index == 2)
         {
-            if(display.blink_index == 1)
-            {
-                actualData.Voltage += 10000;
-            }
-            else if(display.blink_index == 2)
-            {
-                actualData.Voltage += 1000;
-            }
-            else if(display.blink_index == 3)
-            {
-                actualData.Voltage += 100;
-            }
-            else if(display.blink_index == 4)
-            {
-                actualData.Voltage += 10;
-            }
+            actualData.Voltage += digit_2;
+        }
+        else if(display.blink_index == 3)
+        {
+            actualData.Voltage += digit_3;
+        }
+        else if(display.blink_index == 4)
+        {
+            actualData.Voltage += digit_4;
         }
     }
     else if(actualData.Voltage > VOLTAGE_LIMIT_INFERIOR && Keyboard.DialValue < 0)
     {
-        if(actualData.Voltage < 10000)
+        if(display.blink_index == 1)
         {
-            if(display.blink_index == 1)
-            {
-                actualData.Voltage -= 1000;
-            }
-            else if(display.blink_index == 2)
-            {
-                actualData.Voltage -= 100;
-            }
-            else if(display.blink_index == 3)
-            {
-                actualData.Voltage -= 10;
-            }
-            else if(display.blink_index == 4)
-            {
-                actualData.Voltage -= 1;
-            }
+            actualData.Voltage -= digit_1;
         }
-        else
+        else if(display.blink_index == 2)
         {
-            if(display.blink_index == 1)
-            {
-                actualData.Voltage -= 10000;
-            }
-            else if(display.blink_index == 2)
-            {
-                actualData.Voltage -= 1000;
-            }
-            else if(display.blink_index == 3)
-            {
-                actualData.Voltage -= 100;
-            }
-            else if(display.blink_index == 4)
-            {
-                actualData.Voltage -= 10;
-            }
+            actualData.Voltage -= digit_2;
         }
+        else if(display.blink_index == 3)
+        {
+            actualData.Voltage -= digit_3;
+        }
+        else if(display.blink_index == 4)
+        {
+            actualData.Voltage -= digit_4;
+        }
+    }
+
+    Keyboard.DialValue = 0;
+
+    if(actualData.Voltage > VOLTAGE_LIMIT_SUPERIOR)
+    {
+        actualData.Voltage = VOLTAGE_LIMIT_SUPERIOR;
+    }
+    else if(actualData.Voltage < VOLTAGE_LIMIT_INFERIOR)
+    {
+        actualData.Voltage = VOLTAGE_LIMIT_INFERIOR;
+    }
+}
+
+/* ###################################################################
+ * Function:
+ * Author: Moraes, L.
+ * Date: Oct 6, 2025
+ * Revision: 1.0
+ * --------------------
+ * Initialize struct of current sensor, calculating it's parameters
+ *
+ *  arg1: input arg1
+ *
+ *  arg2: input arg2
+ *
+ *  returns: void
+ *
+ *
+###################################################################*/
+void Keyboard_CurrentAdjust()
+{
+    uint32_t multiplier = 0;
+    uint32_t digit_1 = 0;
+    uint32_t digit_2 = 0;
+    uint32_t digit_3 = 0;
+    uint32_t digit_4 = 0;
+
+    if(actualData.Current < 10000)
+    {
+        multiplier = 1000;
+    }
+    else if(actualData.Current < 100000)
+    {
+        multiplier = 10000;
+    }
+    else if(actualData.Current < 1000000)
+    {
+        multiplier = 100000;
+    }
+    else
+    {
+        multiplier = 1000000;
+    }
+
+    digit_1 = multiplier;
+    digit_2 = multiplier / 10;
+    digit_3 = multiplier / 100;
+    digit_4 = multiplier / 1000;
+
+    if(actualData.Current < CURRENT_LIMIT_SUPERIOR && Keyboard.DialValue > 0)
+    {
+        if(display.blink_index == 1)
+        {
+            actualData.Current += digit_1;
+        }
+        else if(display.blink_index == 2)
+        {
+            actualData.Current += digit_2;
+        }
+        else if(display.blink_index == 3)
+        {
+            actualData.Current += digit_3;
+        }
+        else if(display.blink_index == 4)
+        {
+            actualData.Current += digit_4;
+        }
+    }
+    else if(actualData.Current > CURRENT_LIMIT_INFERIOR && Keyboard.DialValue < 0)
+    {
+        if(display.blink_index == 1)
+        {
+            actualData.Current -= digit_1;
+        }
+        else if(display.blink_index == 2)
+        {
+            actualData.Current -= digit_2;
+        }
+        else if(display.blink_index == 3)
+        {
+            actualData.Current -= digit_3;
+        }
+        else if(display.blink_index == 4)
+        {
+            actualData.Current -= digit_4;
+        }
+    }
+
+    Keyboard.DialValue = 0;
+
+    if(actualData.Current > CURRENT_LIMIT_SUPERIOR)
+    {
+        actualData.Current = CURRENT_LIMIT_SUPERIOR;
+    }
+    else if(actualData.Current < CURRENT_LIMIT_INFERIOR)
+    {
+        actualData.Current = CURRENT_LIMIT_INFERIOR;
     }
 }
