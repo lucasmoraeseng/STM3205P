@@ -33,6 +33,8 @@
 //--------------------------------------------------------------------
 HAL_74HC595_t display_obj;
 
+settings_accx3_t actualData;
+
 //--------------------------------------------------------------------
 // Code
 //--------------------------------------------------------------------
@@ -277,7 +279,7 @@ void display_DisableAll()
  *
  *
 ###################################################################*/
-void display_PrepareData(Display_t *obj, float voltage, float current)
+void display_PrepareDataFloat(Display_t *obj, float voltage, float current)
 {
     Digits4_t v_digits;
     Digits4_t c_digits;
@@ -289,6 +291,53 @@ void display_PrepareData(Display_t *obj, float voltage, float current)
 
     obj->display1 = v_digits;
     obj->display2 = c_digits;
+
+    // if(v_digits.dot_position)
+    // {
+    //     v_dot[v_digits.dot_position - 1] = 1;
+    // }
+
+    // if(c_digits.dot_position)
+    // {
+    //     c_dot[c_digits.dot_position - 1] = 1;
+    // }
+
+    // display_SetNumberOnMemory(v_digits.d1, v_dot[0], c_digits.d1, c_dot[0], 1);
+    // display_SetNumberOnMemory(v_digits.d2, v_dot[1], c_digits.d2, c_dot[1], 2);
+    // display_SetNumberOnMemory(v_digits.d3, v_dot[2], c_digits.d3, c_dot[2], 3);
+    // display_SetNumberOnMemory(v_digits.d4, v_dot[3], c_digits.d4, c_dot[3], 4);
+}
+
+/* ###################################################################
+ * Function:
+ * Author: Moraes, L.
+ * Date: Oct 6, 2025
+ * Revision: 1.0
+ * --------------------
+ * Initialize struct of current sensor, calculating it's parameters
+ *
+ *  arg1: input arg1
+ *
+ *  arg2: input arg2
+ *
+ *  returns: void
+ *
+ *
+###################################################################*/
+void display_PrepareDataACCX3(Display_t *obj, settings_accx3_t data)
+{
+    Digits4_t v_digits;
+    Digits4_t c_digits;
+    // uint8_t v_dot[4] = {0, 0, 0, 0};
+    // uint8_t c_dot[4] = {0, 0, 0, 0};
+
+    display_ACCX32Digits(data.voltage, &v_digits);
+    display_ACCX32Digits(data.current, &c_digits);
+
+    obj->display1 = v_digits;
+    obj->display2 = c_digits;
+    obj->ledOCP = data.OCP;
+    obj->ledOVP = data.OVP;
 
     // if(v_digits.dot_position)
     // {
@@ -546,6 +595,78 @@ void display_Float2Digits(float value, Digits4_t *digits)
     }
     else if(value < 1000)
     {
+        digits->d3_dot = 1;
+    }
+}
+
+/* ###################################################################
+ * Function:
+ * Author: Moraes, L.
+ * Date: Oct 6, 2025
+ * Revision: 1.0
+ * --------------------
+ * Initialize struct of current sensor, calculating it's parameters
+ *
+ *  arg1: input arg1
+ *
+ *  arg2: input arg2
+ *
+ *  returns: void
+ *
+ *
+###################################################################*/
+void display_ACCX32Digits(accx3_t value, Digits4_t *digits)
+{
+    uint32_t value_int;
+    uint32_t temp_value = 0;
+
+    // Convert ACCX3 to display value
+    if(value < 10000) // 0.000 ~ 9.999
+    {
+        value_int = value;
+    }
+    else if(value < 100000) // 10.00 ~ 99.99
+    {
+        value_int = value / 10;
+    }
+    else if(value < 1000000) // 100.0 ~ 999.9
+    {
+        value_int = value / 100;
+    }
+    else // >= 1000
+    {
+        value_int = value / 1000;
+    }
+
+    digits->d1 = (value_int / 1000) % 10;
+    temp_value = digits->d1 * 1000;
+
+    digits->d2 = ((value_int - temp_value) / 100) % 10;
+    temp_value += digits->d2 * 100;
+
+    digits->d3 = ((value_int - temp_value) / 10) % 10;
+    temp_value += digits->d3 * 10;
+
+    digits->d4 = (value_int - temp_value) % 10;
+
+    digits->d1_dot = 0;
+    digits->d2_dot = 0;
+    digits->d3_dot = 0;
+    digits->d4_dot = 0;
+
+    if(value < 10000)
+    {
+        // X.XXX
+        digits->d1_dot = 1;
+    }
+    else if(value < 100000)
+    {
+        // XX.XX
+        digits->d2_dot = 1;
+    }
+    else if(value < 1000000)
+    {
+        // XXX.X
         digits->d3_dot = 1;
     }
 }

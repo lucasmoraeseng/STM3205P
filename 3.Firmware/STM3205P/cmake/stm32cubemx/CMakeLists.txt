@@ -21,6 +21,7 @@ set(MX_Include_Dirs
 set(MX_Application_Src
     ${CMAKE_CURRENT_SOURCE_DIR}/../../Core/Src/flash.c
     ${CMAKE_CURRENT_SOURCE_DIR}/../../Core/Src/display.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/../../Core/Src/keyboard.c
     ${CMAKE_CURRENT_SOURCE_DIR}/../../Core/Src/DAC8830.c
     ${CMAKE_CURRENT_SOURCE_DIR}/../../Core/Src/HAL_74HC595.c
     ${CMAKE_CURRENT_SOURCE_DIR}/../../Core/Src/RingBuffer.c

@@ -1,5 +1,5 @@
 /* ###################################################################
-**     Filename    : flash.h
+**     Filename    : keyboard.h
 **     Project     : STM3205P
 **     Version     : Driver 01.00
 **     Compiler    : GNU C Compiler
@@ -10,14 +10,15 @@
 **
 ** ###################################################################*/
 
-#ifndef SRC_FLASH_H_
-#define SRC_FLASH_H_
+#ifndef SRC_KEYBOARD_H_
+#define SRC_KEYBOARD_H_
 
 //--------------------------------------------------------------------
 // Includes
 //--------------------------------------------------------------------
 
 #include "display.h"
+#include "main.h"
 #include "stdbool.h"
 #include "stdint.h"
 #include "stm32f1xx_hal.h"
@@ -26,47 +27,62 @@
 //--------------------------------------------------------------------
 // Definitions
 //--------------------------------------------------------------------
-#define FLASH_USER_START_ADDR 0x08007C00
-#define FLASH_SIGNATURE 0xD3ADBEEF
+#define VOLTAGE_LIMIT_SUPERIOR 32000 // 32.000V
+#define VOLTAGE_LIMIT_INFERIOR 0     // 0.000V
+
+#define CURRENT_LIMIT_SUPERIOR 5000 // 5.000A
+#define CURRENT_LIMIT_INFERIOR 0    // 0.000A
 
 //--------------------------------------------------------------------
 // Typedef structs
 //--------------------------------------------------------------------
-typedef struct
+typedef union
 {
-    float Voltage;
-    float Current;
-    uint8_t OVP;
-    uint8_t OCP;
-} settings_float_t;
+    struct
+    {
+        uint16_t M1 : 1;
+        uint16_t M2 : 1;
+        uint16_t M3 : 1;
+        uint16_t M4 : 1;
+
+        uint16_t Lock : 1;
+        uint16_t OCP : 1;
+        uint16_t OVP : 1;
+        uint16_t OnOff : 1;
+
+        uint16_t LeftArrow : 1;
+        uint16_t RightArrow : 1;
+        uint16_t VoltageCurrent : 1;
+
+        uint16_t Reserved : 5;
+    } Bits;
+
+    uint16_t Value;
+
+} keyboard_keys_t;
 
 typedef struct
 {
-    accx3_t Voltage;
-    accx3_t Current;
-    uint8_t OVP;
-    uint8_t OCP;
-} settings_accx3_t;
+    keyboard_keys_t Keys;
 
-typedef struct
-{
-    uint32_t Signature;
-    settings_accx3_t memory1;
-    settings_accx3_t memory2;
-    settings_accx3_t memory3;
-    settings_accx3_t memory4;
-    settings_accx3_t memory5;
-} data_storage_t;
+    int8_t DialValue;
+
+} keyboard_t;
 
 //--------------------------------------------------------------------
 // Function prototype
 //--------------------------------------------------------------------
-extern HAL_StatusTypeDef Flash_WriteSettings(data_storage_t *data);
-extern void Flash_ReadSettings(data_storage_t *data);
+extern void Keyboard_Read();
 
 //--------------------------------------------------------------------
 // General Variables
 //--------------------------------------------------------------------
-extern data_storage_t flashData;
 
-#endif /* SRC_FLASH_H_ */
+extern keyboard_t Keyboard;
+extern keyboard_t KeyboardPrev;
+
+extern uint8_t DialPrevState = 0;
+extern uint8_t DialStep = 0;
+extern int8_t DialDirection = 0;
+
+#endif /* SRC_KEYBOARD_H_ */

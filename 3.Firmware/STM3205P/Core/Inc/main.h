@@ -37,38 +37,6 @@ extern "C"
 
     /* Exported types ------------------------------------------------------------*/
     /* USER CODE BEGIN ET */
-    typedef union
-    {
-        struct
-        {
-            uint16_t M1 : 1;
-            uint16_t M2 : 1;
-            uint16_t M3 : 1;
-            uint16_t M4 : 1;
-
-            uint16_t Lock : 1;
-            uint16_t OCP : 1;
-            uint16_t OVP : 1;
-            uint16_t OnOff : 1;
-
-            uint16_t LeftArrow : 1;
-            uint16_t RightArrow : 1;
-            uint16_t VoltageCurrent : 1;
-
-            uint16_t Reserved : 5;
-        } Bits;
-
-        uint16_t Value;
-
-    } keyboard_keys_t;
-
-    typedef struct
-    {
-        keyboard_keys_t Keys;
-
-        int8_t DialValue;
-
-    } keyboard_t;
 
     /* USER CODE END ET */
 

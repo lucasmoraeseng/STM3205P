@@ -33,15 +33,26 @@
 //--------------------------------------------------------------------
 data_storage_t flashData;
 
+// const data_storage_t DefaultFlashData =
+// {
+//         .Signature = FLASH_SIGNATURE,
+
+//         .memory1 = {5.0f, 1.0f, true, false},
+//         .memory2 = {3.3f, 2.0f, false, false},
+//         .memory3 = {12.0f, 3.0f, false, false},
+//         .memory4 = {24.0f, 4.0f, false, false},
+//         .memory5 = {32.0f, 5.0f, false, false}
+// };
+
 const data_storage_t DefaultFlashData =
     {
         .Signature = FLASH_SIGNATURE,
 
-        .memory1 = {5.0f, 1.0f, true, false},
-        .memory2 = {3.3f, 2.0f, false, false},
-        .memory3 = {12.0f, 3.0f, false, false},
-        .memory4 = {24.0f, 4.0f, false, false},
-        .memory5 = {32.0f, 5.0f, false, false}};
+        .memory1 = {5000, 1000, true, false},
+        .memory2 = {3300, 2000, false, false},
+        .memory3 = {12000, 3000, false, false},
+        .memory4 = {24000, 4000, false, false},
+        .memory5 = {32000, 5000, false, false}};
 
 //--------------------------------------------------------------------
 // Code

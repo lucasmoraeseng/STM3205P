@@ -112,6 +112,8 @@
 
 #define disp_dot 0x04
 
+#define accx3_t int32_t // num x 1000 so 1.234 is represented as 1234
+
 //--------------------------------------------------------------------
 // Typedef enum
 //--------------------------------------------------------------------
@@ -163,16 +165,19 @@ extern void display_EnableDisplay(uint8_t display);
 extern void display_DisableDisplay(uint8_t display);
 extern void display_DisableAll();
 // extern void display_DisplayNext();
-extern void display_PrepareData(Display_t *obj, float voltage, float current);
+extern void display_PrepareDataFloat(Display_t *obj, float voltage, float current);
+extern void display_PrepareDataACCX3(Display_t *obj, settings_accx3_t data);
 // extern void display_SetCharOnMemory(uint8_t bus_high, uint8_t bus_low, uint8_t display);
 // extern void display_SetNumberOnMemory(uint8_t bus_high, uint8_t dot_high, uint8_t bus_low, uint8_t dot_low, uint8_t display);
 extern uint8_t display_GetNumberData(uint8_t number, uint8_t display);
 extern void display_Float2Digits(float value, Digits4_t *digits);
+extern void display_ACCX32Digits(accx3_t value, Digits4_t *digits);
 extern void display_update(Display_t *obj);
 
 //--------------------------------------------------------------------
 // General Variables
 //--------------------------------------------------------------------
 extern HAL_74HC595_t display_obj;
+extern settings_accx3_t actualData;
 
 #endif /* SRC_DISPLAY_H_ */
