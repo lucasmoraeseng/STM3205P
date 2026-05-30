@@ -179,5 +179,6 @@ extern void display_update(Display_t *obj);
 extern HAL_74HC595_t display_obj;
 extern settings_accx3_t actualData;
 extern Display_t display;
+extern uint32_t frameCounter;
 
 #endif /* SRC_DISPLAY_H_ */

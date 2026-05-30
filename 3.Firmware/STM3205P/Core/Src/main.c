@@ -69,8 +69,6 @@ ADC_ChannelConfTypeDef cfgVoltageADC;
 ADC_ChannelConfTypeDef cfgCurrentADC;
 ADC_ChannelConfTypeDef cfgTemperatureADC;
 
-uint32_t frameCounter = 0;
-
 uint8_t enChangeValue = 0;
 uint8_t digitToChange = 0;
 uint32_t startBlink = 0;
