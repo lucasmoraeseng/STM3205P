@@ -160,21 +160,21 @@ typedef struct
 //--------------------------------------------------------------------
 // Function prototype
 //--------------------------------------------------------------------
-extern void display_Init(Display_t *obj);
-extern void display_WriteBus(uint16_t data);
-extern void display_EnableDisplay(uint8_t display);
-extern void display_DisableDisplay(uint8_t display);
-extern void display_DisableAll();
+extern void Display_Init(Display_t *obj);
+extern void Display_WriteBus(uint16_t data);
+extern void Display_EnableDisplay(uint8_t dp);
+extern void Display_DisableDisplay(uint8_t dp);
+extern void Display_DisableAll();
 // extern void display_DisplayNext();
-extern void display_PrepareDataFloat(Display_t *obj, float voltage, float current);
-extern void display_PrepareDataACCX3(Display_t *obj, settings_accx3_t data);
+extern void Display_PrepareDataFloat(Display_t *obj, float voltage, float current);
+extern void Display_PrepareDataACCX3(Display_t *obj, settings_accx3_t data);
 // extern void display_SetCharOnMemory(uint8_t bus_high, uint8_t bus_low, uint8_t display);
 // extern void display_SetNumberOnMemory(uint8_t bus_high, uint8_t dot_high, uint8_t bus_low, uint8_t dot_low, uint8_t display);
-extern uint8_t display_GetNumberData(uint8_t number, uint8_t display);
-extern void display_Float2Digits(float value, Digits4_t *digits);
-extern void display_ACCX32Digits(accx3_t value, Digits4_t *digits);
-extern void display_update(Display_t *obj);
-extern void display_clearMemoryLeds(Display_t *obj);
+extern uint8_t Display_GetNumberData(uint8_t number, uint8_t dp);
+extern void Display_Float2Digits(float value, Digits4_t *digits);
+extern void Display_ACCX32Digits(accx3_t value, Digits4_t *digits);
+extern void Display_Update(Display_t *obj);
+extern void Display_ClearMemoryLeds(Display_t *obj);
 
 //--------------------------------------------------------------------
 // General Variables

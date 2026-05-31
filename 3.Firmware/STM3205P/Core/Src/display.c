@@ -57,7 +57,7 @@ uint32_t frameCounter = 0;
  *
  *
 ###################################################################*/
-void display_Init(Display_t *obj)
+void Display_Init(Display_t *obj)
 {
     HAL_GPIO_WritePin(display1_GPIO_Port, display1_Pin, GPIO_PIN_RESET);
     HAL_GPIO_WritePin(display2_GPIO_Port, display2_Pin, GPIO_PIN_RESET);
@@ -92,7 +92,7 @@ void display_Init(Display_t *obj)
  *
  *
 ###################################################################*/
-void display_WriteBus(uint16_t data)
+void Display_WriteBus(uint16_t data)
 {
     // Ensure the latch pin is LOW before starting the transmission
     HAL_GPIO_WritePin(STCP2_GPIO_Port, STCP2_Pin, GPIO_PIN_RESET);
@@ -137,29 +137,29 @@ void display_WriteBus(uint16_t data)
  *
  *
 ###################################################################*/
-void display_EnableDisplay(uint8_t display)
+void Display_EnableDisplay(uint8_t dp)
 {
-    if(display == 1)
+    if(dp == 1)
     {
         HAL_GPIO_WritePin(display1_GPIO_Port, display1_Pin, GPIO_PIN_SET);
     }
 
-    if(display == 2)
+    if(dp == 2)
     {
         HAL_GPIO_WritePin(display2_GPIO_Port, display2_Pin, GPIO_PIN_SET);
     }
 
-    if(display == 3)
+    if(dp == 3)
     {
         HAL_GPIO_WritePin(display3_GPIO_Port, display3_Pin, GPIO_PIN_SET);
     }
 
-    if(display == 4)
+    if(dp == 4)
     {
         HAL_GPIO_WritePin(display4_GPIO_Port, display4_Pin, GPIO_PIN_SET);
     }
 
-    if(display == 5)
+    if(dp == 5)
     {
         HAL_GPIO_WritePin(display5_GPIO_Port, display5_Pin, GPIO_PIN_SET);
     }
@@ -181,29 +181,29 @@ void display_EnableDisplay(uint8_t display)
  *
  *
 ###################################################################*/
-void display_DisableDisplay(uint8_t display)
+void Display_DisableDisplay(uint8_t dp)
 {
-    if(display == 1)
+    if(dp == 1)
     {
         HAL_GPIO_WritePin(display1_GPIO_Port, display1_Pin, GPIO_PIN_RESET);
     }
 
-    if(display == 2)
+    if(dp == 2)
     {
         HAL_GPIO_WritePin(display2_GPIO_Port, display2_Pin, GPIO_PIN_RESET);
     }
 
-    if(display == 3)
+    if(dp == 3)
     {
         HAL_GPIO_WritePin(display3_GPIO_Port, display3_Pin, GPIO_PIN_RESET);
     }
 
-    if(display == 4)
+    if(dp == 4)
     {
         HAL_GPIO_WritePin(display4_GPIO_Port, display4_Pin, GPIO_PIN_RESET);
     }
 
-    if(display == 5)
+    if(dp == 5)
     {
         HAL_GPIO_WritePin(display5_GPIO_Port, display5_Pin, GPIO_PIN_RESET);
     }
@@ -225,7 +225,7 @@ void display_DisableDisplay(uint8_t display)
  *
  *
 ###################################################################*/
-void display_DisableAll()
+void Display_DisableAll()
 {
     HAL_GPIO_WritePin(display1_GPIO_Port, display1_Pin, GPIO_PIN_RESET);
     HAL_GPIO_WritePin(display2_GPIO_Port, display2_Pin, GPIO_PIN_RESET);
@@ -281,33 +281,18 @@ void display_DisableAll()
  *
  *
 ###################################################################*/
-void display_PrepareDataFloat(Display_t *obj, float voltage, float current)
+void Display_PrepareDataFloat(Display_t *obj, float voltage, float current)
 {
     Digits4_t v_digits;
     Digits4_t c_digits;
     // uint8_t v_dot[4] = {0, 0, 0, 0};
     // uint8_t c_dot[4] = {0, 0, 0, 0};
 
-    display_Float2Digits(voltage, &v_digits);
-    display_Float2Digits(current, &c_digits);
+    Display_Float2Digits(voltage, &v_digits);
+    Display_Float2Digits(current, &c_digits);
 
     obj->display1 = v_digits;
     obj->display2 = c_digits;
-
-    // if(v_digits.dot_position)
-    // {
-    //     v_dot[v_digits.dot_position - 1] = 1;
-    // }
-
-    // if(c_digits.dot_position)
-    // {
-    //     c_dot[c_digits.dot_position - 1] = 1;
-    // }
-
-    // display_SetNumberOnMemory(v_digits.d1, v_dot[0], c_digits.d1, c_dot[0], 1);
-    // display_SetNumberOnMemory(v_digits.d2, v_dot[1], c_digits.d2, c_dot[1], 2);
-    // display_SetNumberOnMemory(v_digits.d3, v_dot[2], c_digits.d3, c_dot[2], 3);
-    // display_SetNumberOnMemory(v_digits.d4, v_dot[3], c_digits.d4, c_dot[3], 4);
 }
 
 /* ###################################################################
@@ -326,35 +311,20 @@ void display_PrepareDataFloat(Display_t *obj, float voltage, float current)
  *
  *
 ###################################################################*/
-void display_PrepareDataACCX3(Display_t *obj, settings_accx3_t data)
+void Display_PrepareDataACCX3(Display_t *obj, settings_accx3_t data)
 {
     Digits4_t v_digits;
     Digits4_t c_digits;
     // uint8_t v_dot[4] = {0, 0, 0, 0};
     // uint8_t c_dot[4] = {0, 0, 0, 0};
 
-    display_ACCX32Digits(data.Voltage, &v_digits);
-    display_ACCX32Digits(data.Current, &c_digits);
+    Display_ACCX32Digits(data.Voltage, &v_digits);
+    Display_ACCX32Digits(data.Current, &c_digits);
 
     obj->display1 = v_digits;
     obj->display2 = c_digits;
     obj->ledOCP = data.OCP;
     obj->ledOVP = data.OVP;
-
-    // if(v_digits.dot_position)
-    // {
-    //     v_dot[v_digits.dot_position - 1] = 1;
-    // }
-
-    // if(c_digits.dot_position)
-    // {
-    //     c_dot[c_digits.dot_position - 1] = 1;
-    // }
-
-    // display_SetNumberOnMemory(v_digits.d1, v_dot[0], c_digits.d1, c_dot[0], 1);
-    // display_SetNumberOnMemory(v_digits.d2, v_dot[1], c_digits.d2, c_dot[1], 2);
-    // display_SetNumberOnMemory(v_digits.d3, v_dot[2], c_digits.d3, c_dot[2], 3);
-    // display_SetNumberOnMemory(v_digits.d4, v_dot[3], c_digits.d4, c_dot[3], 4);
 }
 
 /* ###################################################################
@@ -373,7 +343,7 @@ void display_PrepareDataACCX3(Display_t *obj, settings_accx3_t data)
  *
  *
 ###################################################################*/
-// void display_SetCharOnMemory(Display_t *obj, uint8_t bus_high, uint8_t bus_low, uint8_t display)
+// void Display_SetCharOnMemory(Display_t *obj, uint8_t bus_high, uint8_t bus_low, uint8_t display)
 // {
 //     uint16_t data = (bus_high << 8) | bus_low;
 //     if(display == 1)
@@ -413,7 +383,7 @@ void display_PrepareDataACCX3(Display_t *obj, settings_accx3_t data)
  *
  *
 ###################################################################*/
-// void display_SetNumberOnMemory(uint8_t bus_high, uint8_t dot_high, uint8_t bus_low, uint8_t dot_low, uint8_t display)
+// void Display_SetNumberOnMemory(uint8_t bus_high, uint8_t dot_high, uint8_t bus_low, uint8_t dot_low, uint8_t display)
 // {
 //     uint16_t dataH = display_GetNumberData(bus_high, 1);
 //     uint16_t dataL = display_GetNumberData(bus_low, 2);
@@ -467,68 +437,68 @@ void display_PrepareDataACCX3(Display_t *obj, settings_accx3_t data)
  *
  *
 ###################################################################*/
-uint8_t display_GetNumberData(uint8_t number, uint8_t display)
+uint8_t Display_GetNumberData(uint8_t number, uint8_t dp)
 {
     switch(number)
     {
     case 0:
-        if(display == 1)
+        if(dp == 1)
             return disp1_0;
-        if(display == 2)
+        if(dp == 2)
             return disp2_0;
         break;
     case 1:
-        if(display == 1)
+        if(dp == 1)
             return disp1_1;
-        if(display == 2)
+        if(dp == 2)
             return disp2_1;
         break;
     case 2:
-        if(display == 1)
+        if(dp == 1)
             return disp1_2;
-        if(display == 2)
+        if(dp == 2)
             return disp2_2;
         break;
     case 3:
-        if(display == 1)
+        if(dp == 1)
             return disp1_3;
-        if(display == 2)
+        if(dp == 2)
             return disp2_3;
         break;
     case 4:
-        if(display == 1)
+        if(dp == 1)
             return disp1_4;
-        if(display == 2)
+        if(dp == 2)
             return disp2_4;
         break;
     case 5:
-        if(display == 1)
+        if(dp == 1)
             return disp1_5;
-        if(display == 2)
+        if(dp == 2)
             return disp2_5;
         break;
     case 6:
-        if(display == 1)
+        if(dp == 1)
             return disp1_6;
-        if(display == 2)
+        if(dp == 2)
             return disp2_6;
         break;
     case 7:
-        if(display == 1)
+        if(dp == 1)
             return disp1_7;
-        if(display == 2)
+        if(dp == 2)
             return disp2_7;
         break;
     case 8:
-        if(display == 1)
+        if(dp == 1)
             return disp1_8;
-        if(display == 2)
+        if(dp == 2)
             return disp2_8;
         break;
     case 9:
-        if(display == 1)
+        if(dp == 1)
             return disp1_9;
-        if(display == 2)
+        if(dp == 2)
             return disp2_9;
         break;
     }
@@ -552,7 +522,7 @@ uint8_t display_GetNumberData(uint8_t number, uint8_t display)
  *
  *
 ###################################################################*/
-void display_Float2Digits(float value, Digits4_t *digits)
+void Display_Float2Digits(float value, Digits4_t *digits)
 {
     uint16_t value_int = 0;
     uint16_t temp_value = 0;
@@ -617,7 +587,7 @@ void display_Float2Digits(float value, Digits4_t *digits)
  *
  *
 ###################################################################*/
-void display_ACCX32Digits(accx3_t value, Digits4_t *digits)
+void Display_ACCX32Digits(accx3_t value, Digits4_t *digits)
 {
     uint32_t value_int;
     uint32_t temp_value = 0;
@@ -689,7 +659,7 @@ void display_ACCX32Digits(accx3_t value, Digits4_t *digits)
  *
  *
 ###################################################################*/
-void display_update(Display_t *obj)
+void Display_Update(Display_t *obj)
 {
     uint8_t data[2] = {0x00, 0x00};
 
@@ -701,8 +671,8 @@ void display_update(Display_t *obj)
 
     if(obj->disp_cnt == 0)
     {
-        data[0] = display_GetNumberData(obj->display2.d2, 2) | (obj->display2.d2_dot ? disp_dot : 0x00);
-        data[1] = display_GetNumberData(obj->display1.d2, 1) | (obj->display1.d2_dot ? disp_dot : 0x00);
+        data[0] = Display_GetNumberData(obj->display2.d2, 2) | (obj->display2.d2_dot ? disp_dot : 0x00);
+        data[1] = Display_GetNumberData(obj->display1.d2, 1) | (obj->display1.d2_dot ? disp_dot : 0x00);
 
         if(obj->blink_index == 2)
         {
@@ -717,8 +687,8 @@ void display_update(Display_t *obj)
     }
     else if(obj->disp_cnt == 1)
     {
-        data[0] = display_GetNumberData(obj->display2.d1, 2) | (obj->display2.d1_dot ? disp_dot : 0x00);
-        data[1] = display_GetNumberData(obj->display1.d1, 1) | (obj->display1.d1_dot ? disp_dot : 0x00);
+        data[0] = Display_GetNumberData(obj->display2.d1, 2) | (obj->display2.d1_dot ? disp_dot : 0x00);
+        data[1] = Display_GetNumberData(obj->display1.d1, 1) | (obj->display1.d1_dot ? disp_dot : 0x00);
 
         if(obj->blink_index == 1)
         {
@@ -736,25 +706,25 @@ void display_update(Display_t *obj)
         data[0] = 0;
         data[1] = 0;
 
-        data[0] |= (obj->ledOUT << 0);
-        data[0] |= (obj->ledM5 << 1);
-        data[0] |= (obj->ledM4 << 2);
-        data[0] |= (obj->ledCV << 4);
-        data[0] |= (obj->ledM2 << 7);
+        data[0] |= ((obj->ledOUT & 0x01) << 0);
+        data[0] |= ((obj->ledM5 & 0x01) << 1);
+        data[0] |= ((obj->ledM4 & 0x01) << 2);
+        data[0] |= ((obj->ledCV & 0x01) << 4);
+        data[0] |= ((obj->ledM2 & 0x01) << 7);
 
-        data[1] |= (obj->ledCC << 0);
-        data[1] |= (obj->ledM3 << 1);
-        data[1] |= (obj->ledOCP << 3);
-        data[1] |= (obj->ledOVP << 5);
-        data[1] |= (obj->ledM1 << 7);
+        data[1] |= ((obj->ledCC & 0x01) << 0);
+        data[1] |= ((obj->ledM3 & 0x01) << 1);
+        data[1] |= ((obj->ledOCP & 0x01) << 3);
+        data[1] |= ((obj->ledOVP & 0x01) << 5);
+        data[1] |= ((obj->ledM1 & 0x01) << 7);
 
         HAL_74HC595_WriteData(&obj->hAL_74HC595, data);
         HAL_GPIO_WritePin(display3_GPIO_Port, display3_Pin, GPIO_PIN_SET);
     }
     else if(obj->disp_cnt == 3)
     {
-        data[0] = display_GetNumberData(obj->display2.d3, 2) | (obj->display2.d3_dot ? disp_dot : 0x00);
-        data[1] = display_GetNumberData(obj->display1.d3, 1) | (obj->display1.d3_dot ? disp_dot : 0x00);
+        data[0] = Display_GetNumberData(obj->display2.d3, 2) | (obj->display2.d3_dot ? disp_dot : 0x00);
+        data[1] = Display_GetNumberData(obj->display1.d3, 1) | (obj->display1.d3_dot ? disp_dot : 0x00);
 
         if(obj->blink_index == 3)
         {
@@ -769,8 +739,8 @@ void display_update(Display_t *obj)
     }
     else if(obj->disp_cnt == 4)
     {
-        data[0] = display_GetNumberData(obj->display2.d4, 2) | (obj->display2.d4_dot ? disp_dot : 0x00);
-        data[1] = display_GetNumberData(obj->display1.d4, 1) | (obj->display1.d4_dot ? disp_dot : 0x00);
+        data[0] = Display_GetNumberData(obj->display2.d4, 2) | (obj->display2.d4_dot ? disp_dot : 0x00);
+        data[1] = Display_GetNumberData(obj->display1.d4, 1) | (obj->display1.d4_dot ? disp_dot : 0x00);
 
         if(obj->blink_index == 4)
         {
@@ -807,7 +777,7 @@ void display_update(Display_t *obj)
  *
  *
 ###################################################################*/
-void display_clearMemoryLeds(Display_t *obj)
+void Display_ClearMemoryLeds(Display_t *obj)
 {
     obj->ledM1 = 0;
     obj->ledM2 = 0;

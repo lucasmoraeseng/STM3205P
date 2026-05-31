@@ -52,7 +52,7 @@ typedef struct
     Button_t VoltageCurrent;
 
     int8_t DialValue;
-    uint8_t DialDirection;
+    int8_t DialDirection;
     uint8_t DialStep;
     uint8_t DialPrevState;
 

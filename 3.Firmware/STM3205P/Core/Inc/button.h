@@ -50,6 +50,10 @@ typedef struct
 extern void Button_Init(Button_t *btn_obj);
 extern void Button_Update(Button_t *btn_obj, uint8_t state);
 
+extern bool Button_KeyDownEvent(Button_t *btn_obj);
+extern bool Button_KeyUpEvent(Button_t *btn_obj);
+extern bool Button_KeyPressedTimeEvent(Button_t *btn_obj, uint32_t time_threshold);
+
 //--------------------------------------------------------------------
 // General Variables
 //--------------------------------------------------------------------

@@ -31,6 +31,7 @@
 /* USER CODE BEGIN Includes */
 #include "DAC8830.h"
 #include "RingBuffer.h"
+#include "button.h"
 #include "display.h"
 #include "flash.h"
 #include "keyboard.h"
@@ -103,7 +104,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
             display.blink_state = !display.blink_state;
         }
 
-        display_update(&display);
+        Display_Update(&display);
     }
     else if(htim->Instance == TIM3)
     {
@@ -157,7 +158,7 @@ int main(void)
     HAL_Init();
 
     /* USER CODE BEGIN Init */
-    display_Init(&display);
+    Display_Init(&display);
 
     display.ledM1 = true;
 
@@ -166,7 +167,7 @@ int main(void)
     actualData.OCP = flashData.memory1.OCP;
     actualData.OVP = flashData.memory1.OVP;
 
-    display_PrepareDataACCX3(&display, actualData);
+    Display_PrepareDataACCX3(&display, actualData);
 
     // display.blink_display = 2;
     // display.blink_index = 1;
@@ -212,193 +213,128 @@ int main(void)
         }
         else
         {
-            // if(Keyboard.Keys.Bits.M1 && !KeyboardPrev.Keys.Bits.M1)
-            // {
-            //     KeyboardPrev.Keys.Bits.M1 = 1;
-            // }
-            // else if(!Keyboard.Keys.Bits.M1 && KeyboardPrev.Keys.Bits.M1)
-            // {
-            //     display.ledM2 = false;
-            //     display.ledM3 = false;
-            //     display.ledM4 = false;
-            //     display.ledM5 = false;
-            //     display.ledM1 = true;
-            //     KeyboardPrev.Keys.Bits.M1 = 0;
-            //     actualData.Voltage = flashData.memory1.Voltage;
-            //     actualData.Current = flashData.memory1.Current;
-            //     actualData.OCP = flashData.memory1.OCP;
-            //     actualData.OVP = flashData.memory1.OVP;
+            if(Button_KeyUpEvent(&Keyboard.M1))
+            {
+                Display_ClearMemoryLeds(&display);
+                display.ledM1 = true;
+                actualData = flashData.memory1;
+                Display_PrepareDataACCX3(&display, actualData);
+            }
 
-            //     display_PrepareDataACCX3(&display, actualData);
-            // }
+            if(Button_KeyUpEvent(&Keyboard.M2))
+            {
+                Display_ClearMemoryLeds(&display);
+                display.ledM2 = true;
+                actualData = flashData.memory2;
+                Display_PrepareDataACCX3(&display, actualData);
+            }
 
-            // if(Keyboard.Keys.Bits.M2 && !KeyboardPrev.Keys.Bits.M2)
-            // {
-            //     KeyboardPrev.Keys.Bits.M2 = 1;
-            // }
-            // else if(!Keyboard.Keys.Bits.M2 && KeyboardPrev.Keys.Bits.M2)
-            // {
-            //     display.ledM1 = false;
-            //     display.ledM3 = false;
-            //     display.ledM4 = false;
-            //     display.ledM5 = false;
-            //     display.ledM2 = true;
-            //     KeyboardPrev.Keys.Bits.M2 = 0;
-            //     actualData.Voltage = flashData.memory2.Voltage;
-            //     actualData.Current = flashData.memory2.Current;
-            //     actualData.OCP = flashData.memory2.OCP;
-            //     actualData.OVP = flashData.memory2.OVP;
+            if(Button_KeyUpEvent(&Keyboard.M3))
+            {
+                Display_ClearMemoryLeds(&display);
+                display.ledM3 = true;
+                actualData = flashData.memory3;
+                Display_PrepareDataACCX3(&display, actualData);
+            }
 
-            //     display_PrepareDataACCX3(&display, actualData);
-            // }
+            if(Button_KeyUpEvent(&Keyboard.M4))
+            {
+                Display_ClearMemoryLeds(&display);
+                display.ledM4 = true;
+                actualData = flashData.memory4;
+                Display_PrepareDataACCX3(&display, actualData);
+            }
 
-            // if(Keyboard.Keys.Bits.M3 && !KeyboardPrev.Keys.Bits.M3)
-            // {
-            //     KeyboardPrev.Keys.Bits.M3 = 1;
-            // }
-            // else if(!Keyboard.Keys.Bits.M3 && KeyboardPrev.Keys.Bits.M3)
-            // {
-            //     display.ledM1 = false;
-            //     display.ledM2 = false;
-            //     display.ledM4 = false;
-            //     display.ledM5 = false;
-            //     display.ledM3 = true;
-            //     KeyboardPrev.Keys.Bits.M3 = 0;
-            //     actualData.Voltage = flashData.memory3.Voltage;
-            //     actualData.Current = flashData.memory3.Current;
-            //     actualData.OCP = flashData.memory3.OCP;
-            //     actualData.OVP = flashData.memory3.OVP;
+            if(Button_KeyUpEvent(&Keyboard.OCP))
+            {
+                actualData.OCP = actualData.OCP == 0 ? 1 : 0;
+                display.ledOCP = actualData.OCP;
+            }
 
-            //     display_PrepareDataACCX3(&display, actualData);
-            // }
+            if(Button_KeyUpEvent(&Keyboard.OVP))
+            {
+                actualData.OVP = actualData.OVP == 0 ? 1 : 0;
+                display.ledOVP = actualData.OVP;
+            }
 
-            // if(Keyboard.Keys.Bits.M4 && !KeyboardPrev.Keys.Bits.M4)
-            // {
-            //     KeyboardPrev.Keys.Bits.M4 = 1;
-            // }
-            // else if(!Keyboard.Keys.Bits.M4 && KeyboardPrev.Keys.Bits.M4)
-            // {
-            //     display.ledM1 = false;
-            //     display.ledM2 = false;
-            //     display.ledM3 = false;
-            //     display.ledM5 = false;
-            //     display.ledM4 = true;
-            //     KeyboardPrev.Keys.Bits.M4 = 0;
-            //     actualData.Voltage = flashData.memory4.Voltage;
-            //     actualData.Current = flashData.memory4.Current;
-            //     actualData.OCP = flashData.memory4.OCP;
-            //     actualData.OVP = flashData.memory4.OVP;
+            if(Button_KeyUpEvent(&Keyboard.VoltageCurrent))
+            {
+                if(enChangeValue)
+                {
+                    if(display.blink_display == 1)
+                    {
+                        display.blink_display = 2;
+                    }
+                    else
+                    {
+                        display.blink_display = 1;
+                    }
+                }
+                else
+                {
+                    enChangeValue = true;
+                    display.blink_display = 1;
+                    display.blink_index = 1;
+                }
 
-            //     display_PrepareDataACCX3(&display, actualData);
-            // }
+                startBlink = display.frame_cnt;
+            }
 
-            // if(Keyboard.Keys.Bits.OCP && !KeyboardPrev.Keys.Bits.OCP)
-            // {
-            //     KeyboardPrev.Keys.Bits.OCP = 1;
-            // }
-            // else if(!Keyboard.Keys.Bits.OCP && KeyboardPrev.Keys.Bits.OCP)
-            // {
-            //     KeyboardPrev.Keys.Bits.OCP = 0;
-            //     actualData.OCP = ~actualData.OCP;
-            //     display.ledOCP = actualData.OCP;
-            // }
+            if(Button_KeyUpEvent(&Keyboard.LeftArrow))
+            {
+                if(enChangeValue)
+                {
+                    if(display.blink_index > 1)
+                    {
+                        display.blink_index--;
+                    }
+                }
+                startBlink = display.frame_cnt;
+            }
 
-            // if(Keyboard.Keys.Bits.OVP && !KeyboardPrev.Keys.Bits.OVP)
-            // {
-            //     KeyboardPrev.Keys.Bits.OVP = 1;
-            // }
-            // else if(!Keyboard.Keys.Bits.OVP && KeyboardPrev.Keys.Bits.OVP)
-            // {
-            //     KeyboardPrev.Keys.Bits.OVP = 0;
-            //     actualData.OVP = ~actualData.OVP;
-            //     display.ledOVP = actualData.OVP;
-            // }
+            if(Button_KeyUpEvent(&Keyboard.RightArrow))
+            {
+                if(enChangeValue)
+                {
+                    if(display.blink_index < 4)
+                    {
+                        display.blink_index++;
+                    }
+                }
+                startBlink = display.frame_cnt;
+            }
 
-            // if(Keyboard.Keys.Bits.VoltageCurrent && !KeyboardPrev.Keys.Bits.VoltageCurrent)
-            // {
-            //     KeyboardPrev.Keys.Bits.VoltageCurrent = 1;
-            // }
-            // else if(!Keyboard.Keys.Bits.VoltageCurrent && KeyboardPrev.Keys.Bits.VoltageCurrent)
-            // {
-            //     KeyboardPrev.Keys.Bits.VoltageCurrent = 0;
-            //     if(enChangeValue)
-            //     {
-            //         if(display.blink_display == 1)
-            //         {
-            //             display.blink_display = 2;
-            //         }
-            //         else
-            //         {
-            //             display.blink_display = 1;
-            //         }
-            //     }
-            //     else
-            //     {
-            //         enChangeValue = true;
-            //         display.blink_display = 1;
-            //         display.blink_index = 1;
-            //     }
+            if(enChangeValue)
+            {
+                if(display.frame_cnt - startBlink > 10000)
+                {
+                    enChangeValue = false;
+                    display.blink_display = 0;
+                }
 
-            //     startBlink = display.frame_cnt;
-            // }
+                if(Keyboard.DialValue != 0)
+                {
+                    startBlink = display.frame_cnt;
+                    if(display.blink_display == 2)
+                    {
+                        Keyboard_ValueAdjust(&Keyboard,
+                                             display.blink_index,
+                                             &actualData.Voltage,
+                                             VOLTAGE_LIMIT_SUPERIOR,
+                                             VOLTAGE_LIMIT_INFERIOR);
+                    }
+                    else if(display.blink_display == 1)
+                    {
+                        Keyboard_ValueAdjust(&Keyboard,
+                                             display.blink_index,
+                                             &actualData.Current,
+                                             CURRENT_LIMIT_SUPERIOR,
+                                             CURRENT_LIMIT_INFERIOR);
+                    }
 
-            // if(Keyboard.Keys.Bits.LeftArrow && !KeyboardPrev.Keys.Bits.LeftArrow)
-            // {
-            //     KeyboardPrev.Keys.Bits.LeftArrow = 1;
-            // }
-            // else if(!Keyboard.Keys.Bits.LeftArrow && KeyboardPrev.Keys.Bits.LeftArrow)
-            // {
-            //     KeyboardPrev.Keys.Bits.LeftArrow = 0;
-            //     if(enChangeValue)
-            //     {
-            //         if(display.blink_index > 1)
-            //         {
-            //             display.blink_index--;
-            //         }
-            //     }
-            //     startBlink = display.frame_cnt;
-            // }
-
-            // if(Keyboard.Keys.Bits.RightArrow && !KeyboardPrev.Keys.Bits.RightArrow)
-            // {
-            //     KeyboardPrev.Keys.Bits.RightArrow = 1;
-            // }
-            // else if(!Keyboard.Keys.Bits.RightArrow && KeyboardPrev.Keys.Bits.RightArrow)
-            // {
-            //     KeyboardPrev.Keys.Bits.RightArrow = 0;
-            //     if(enChangeValue)
-            //     {
-            //         if(display.blink_index < 4)
-            //         {
-            //             display.blink_index++;
-            //         }
-            //     }
-            //     startBlink = display.frame_cnt;
-            // }
-
-            // if(enChangeValue)
-            // {
-            //     if(display.frame_cnt - startBlink > 10000)
-            //     {
-            //         enChangeValue = false;
-            //         display.blink_display = 0;
-            //     }
-
-            //     if(Keyboard.DialValue != 0)
-            //     {
-            //         startBlink = display.frame_cnt;
-            //         if(display.blink_display == 2)
-            //         {
-            //             Keyboard_VoltageAdjust();
-            //         }
-            //         else if(display.blink_display == 1)
-            //         {
-            //             Keyboard_CurrentAdjust();
-            //         }
-
-            //         display_PrepareDataACCX3(&display, actualData);
-            //     }
-            // }
+                    Display_PrepareDataACCX3(&display, actualData);
+                }
+            }
         }
 
         /* USER CODE END WHILE */
