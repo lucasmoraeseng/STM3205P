@@ -17,75 +17,58 @@
 // Includes
 //--------------------------------------------------------------------
 
-#include "data_types.h"
-#include "display.h"
-#include "main.h"
 #include "stdbool.h"
 #include "stdint.h"
 #include "stm32f1xx_hal.h"
 #include <string.h>
 
+#include "button.h"
+#include "data_types.h"
+#include "display.h"
+#include "main.h"
+
 //--------------------------------------------------------------------
 // Definitions
 //--------------------------------------------------------------------
-#define VOLTAGE_LIMIT_SUPERIOR 32000 // 32.000V
-#define VOLTAGE_LIMIT_INFERIOR 0     // 0.000V
-
-#define CURRENT_LIMIT_SUPERIOR 5000 // 5.000A
-#define CURRENT_LIMIT_INFERIOR 0    // 0.000A
 
 //--------------------------------------------------------------------
 // Typedef structs
 //--------------------------------------------------------------------
-typedef union
-{
-    struct
-    {
-        uint16_t M1 : 1;
-        uint16_t M2 : 1;
-        uint16_t M3 : 1;
-        uint16_t M4 : 1;
-
-        uint16_t Lock : 1;
-        uint16_t OCP : 1;
-        uint16_t OVP : 1;
-        uint16_t OnOff : 1;
-
-        uint16_t LeftArrow : 1;
-        uint16_t RightArrow : 1;
-        uint16_t VoltageCurrent : 1;
-
-        uint16_t Reserved : 5;
-    } Bits;
-
-    uint16_t Value;
-
-} keyboard_keys_t;
 
 typedef struct
 {
-    keyboard_keys_t Keys;
+    Button_t M1;
+    Button_t M2;
+    Button_t M3;
+    Button_t M4;
+
+    Button_t Lock;
+    Button_t OCP;
+    Button_t OVP;
+    Button_t OnOff;
+
+    Button_t LeftArrow;
+    Button_t RightArrow;
+    Button_t VoltageCurrent;
 
     int8_t DialValue;
+    uint8_t DialDirection;
+    uint8_t DialStep;
+    uint8_t DialPrevState;
 
-} keyboard_t;
+} Keyboard_t;
 
 //--------------------------------------------------------------------
 // Function prototype
 //--------------------------------------------------------------------
-extern void Keyboard_Read();
-extern void Keyboard_VoltageAdjust();
-extern void Keyboard_CurrentAdjust();
+extern void Keyboard_Init(Keyboard_t *kb_obj);
+extern void Keyboard_Read(Keyboard_t *kb_obj);
+extern void Keyboard_ValueAdjust(Keyboard_t *kb_obj, uint8_t dp_blink_index, accx3_t *value, int32_t limit_superior, int32_t limit_inferior);
 
 //--------------------------------------------------------------------
 // General Variables
 //--------------------------------------------------------------------
 
-extern keyboard_t Keyboard;
-extern keyboard_t KeyboardPrev;
-
-extern uint8_t DialPrevState;
-extern uint8_t DialStep;
-extern int8_t DialDirection;
+extern Keyboard_t Keyboard;
 
 #endif /* SRC_KEYBOARD_H_ */

@@ -17,9 +17,11 @@
 // Includes
 //--------------------------------------------------------------------
 
-#include "data_types.h"
 #include "stdbool.h"
 #include "stdint.h"
+
+#include "data_types.h"
+#include "display.h"
 
 //--------------------------------------------------------------------
 // Definitions
@@ -36,6 +38,8 @@ typedef struct
     uint8_t KeyDown;
     uint8_t KeyUp;
 
+    uint8_t Pressed;
+
     uint32_t PressingTime;
 
 } Button_t;
@@ -43,6 +47,8 @@ typedef struct
 //--------------------------------------------------------------------
 // Function prototype
 //--------------------------------------------------------------------
+extern void Button_Init(Button_t *btn_obj);
+extern void Button_Update(Button_t *btn_obj, uint8_t state);
 
 //--------------------------------------------------------------------
 // General Variables

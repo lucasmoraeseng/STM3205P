@@ -47,6 +47,11 @@ extern "C"
 
     /* Exported macro ------------------------------------------------------------*/
     /* USER CODE BEGIN EM */
+#define VOLTAGE_LIMIT_SUPERIOR 32000 // 32.000V
+#define VOLTAGE_LIMIT_INFERIOR 0     // 0.000V
+
+#define CURRENT_LIMIT_SUPERIOR 5000 // 5.000A
+#define CURRENT_LIMIT_INFERIOR 0    // 0.000A
 
     /* USER CODE END EM */
 

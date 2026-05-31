@@ -20,6 +20,7 @@ set(MX_Include_Dirs
 # STM32CubeMX generated application sources
 set(MX_Application_Src
     ${CMAKE_CURRENT_SOURCE_DIR}/../../Core/Src/flash.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/../../Core/Src/button.c
     ${CMAKE_CURRENT_SOURCE_DIR}/../../Core/Src/display.c
     ${CMAKE_CURRENT_SOURCE_DIR}/../../Core/Src/keyboard.c
     ${CMAKE_CURRENT_SOURCE_DIR}/../../Core/Src/DAC8830.c

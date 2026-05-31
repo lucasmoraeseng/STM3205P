@@ -52,25 +52,53 @@
  *
  *
 ###################################################################*/
-void Button_Update(Button_t *button, uint8_t state)
+void Button_Init(Button_t *btn_obj)
 {
-    button->KeyDown = 0;
-    button->KeyUp = 0;
+    btn_obj->CurrentState = 0;
+    btn_obj->PreviousState = 0;
+    btn_obj->KeyDown = 0;
+    btn_obj->KeyUp = 0;
+    btn_obj->Pressed = 0;
+    btn_obj->PressingTime = 0;
+}
 
-    button->CurrentState = state;
+/* ###################################################################
+ * Function: FunctionName
+ * Author: Moraes, L.
+ * Date: May 30, 2026
+ * Revision: 1.0
+ * --------------------
+ * Function description
+ *
+ *  arg1: input arg1
+ *
+ *  arg2: input arg2
+ *
+ *  returns: void
+ *
+ *
+###################################################################*/
+void Button_Update(Button_t *btn_obj, uint8_t state)
+{
+    btn_obj->CurrentState = state;
 
-    if((button->CurrentState == 1) &&
-       (button->PreviousState == 0))
+    if(btn_obj->KeyDown && !btn_obj->KeyUp)
     {
-        button->KeyDown = 1;
-        button->PressingTime = 0;
+        btn_obj->PressingTime++;
     }
 
-    if((button->CurrentState == 0) &&
-       (button->PreviousState == 1))
+    if((btn_obj->CurrentState == 1) && (btn_obj->PreviousState == 0))
     {
-        button->KeyUp = 1;
+        btn_obj->KeyDown = 1;
+        btn_obj->PressingTime = 0;
+        btn_obj->Pressed = 1;
     }
 
-    button->PreviousState = button->CurrentState;
+    if((btn_obj->CurrentState == 0) && (btn_obj->PreviousState == 1))
+    {
+        btn_obj->KeyUp = 1;
+        btn_obj->Pressed = 0;
+    }
+
+    btn_obj->PreviousState = btn_obj->CurrentState;
 }

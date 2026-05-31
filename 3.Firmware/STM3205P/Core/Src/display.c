@@ -790,3 +790,30 @@ void display_update(Display_t *obj)
         obj->disp_cnt = 0;
     }
 }
+
+/* ###################################################################
+ * Function:
+ * Author: Moraes, L.
+ * Date: Oct 6, 2025
+ * Revision: 1.0
+ * --------------------
+ * Initialize struct of current sensor, calculating it's parameters
+ *
+ *  arg1: input arg1
+ *
+ *  arg2: input arg2
+ *
+ *  returns: void
+ *
+ *
+###################################################################*/
+void display_clearMemoryLeds(Display_t *obj)
+{
+    obj->ledM1 = 0;
+    obj->ledM2 = 0;
+    obj->ledM3 = 0;
+    obj->ledM4 = 0;
+    obj->ledM5 = 0;
+    obj->ledOCP = 0;
+    obj->ledOVP = 0;
+}
