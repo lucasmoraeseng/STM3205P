@@ -52,7 +52,8 @@ const data_storage_t DefaultFlashData =
         .memory2 = {3300, 2000, false, false},
         .memory3 = {12000, 3000, false, false},
         .memory4 = {24000, 4000, false, false},
-        .memory5 = {32000, 5000, false, false}};
+        .memory5 = {32000, 5000, false, false},
+        .beep = 1};
 
 //--------------------------------------------------------------------
 // Code

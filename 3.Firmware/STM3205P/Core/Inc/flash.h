@@ -27,7 +27,7 @@
 // Definitions
 //--------------------------------------------------------------------
 #define FLASH_USER_START_ADDR 0x08007C00
-#define FLASH_SIGNATURE 0xD3ADBEEF
+#define FLASH_SIGNATURE 0xDEADBEEF
 
 //--------------------------------------------------------------------
 // Typedef structs

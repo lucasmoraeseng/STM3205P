@@ -54,6 +54,7 @@ typedef struct
     settings_accx3_t memory3;
     settings_accx3_t memory4;
     settings_accx3_t memory5;
+    uint8_t beep;
 } data_storage_t;
 
 //--------------------------------------------------------------------

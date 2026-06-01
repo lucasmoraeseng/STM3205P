@@ -155,6 +155,8 @@ typedef struct
     uint8_t ledM4;
     uint8_t ledM5;
     uint16_t frame_cnt;
+    uint8_t beep;
+    uint8_t beep_cnt;
 } Display_t;
 
 //--------------------------------------------------------------------

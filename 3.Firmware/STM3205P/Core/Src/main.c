@@ -104,6 +104,19 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
             display.blink_state = !display.blink_state;
         }
 
+        if(display.beep)
+        {
+            HAL_GPIO_WritePin(BY_GPIO_Port, BY_Pin, GPIO_PIN_SET);
+            display.beep_cnt++;
+        }
+
+        if(display.beep_cnt > 1000)
+        {
+            display.beep_cnt = 0;
+            display.beep = 0;
+            HAL_GPIO_WritePin(BY_GPIO_Port, BY_Pin, GPIO_PIN_RESET);
+        }
+
         Display_Update(&display);
     }
     else if(htim->Instance == TIM3)
@@ -219,6 +232,7 @@ int main(void)
                 display.ledM1 = true;
                 actualData = flashData.memory1;
                 Display_PrepareDataACCX3(&display, actualData);
+                display.beep = true;
             }
 
             if(Button_KeyUpEvent(&Keyboard.M2))
