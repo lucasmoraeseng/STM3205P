@@ -92,7 +92,7 @@ void Keyboard_Init(Keyboard_t *kb_obj)
  *
  *
 ###################################################################*/
-void Keyboard_Read(Keyboard_t *kb_obj)
+void Keyboard_Read(Keyboard_t *kb_obj, uint32_t millis)
 {
     //----------------------------------------------------------------
     // Reset keyboard matrix
@@ -111,13 +111,13 @@ void Keyboard_Read(Keyboard_t *kb_obj)
 
     // delay_us(10);
 
-    Button_Update(&kb_obj->M1, HAL_GPIO_ReadPin(key_out1_GPIO_Port, key_out1_Pin));
+    Button_Update(&kb_obj->M1, HAL_GPIO_ReadPin(key_out1_GPIO_Port, key_out1_Pin), millis);
 
-    Button_Update(&kb_obj->M4, HAL_GPIO_ReadPin(key_out2_GPIO_Port, key_out2_Pin));
+    Button_Update(&kb_obj->M4, HAL_GPIO_ReadPin(key_out2_GPIO_Port, key_out2_Pin), millis);
 
-    Button_Update(&kb_obj->M2, HAL_GPIO_ReadPin(key_out3_GPIO_Port, key_out3_Pin));
+    Button_Update(&kb_obj->M2, HAL_GPIO_ReadPin(key_out3_GPIO_Port, key_out3_Pin), millis);
 
-    Button_Update(&kb_obj->M3, HAL_GPIO_ReadPin(key_out4_GPIO_Port, key_out4_Pin));
+    Button_Update(&kb_obj->M3, HAL_GPIO_ReadPin(key_out4_GPIO_Port, key_out4_Pin), millis);
 
     HAL_GPIO_WritePin(key_in1_GPIO_Port, key_in1_Pin, GPIO_PIN_RESET);
 
@@ -128,13 +128,13 @@ void Keyboard_Read(Keyboard_t *kb_obj)
 
     // delay_us(10);
 
-    Button_Update(&kb_obj->Lock, HAL_GPIO_ReadPin(key_out1_GPIO_Port, key_out1_Pin));
+    Button_Update(&kb_obj->Lock, HAL_GPIO_ReadPin(key_out1_GPIO_Port, key_out1_Pin), millis);
 
-    Button_Update(&kb_obj->OnOff, HAL_GPIO_ReadPin(key_out2_GPIO_Port, key_out2_Pin));
+    Button_Update(&kb_obj->OnOff, HAL_GPIO_ReadPin(key_out2_GPIO_Port, key_out2_Pin), millis);
 
-    Button_Update(&kb_obj->OCP, HAL_GPIO_ReadPin(key_out3_GPIO_Port, key_out3_Pin));
+    Button_Update(&kb_obj->OCP, HAL_GPIO_ReadPin(key_out3_GPIO_Port, key_out3_Pin), millis);
 
-    Button_Update(&kb_obj->OVP, HAL_GPIO_ReadPin(key_out4_GPIO_Port, key_out4_Pin));
+    Button_Update(&kb_obj->OVP, HAL_GPIO_ReadPin(key_out4_GPIO_Port, key_out4_Pin), millis);
 
     HAL_GPIO_WritePin(key_in2_GPIO_Port, key_in2_Pin, GPIO_PIN_RESET);
 
@@ -145,11 +145,11 @@ void Keyboard_Read(Keyboard_t *kb_obj)
 
     // delay_us(10);
 
-    Button_Update(&kb_obj->LeftArrow, HAL_GPIO_ReadPin(key_out2_GPIO_Port, key_out2_Pin));
+    Button_Update(&kb_obj->LeftArrow, HAL_GPIO_ReadPin(key_out2_GPIO_Port, key_out2_Pin), millis);
 
-    Button_Update(&kb_obj->RightArrow, HAL_GPIO_ReadPin(key_out3_GPIO_Port, key_out3_Pin));
+    Button_Update(&kb_obj->RightArrow, HAL_GPIO_ReadPin(key_out3_GPIO_Port, key_out3_Pin), millis);
 
-    Button_Update(&kb_obj->VoltageCurrent, HAL_GPIO_ReadPin(key_out4_GPIO_Port, key_out4_Pin));
+    Button_Update(&kb_obj->VoltageCurrent, HAL_GPIO_ReadPin(key_out4_GPIO_Port, key_out4_Pin), millis);
 
     HAL_GPIO_WritePin(key_in3_GPIO_Port, key_in3_Pin, GPIO_PIN_RESET);
 

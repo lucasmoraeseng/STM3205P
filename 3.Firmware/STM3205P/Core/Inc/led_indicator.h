@@ -1,74 +1,60 @@
 /* ###################################################################
-**     Filename    : keyboard.h
+**     Filename    : led_indicator.h
 **     Project     : STM3205P
 **     Version     : Driver 01.00
 **     Compiler    : GNU C Compiler
-**     Date/Time   : Oct 14, 2025
+**     Date/Time   : Jun 01, 2026
 **     Author      : lucas
 **
-**     Interface para controle da flash via HAL (MX).
+**     Module description.
 **
 ** ###################################################################*/
 
-#ifndef SRC_KEYBOARD_H_
-#define SRC_KEYBOARD_H_
+#ifndef SRC_LED_INDICATOR_H_
+#define SRC_LED_INDICATOR_H_
 
 //--------------------------------------------------------------------
 // Includes
 //--------------------------------------------------------------------
 
+#include "data_types.h"
 #include "stdbool.h"
 #include "stdint.h"
-#include "stm32f1xx_hal.h"
-#include <string.h>
-
-#include "button.h"
-#include "data_types.h"
-#include "display.h"
-#include "main.h"
 
 //--------------------------------------------------------------------
 // Definitions
 //--------------------------------------------------------------------
+typedef struct
+{
+    uint8_t value;
+    uint8_t blink;
+    uint16_t time_on;
+    uint16_t time_on_started;
+    uint16_t time_off;
+    uint16_t time_off_started;
+    uint16_t blink_cnt;
+    uint16_t blink_cycles;
+} LedIndicator_t;
 
 //--------------------------------------------------------------------
 // Typedef structs
 //--------------------------------------------------------------------
 
-typedef struct
-{
-    Button_t M1;
-    Button_t M2;
-    Button_t M3;
-    Button_t M4;
-
-    Button_t Lock;
-    Button_t OCP;
-    Button_t OVP;
-    Button_t OnOff;
-
-    Button_t LeftArrow;
-    Button_t RightArrow;
-    Button_t VoltageCurrent;
-
-    int8_t DialValue;
-    int8_t DialDirection;
-    uint8_t DialStep;
-    uint8_t DialPrevState;
-
-} Keyboard_t;
-
 //--------------------------------------------------------------------
 // Function prototype
 //--------------------------------------------------------------------
-extern void Keyboard_Init(Keyboard_t *kb_obj);
-extern void Keyboard_Read(Keyboard_t *kb_obj, uint32_t millis);
-extern void Keyboard_ValueAdjust(Keyboard_t *kb_obj, uint8_t dp_blink_index, accx3_t *value, int32_t limit_superior, int32_t limit_inferior);
+extern void LedIndicator_Init(LedIndicator_t *led);
+
+extern void LedIndicator_WriteValue(LedIndicator_t *led, bool value);
+extern void LedIndicator_Set(LedIndicator_t *led);
+extern void LedIndicator_Clear(LedIndicator_t *led);
+extern void LedIndicator_Blink(LedIndicator_t *led, uint32_t millis);
+extern void LedIndicator_SetTime(LedIndicator_t *led, uint16_t time_on, uint16_t time_off);
+extern void LedIndicator_SetCycles(LedIndicator_t *led, uint16_t cycles);
+extern bool LedIndicator_Update(LedIndicator_t *led, uint32_t millis);
 
 //--------------------------------------------------------------------
 // General Variables
 //--------------------------------------------------------------------
 
-extern Keyboard_t Keyboard;
-
-#endif /* SRC_KEYBOARD_H_ */
+#endif /* SRC_LED_INDICATOR_H_ */

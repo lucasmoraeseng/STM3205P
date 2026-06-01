@@ -28,6 +28,7 @@
 
 #include "HAL_74HC595.h"
 #include "data_types.h"
+#include "led_indicator.h"
 
 //--------------------------------------------------------------------
 // Definitions
@@ -118,6 +119,62 @@
 //--------------------------------------------------------------------
 // Typedef enum
 //--------------------------------------------------------------------
+typedef enum
+{
+    BUZZER_TONE_OFF = 0,
+
+    // Octave 3
+    BUZZER_TONE_C3 = 214,  // 130.81 Hz
+    BUZZER_TONE_CS3 = 227, // 138.59 Hz
+    BUZZER_TONE_D3 = 240,  // 146.83 Hz
+    BUZZER_TONE_DS3 = 255, // 155.56 Hz
+    BUZZER_TONE_E3 = 270,  // 164.81 Hz
+    BUZZER_TONE_F3 = 286,  // 174.61 Hz
+    BUZZER_TONE_FS3 = 303, // 185.00 Hz
+    BUZZER_TONE_G3 = 321,  // 196.00 Hz
+    BUZZER_TONE_GS3 = 340, // 207.65 Hz
+    BUZZER_TONE_A3 = 360,  // 220.00 Hz
+    BUZZER_TONE_AS3 = 381, // 233.08 Hz
+    BUZZER_TONE_B3 = 404,  // 246.94 Hz
+
+    // Octave 4
+    BUZZER_TONE_C4 = 429,  // 261.63 Hz
+    BUZZER_TONE_CS4 = 454, // 277.18 Hz
+    BUZZER_TONE_D4 = 481,  // 293.66 Hz
+    BUZZER_TONE_DS4 = 510, // 311.13 Hz
+    BUZZER_TONE_E4 = 540,  // 329.63 Hz
+    BUZZER_TONE_F4 = 572,  // 349.23 Hz
+    BUZZER_TONE_FS4 = 606, // 369.99 Hz
+    BUZZER_TONE_G4 = 642,  // 392.00 Hz
+    BUZZER_TONE_GS4 = 680, // 415.30 Hz
+    BUZZER_TONE_A4 = 721,  // 440.00 Hz
+    BUZZER_TONE_AS4 = 763, // 466.16 Hz
+    BUZZER_TONE_B4 = 809,  // 493.88 Hz
+
+    // Octave 5
+    BUZZER_TONE_C5 = 858,   // 523.25 Hz
+    BUZZER_TONE_CS5 = 909,  // 554.37 Hz
+    BUZZER_TONE_D5 = 962,   // 587.33 Hz
+    BUZZER_TONE_DS5 = 1020, // 622.25 Hz
+    BUZZER_TONE_E5 = 1080,  // 659.25 Hz
+    BUZZER_TONE_F5 = 1144,  // 698.46 Hz
+    BUZZER_TONE_FS5 = 1212, // 739.99 Hz
+    BUZZER_TONE_G5 = 1285,  // 783.99 Hz
+    BUZZER_TONE_GS5 = 1360, // 830.61 Hz
+    BUZZER_TONE_A5 = 1442,  // 880.00 Hz
+    BUZZER_TONE_AS5 = 1527, // 932.33 Hz
+    BUZZER_TONE_B5 = 1618,  // 987.77 Hz
+
+    // Octave 6
+    BUZZER_TONE_C6 = 1715, // 1046.50 Hz
+    BUZZER_TONE_D6 = 1925, // 1174.66 Hz
+    BUZZER_TONE_E6 = 2160, // 1318.51 Hz
+    BUZZER_TONE_F6 = 2288, // 1396.91 Hz
+    BUZZER_TONE_G6 = 2570, // 1567.98 Hz
+    BUZZER_TONE_A6 = 2884, // 1760.00 Hz
+    BUZZER_TONE_B6 = 3237  // 1975.53 Hz
+
+} BuzzerTone_t;
 
 //--------------------------------------------------------------------
 // Typedef structs
@@ -144,19 +201,22 @@ typedef struct
     uint8_t blink_display; // 0 - none; 1 - display1; 2 - display2
     uint8_t blink_state;   // 0 - off; 1 - on
     uint8_t blink_index;
-    uint8_t ledOVP;
-    uint8_t ledOCP;
-    uint8_t ledCC;
-    uint8_t ledCV;
-    uint8_t ledOUT;
-    uint8_t ledM1;
-    uint8_t ledM2;
-    uint8_t ledM3;
-    uint8_t ledM4;
-    uint8_t ledM5;
+    LedIndicator_t ledOVP;
+    LedIndicator_t ledOCP;
+    LedIndicator_t ledCC;
+    LedIndicator_t ledCV;
+    LedIndicator_t ledOUT;
+    LedIndicator_t ledM1;
+    LedIndicator_t ledM2;
+    LedIndicator_t ledM3;
+    LedIndicator_t ledM4;
+    LedIndicator_t ledM5;
     uint16_t frame_cnt;
     uint8_t beep;
-    uint8_t beep_cnt;
+    uint32_t beep_cnt;
+    uint32_t beep_duration;
+    uint32_t beep_phase;
+    uint32_t beep_increment;
 } Display_t;
 
 //--------------------------------------------------------------------
@@ -177,6 +237,8 @@ extern void Display_Float2Digits(float value, Digits4_t *digits);
 extern void Display_ACCX32Digits(accx3_t value, Digits4_t *digits);
 extern void Display_Update(Display_t *obj);
 extern void Display_ClearMemoryLeds(Display_t *obj);
+
+extern void Buzzer_Play(Display_t *obj, BuzzerTone_t note, uint32_t duration_ms);
 
 //--------------------------------------------------------------------
 // General Variables

@@ -42,9 +42,19 @@ target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user defined library search paths
 )
 
+# message("Current dir = ${CMAKE_CURRENT_SOURCE_DIR}")
+
 # Add sources to executable
 target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user sources here
+    ./Core/Src/flash.c
+    ./Core/Src/button.c
+    ./Core/Src/led_indicator.c
+    ./Core/Src/display.c
+    ./Core/Src/keyboard.c
+    ./Core/Src/DAC8830.c
+    ./Core/Src/HAL_74HC595.c
+    ./Core/Src/RingBuffer.c
 )
 
 # Add include paths
@@ -65,4 +75,5 @@ target_link_libraries(${CMAKE_PROJECT_NAME}
     stm32cubemx
 
     # Add user defined libraries
+    
 )

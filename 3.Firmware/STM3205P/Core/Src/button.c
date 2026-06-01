@@ -78,25 +78,21 @@ void Button_Init(Button_t *btn_obj)
  *
  *
 ###################################################################*/
-void Button_Update(Button_t *btn_obj, uint8_t state)
+void Button_Update(Button_t *btn_obj, uint8_t state, uint32_t millis)
 {
     btn_obj->CurrentState = state;
-
-    if(btn_obj->KeyDown && !btn_obj->KeyUp)
-    {
-        btn_obj->PressingTime++;
-    }
 
     if((btn_obj->CurrentState == 1) && (btn_obj->PreviousState == 0))
     {
         btn_obj->KeyDown = 1;
-        btn_obj->PressingTime = 0;
+        btn_obj->PressingTime = millis;
         btn_obj->Pressed = 1;
     }
 
     if((btn_obj->CurrentState == 0) && (btn_obj->PreviousState == 1))
     {
         btn_obj->KeyUp = 1;
+        btn_obj->PressingTime = millis;
         btn_obj->Pressed = 0;
     }
 
@@ -173,11 +169,11 @@ bool Button_KeyUpEvent(Button_t *btn_obj)
  *
  *
 ###################################################################*/
-bool Button_KeyPressedTimeEvent(Button_t *btn_obj, uint32_t time_threshold)
+bool Button_KeyPressedTimeEvent(Button_t *btn_obj, uint32_t millis, uint32_t time_threshold)
 {
-    if(btn_obj->Pressed && (btn_obj->PressingTime >= time_threshold))
+    if(btn_obj->Pressed && ((millis - btn_obj->PressingTime) >= time_threshold))
     {
-        btn_obj->PressingTime = 0;
+        btn_obj->PressingTime = millis;
         return true;
     }
 

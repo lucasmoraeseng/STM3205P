@@ -74,6 +74,19 @@ void Display_Init(Display_t *obj)
     uint8_t data[2] = {0x00, 0x00};
 
     HAL_74HC595_WriteData(&obj->hAL_74HC595, data);
+    obj->beep_cnt = 0;
+    obj->beep = 0;
+
+    LedIndicator_Init(&obj->ledOVP);
+    LedIndicator_Init(&obj->ledOCP);
+    LedIndicator_Init(&obj->ledCC);
+    LedIndicator_Init(&obj->ledCV);
+    LedIndicator_Init(&obj->ledOUT);
+    LedIndicator_Init(&obj->ledM1);
+    LedIndicator_Init(&obj->ledM2);
+    LedIndicator_Init(&obj->ledM3);
+    LedIndicator_Init(&obj->ledM4);
+    LedIndicator_Init(&obj->ledM5);
 }
 
 /* ###################################################################
@@ -323,8 +336,8 @@ void Display_PrepareDataACCX3(Display_t *obj, settings_accx3_t data)
 
     obj->display1 = v_digits;
     obj->display2 = c_digits;
-    obj->ledOCP = data.OCP;
-    obj->ledOVP = data.OVP;
+    LedIndicator_WriteValue(&obj->ledOVP, data.OVP);
+    LedIndicator_WriteValue(&obj->ledOCP, data.OCP);
 }
 
 /* ###################################################################
@@ -706,17 +719,29 @@ void Display_Update(Display_t *obj)
         data[0] = 0;
         data[1] = 0;
 
-        data[0] |= ((obj->ledOUT & 0x01) << 0);
-        data[0] |= ((obj->ledM5 & 0x01) << 1);
-        data[0] |= ((obj->ledM4 & 0x01) << 2);
-        data[0] |= ((obj->ledCV & 0x01) << 4);
-        data[0] |= ((obj->ledM2 & 0x01) << 7);
+        // data[0] |= ((obj->ledOUT & 0x01) << 0);
+        // data[0] |= ((obj->ledM5 & 0x01) << 1);
+        // data[0] |= ((obj->ledM4 & 0x01) << 2);
+        // data[0] |= ((obj->ledCV & 0x01) << 4);
+        // data[0] |= ((obj->ledM2 & 0x01) << 7);
 
-        data[1] |= ((obj->ledCC & 0x01) << 0);
-        data[1] |= ((obj->ledM3 & 0x01) << 1);
-        data[1] |= ((obj->ledOCP & 0x01) << 3);
-        data[1] |= ((obj->ledOVP & 0x01) << 5);
-        data[1] |= ((obj->ledM1 & 0x01) << 7);
+        // data[1] |= ((obj->ledCC & 0x01) << 0);
+        // data[1] |= ((obj->ledM3 & 0x01) << 1);
+        // data[1] |= ((obj->ledOCP & 0x01) << 3);
+        // data[1] |= ((obj->ledOVP & 0x01) << 5);
+        // data[1] |= ((obj->ledM1 & 0x01) << 7);
+
+        data[0] |= (LedIndicator_Update(&obj->ledOUT, obj->frame_cnt) << 0);
+        data[0] |= (LedIndicator_Update(&obj->ledM5, obj->frame_cnt) << 1);
+        data[0] |= (LedIndicator_Update(&obj->ledM4, obj->frame_cnt) << 2);
+        data[0] |= (LedIndicator_Update(&obj->ledCV, obj->frame_cnt) << 4);
+        data[0] |= (LedIndicator_Update(&obj->ledM2, obj->frame_cnt) << 7);
+
+        data[1] |= (LedIndicator_Update(&obj->ledCC, obj->frame_cnt) << 0);
+        data[1] |= (LedIndicator_Update(&obj->ledM3, obj->frame_cnt) << 1);
+        data[1] |= (LedIndicator_Update(&obj->ledOCP, obj->frame_cnt) << 3);
+        data[1] |= (LedIndicator_Update(&obj->ledOVP, obj->frame_cnt) << 5);
+        data[1] |= (LedIndicator_Update(&obj->ledM1, obj->frame_cnt) << 7);
 
         HAL_74HC595_WriteData(&obj->hAL_74HC595, data);
         HAL_GPIO_WritePin(display3_GPIO_Port, display3_Pin, GPIO_PIN_SET);
@@ -779,11 +804,37 @@ void Display_Update(Display_t *obj)
 ###################################################################*/
 void Display_ClearMemoryLeds(Display_t *obj)
 {
-    obj->ledM1 = 0;
-    obj->ledM2 = 0;
-    obj->ledM3 = 0;
-    obj->ledM4 = 0;
-    obj->ledM5 = 0;
-    obj->ledOCP = 0;
-    obj->ledOVP = 0;
+    LedIndicator_Clear(&obj->ledOVP);
+    LedIndicator_Clear(&obj->ledOCP);
+    LedIndicator_Clear(&obj->ledM1);
+    LedIndicator_Clear(&obj->ledM2);
+    LedIndicator_Clear(&obj->ledM3);
+    LedIndicator_Clear(&obj->ledM4);
+    LedIndicator_Clear(&obj->ledM5);
+}
+
+/* ###################################################################
+ * Function:
+ * Author: Moraes, L.
+ * Date: Oct 6, 2025
+ * Revision: 1.0
+ * --------------------
+ * Initialize struct of current sensor, calculating it's parameters
+ *
+ *  arg1: input arg1
+ *
+ *  arg2: input arg2
+ *
+ *  returns: void
+ *
+ *
+###################################################################*/
+void Buzzer_Play(Display_t *obj, BuzzerTone_t note, uint32_t duration_ms)
+{
+    obj->beep = true;
+    obj->beep_cnt = 0;
+    obj->beep_duration = duration_ms;
+
+    obj->beep_phase = 0;
+    obj->beep_increment = note;
 }

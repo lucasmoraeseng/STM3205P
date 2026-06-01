@@ -35,6 +35,7 @@
 #include "display.h"
 #include "flash.h"
 #include "keyboard.h"
+#include "led_indicator.h"
 #include "stm32f1xx_hal.h"
 
 /* USER CODE END Includes */
@@ -62,6 +63,7 @@ SPI_HandleTypeDef hspi1;
 
 TIM_HandleTypeDef htim1;
 TIM_HandleTypeDef htim2;
+TIM_HandleTypeDef htim3;
 
 UART_HandleTypeDef huart1;
 
@@ -74,6 +76,8 @@ uint8_t enChangeValue = 0;
 uint8_t digitToChange = 0;
 uint32_t startBlink = 0;
 
+uint8_t outputState = 0;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -85,6 +89,7 @@ static void MX_TIM1_Init(void);
 static void MX_USART1_UART_Init(void);
 static void MX_TIM2_Init(void);
 static void MX_SPI1_Init(void);
+static void MX_TIM3_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -106,11 +111,10 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 
         if(display.beep)
         {
-            HAL_GPIO_WritePin(BY_GPIO_Port, BY_Pin, GPIO_PIN_SET);
             display.beep_cnt++;
         }
 
-        if(display.beep_cnt > 1000)
+        if(display.beep_cnt > display.beep_duration)
         {
             display.beep_cnt = 0;
             display.beep = 0;
@@ -121,6 +125,25 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
     }
     else if(htim->Instance == TIM3)
     {
+        if(display.beep)
+        {
+            display.beep_phase += display.beep_increment;
+
+            if(display.beep_phase & 0x8000)
+            {
+                HAL_GPIO_WritePin(
+                    BY_GPIO_Port,
+                    BY_Pin,
+                    GPIO_PIN_SET);
+            }
+            else
+            {
+                HAL_GPIO_WritePin(
+                    BY_GPIO_Port,
+                    BY_Pin,
+                    GPIO_PIN_RESET);
+            }
+        }
     }
 }
 
@@ -173,7 +196,7 @@ int main(void)
     /* USER CODE BEGIN Init */
     Display_Init(&display);
 
-    display.ledM1 = true;
+    LedIndicator_Set(&display.ledM1);
 
     actualData.Voltage = flashData.memory1.Voltage;
     actualData.Current = flashData.memory1.Current;
@@ -204,12 +227,14 @@ int main(void)
     MX_USART1_UART_Init();
     MX_TIM2_Init();
     MX_SPI1_Init();
+    MX_TIM3_Init();
     /* USER CODE BEGIN 2 */
 
     HAL_ADC_ConfigChannel(&hadc1, &cfgVoltageADC);
     HAL_ADC_ConfigChannel(&hadc2, &cfgCurrentADC);
 
     HAL_TIM_Base_Start_IT(&htim2); // Timer with interruption
+    HAL_TIM_Base_Start_IT(&htim3); // Timer with interruption
     HAL_ADC_Start_IT(&hadc1);      // Start ADC1 with interruption
     HAL_ADC_Start_IT(&hadc2);      // Start ADC2 with interruption
 
@@ -219,56 +244,146 @@ int main(void)
     /* USER CODE BEGIN WHILE */
     while(1)
     {
-        Keyboard_Read(&Keyboard);
+        Keyboard_Read(&Keyboard, display.frame_cnt);
 
-        if(display.ledOUT)
+        if(outputState)
         {
         }
         else
         {
             if(Button_KeyUpEvent(&Keyboard.M1))
             {
+                enChangeValue = false;
+                display.blink_display = 0;
                 Display_ClearMemoryLeds(&display);
-                display.ledM1 = true;
+                LedIndicator_Set(&display.ledM1);
+                // LedIndicator_Blink(&display.ledM1, display.frame_cnt);
                 actualData = flashData.memory1;
                 Display_PrepareDataACCX3(&display, actualData);
-                display.beep = true;
+                if(flashData.beep)
+                {
+                    Buzzer_Play(&display, BUZZER_TONE_B4, 100);
+                }
+            }
+
+            if(Button_KeyPressedTimeEvent(&Keyboard.M1, display.frame_cnt, 5000))
+            {
+                enChangeValue = false;
+                display.blink_display = 0;
+                flashData.memory1 = actualData;
+                Flash_WriteSettings(&flashData);
+                LedIndicator_Blink(&display.ledM1, display.frame_cnt);
+
+                if(flashData.beep)
+                {
+                    Buzzer_Play(&display, BUZZER_TONE_B4, 500);
+                }
             }
 
             if(Button_KeyUpEvent(&Keyboard.M2))
             {
+                enChangeValue = false;
+                display.blink_display = 0;
                 Display_ClearMemoryLeds(&display);
-                display.ledM2 = true;
+                LedIndicator_Set(&display.ledM2);
                 actualData = flashData.memory2;
                 Display_PrepareDataACCX3(&display, actualData);
+                if(flashData.beep)
+                {
+                    Buzzer_Play(&display, BUZZER_TONE_C4, 100);
+                }
+            }
+
+            if(Button_KeyPressedTimeEvent(&Keyboard.M2, display.frame_cnt, 5000))
+            {
+                enChangeValue = false;
+                display.blink_display = 0;
+                flashData.memory2 = actualData;
+                Flash_WriteSettings(&flashData);
+                LedIndicator_Blink(&display.ledM2, display.frame_cnt);
+
+                if(flashData.beep)
+                {
+                    Buzzer_Play(&display, BUZZER_TONE_C4, 500);
+                }
             }
 
             if(Button_KeyUpEvent(&Keyboard.M3))
             {
+                enChangeValue = false;
+                display.blink_display = 0;
                 Display_ClearMemoryLeds(&display);
-                display.ledM3 = true;
+                LedIndicator_Set(&display.ledM3);
                 actualData = flashData.memory3;
                 Display_PrepareDataACCX3(&display, actualData);
+                if(flashData.beep)
+                {
+                    Buzzer_Play(&display, BUZZER_TONE_D4, 100);
+                }
+            }
+
+            if(Button_KeyPressedTimeEvent(&Keyboard.M3, display.frame_cnt, 5000))
+            {
+                enChangeValue = false;
+                display.blink_display = 0;
+                flashData.memory3 = actualData;
+                Flash_WriteSettings(&flashData);
+                LedIndicator_Blink(&display.ledM3, display.frame_cnt);
+
+                if(flashData.beep)
+                {
+                    Buzzer_Play(&display, BUZZER_TONE_D4, 500);
+                }
             }
 
             if(Button_KeyUpEvent(&Keyboard.M4))
             {
+                enChangeValue = false;
+                display.blink_display = 0;
                 Display_ClearMemoryLeds(&display);
-                display.ledM4 = true;
+                LedIndicator_Set(&display.ledM4);
                 actualData = flashData.memory4;
                 Display_PrepareDataACCX3(&display, actualData);
+                if(flashData.beep)
+                {
+                    Buzzer_Play(&display, BUZZER_TONE_E4, 100);
+                }
+            }
+
+            if(Button_KeyPressedTimeEvent(&Keyboard.M4, display.frame_cnt, 5000))
+            {
+                enChangeValue = false;
+                display.blink_display = 0;
+                flashData.memory4 = actualData;
+                Flash_WriteSettings(&flashData);
+                LedIndicator_Blink(&display.ledM4, display.frame_cnt);
+
+                if(flashData.beep)
+                {
+                    Buzzer_Play(&display, BUZZER_TONE_E4, 500);
+                }
             }
 
             if(Button_KeyUpEvent(&Keyboard.OCP))
             {
                 actualData.OCP = actualData.OCP == 0 ? 1 : 0;
-                display.ledOCP = actualData.OCP;
+                // display.ledOCP = actualData.OCP;
+                LedIndicator_WriteValue(&display.ledOCP, actualData.OCP);
+                if(flashData.beep)
+                {
+                    Buzzer_Play(&display, BUZZER_TONE_A4, 100);
+                }
             }
 
             if(Button_KeyUpEvent(&Keyboard.OVP))
             {
                 actualData.OVP = actualData.OVP == 0 ? 1 : 0;
-                display.ledOVP = actualData.OVP;
+                // display.ledOVP = actualData.OVP;
+                LedIndicator_WriteValue(&display.ledOVP, actualData.OVP);
+                if(flashData.beep)
+                {
+                    Buzzer_Play(&display, BUZZER_TONE_A4, 100);
+                }
             }
 
             if(Button_KeyUpEvent(&Keyboard.VoltageCurrent))
@@ -292,6 +407,10 @@ int main(void)
                 }
 
                 startBlink = display.frame_cnt;
+                if(flashData.beep)
+                {
+                    Buzzer_Play(&display, BUZZER_TONE_A4, 100);
+                }
             }
 
             if(Button_KeyUpEvent(&Keyboard.LeftArrow))
@@ -304,6 +423,10 @@ int main(void)
                     }
                 }
                 startBlink = display.frame_cnt;
+                if(flashData.beep)
+                {
+                    Buzzer_Play(&display, BUZZER_TONE_A4, 100);
+                }
             }
 
             if(Button_KeyUpEvent(&Keyboard.RightArrow))
@@ -316,6 +439,10 @@ int main(void)
                     }
                 }
                 startBlink = display.frame_cnt;
+                if(flashData.beep)
+                {
+                    Buzzer_Play(&display, BUZZER_TONE_A4, 100);
+                }
             }
 
             if(enChangeValue)
@@ -349,6 +476,13 @@ int main(void)
                     Display_PrepareDataACCX3(&display, actualData);
                 }
             }
+        }
+
+        if(Button_KeyPressedTimeEvent(&Keyboard.Lock, display.frame_cnt, 5000))
+        {
+            flashData.beep = !flashData.beep;
+            Buzzer_Play(&display, BUZZER_TONE_C5, 1000);
+            Flash_WriteSettings(&flashData);
         }
 
         /* USER CODE END WHILE */
@@ -624,7 +758,7 @@ static void MX_TIM2_Init(void)
 
     /* USER CODE END TIM2_Init 1 */
     htim2.Instance = TIM2;
-    htim2.Init.Prescaler = 0;
+    htim2.Init.Prescaler = 1;
     htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
     htim2.Init.Period = 35999;
     htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
@@ -647,6 +781,50 @@ static void MX_TIM2_Init(void)
     /* USER CODE BEGIN TIM2_Init 2 */
 
     /* USER CODE END TIM2_Init 2 */
+}
+
+/**
+ * @brief TIM3 Initialization Function
+ * @param None
+ * @retval None
+ */
+static void MX_TIM3_Init(void)
+{
+
+    /* USER CODE BEGIN TIM3_Init 0 */
+
+    /* USER CODE END TIM3_Init 0 */
+
+    TIM_ClockConfigTypeDef sClockSourceConfig = {0};
+    TIM_MasterConfigTypeDef sMasterConfig = {0};
+
+    /* USER CODE BEGIN TIM3_Init 1 */
+
+    /* USER CODE END TIM3_Init 1 */
+    htim3.Instance = TIM3;
+    htim3.Init.Prescaler = 0;
+    htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
+    htim3.Init.Period = 1799;
+    htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+    htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+    if(HAL_TIM_Base_Init(&htim3) != HAL_OK)
+    {
+        Error_Handler();
+    }
+    sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+    if(HAL_TIM_ConfigClockSource(&htim3, &sClockSourceConfig) != HAL_OK)
+    {
+        Error_Handler();
+    }
+    sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+    sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+    if(HAL_TIMEx_MasterConfigSynchronization(&htim3, &sMasterConfig) != HAL_OK)
+    {
+        Error_Handler();
+    }
+    /* USER CODE BEGIN TIM3_Init 2 */
+
+    /* USER CODE END TIM3_Init 2 */
 }
 
 /**
