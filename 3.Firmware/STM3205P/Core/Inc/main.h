@@ -36,6 +36,11 @@ extern "C" {
 
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
+    typedef enum
+    {
+        ADC1_CHANNEL_VOLTAGE = 0,
+        ADC1_CHANNEL_TEMPERATURE
+    } ADC1_ChannelMode;
 
 /* USER CODE END ET */
 

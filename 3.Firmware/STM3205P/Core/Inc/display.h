@@ -245,6 +245,8 @@ extern void Buzzer_Play(Display_t *obj, BuzzerTone_t note, uint32_t duration_ms)
 //--------------------------------------------------------------------
 extern HAL_74HC595_t display_obj;
 extern settings_accx3_t actualData;
+extern settings_accx3_t measuredData;
+
 extern Display_t display;
 extern uint32_t frameCounter;
 

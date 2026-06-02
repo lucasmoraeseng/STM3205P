@@ -33,6 +33,7 @@
 //--------------------------------------------------------------------
 HAL_74HC595_t display_obj;
 settings_accx3_t actualData;
+settings_accx3_t measuredData;
 Display_t display;
 
 uint32_t frameCounter = 0;

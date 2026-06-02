@@ -37,6 +37,7 @@
 #include "keyboard.h"
 #include "led_indicator.h"
 #include "stm32f1xx_hal.h"
+#include "stm32f1xx_hal_adc.h"
 
 /* USER CODE END Includes */
 
@@ -78,6 +79,13 @@ uint32_t startBlink = 0;
 
 uint8_t outputState = 0;
 
+RingBuffer_t RBVoltage;
+RingBuffer_t RBCurrent;
+
+ADC1_ChannelMode adc1_channel_mode = ADC1_CHANNEL_VOLTAGE;
+uint32_t ADC_SampleCounter = 0;
+uint32_t lastADCSample = 0;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -107,6 +115,24 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
         if(display.frame_cnt % 512 == 0)
         {
             display.blink_state = !display.blink_state;
+        }
+
+        if(display.frame_cnt % 10 == 0)
+        {
+            HAL_ADC_Start_IT(&hadc1); // Start ADC1 with interruption
+            HAL_ADC_Start_IT(&hadc2); // Start ADC2 with interruption
+        }
+
+        if((display.frame_cnt + 5) % 100 == 0)
+        {
+            HAL_ADC_ConfigChannel(&hadc1, &cfgTemperatureADC);
+            adc1_channel_mode = ADC1_CHANNEL_TEMPERATURE;
+        }
+
+        if((display.frame_cnt + 6) % 100 == 0)
+        {
+            HAL_ADC_ConfigChannel(&hadc1, &cfgVoltageADC);
+            adc1_channel_mode = ADC1_CHANNEL_VOLTAGE;
         }
 
         if(display.beep)
@@ -149,16 +175,25 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
 {
-
     if(hadc->Instance == ADC1)
     {
         uint16_t value1 = HAL_ADC_GetValue(&hadc1);
-        // RingBuffer_Put(&RBVoltage,(RBDataType) value1);
+        if(adc1_channel_mode == ADC1_CHANNEL_VOLTAGE)
+        {
+            // RingBuffer_Put(&RBVoltage, (RBDataType)value1);
+            measuredData.Voltage = value1;
+        }
+        else if(adc1_channel_mode == ADC1_CHANNEL_TEMPERATURE)
+        {
+            // RingBuffer_Put(&RBTemperature, (RBDataType)value1);
+        }
+        ADC_SampleCounter++;
     }
     else if(hadc->Instance == ADC2)
     {
         uint16_t value2 = HAL_ADC_GetValue(&hadc2);
-        // RingBuffer_Put(&RBCurrent,(RBDataType) value2);
+        // RingBuffer_Put(&RBCurrent, (RBDataType)value2);
+        measuredData.Current = value2;
     }
 }
 
@@ -173,6 +208,8 @@ int main(void)
 
     /* USER CODE BEGIN 1 */
 
+    Flash_ReadSettings(&flashData);
+
     cfgVoltageADC.Channel = ADC_CHANNEL_1;
     cfgVoltageADC.Rank = ADC_REGULAR_RANK_1;
     cfgVoltageADC.SamplingTime = ADC_SAMPLETIME_1CYCLE_5;
@@ -184,7 +221,6 @@ int main(void)
     cfgTemperatureADC.Channel = ADC_CHANNEL_3;
     cfgTemperatureADC.Rank = ADC_REGULAR_RANK_1;
     cfgTemperatureADC.SamplingTime = ADC_SAMPLETIME_1CYCLE_5;
-    Flash_ReadSettings(&flashData);
 
     /* USER CODE END 1 */
 
@@ -232,11 +268,12 @@ int main(void)
 
     HAL_ADC_ConfigChannel(&hadc1, &cfgVoltageADC);
     HAL_ADC_ConfigChannel(&hadc2, &cfgCurrentADC);
+    // HAL_ADC_Start_DMA(&hadc1, (uint32_t *)ADC1_Buffer, 2);
+    // HAL_ADC_Start_DMA(&hadc2, (uint32_t *)ADC2_Buffer, 1);
 
+    HAL_TIM_OC_Start(&htim2, TIM_CHANNEL_2);
     HAL_TIM_Base_Start_IT(&htim2); // Timer with interruption
     HAL_TIM_Base_Start_IT(&htim3); // Timer with interruption
-    HAL_ADC_Start_IT(&hadc1);      // Start ADC1 with interruption
-    HAL_ADC_Start_IT(&hadc2);      // Start ADC2 with interruption
 
     /* USER CODE END 2 */
 
@@ -248,6 +285,31 @@ int main(void)
 
         if(outputState)
         {
+            if(lastADCSample != ADC_SampleCounter)
+            {
+                lastADCSample = ADC_SampleCounter;
+                Display_PrepareDataACCX3(&display, measuredData);
+            }
+
+            if(Button_KeyUpEvent(&Keyboard.OCP))
+            {
+                measuredData.OCP = !measuredData.OCP;
+                LedIndicator_WriteValue(&display.ledOCP, measuredData.OCP);
+                if(flashData.beep)
+                {
+                    Buzzer_Play(&display, BUZZER_TONE_A4, 100);
+                }
+            }
+
+            if(Button_KeyUpEvent(&Keyboard.OVP))
+            {
+                measuredData.OVP = !measuredData.OVP;
+                LedIndicator_WriteValue(&display.ledOVP, measuredData.OVP);
+                if(flashData.beep)
+                {
+                    Buzzer_Play(&display, BUZZER_TONE_A4, 100);
+                }
+            }
         }
         else
         {
@@ -366,8 +428,7 @@ int main(void)
 
             if(Button_KeyUpEvent(&Keyboard.OCP))
             {
-                actualData.OCP = actualData.OCP == 0 ? 1 : 0;
-                // display.ledOCP = actualData.OCP;
+                actualData.OCP = !actualData.OCP;
                 LedIndicator_WriteValue(&display.ledOCP, actualData.OCP);
                 if(flashData.beep)
                 {
@@ -377,8 +438,7 @@ int main(void)
 
             if(Button_KeyUpEvent(&Keyboard.OVP))
             {
-                actualData.OVP = actualData.OVP == 0 ? 1 : 0;
-                // display.ledOVP = actualData.OVP;
+                actualData.OVP = !actualData.OVP;
                 LedIndicator_WriteValue(&display.ledOVP, actualData.OVP);
                 if(flashData.beep)
                 {
@@ -481,8 +541,32 @@ int main(void)
         if(Button_KeyPressedTimeEvent(&Keyboard.Lock, display.frame_cnt, 5000))
         {
             flashData.beep = !flashData.beep;
-            Buzzer_Play(&display, BUZZER_TONE_C5, 1000);
+            Buzzer_Play(&display, BUZZER_TONE_C5, 500);
             Flash_WriteSettings(&flashData);
+        }
+
+        if(Button_KeyUpEvent(&Keyboard.OnOff))
+        {
+            enChangeValue = false;
+            display.blink_display = 0;
+            outputState = !outputState;
+            LedIndicator_WriteValue(&display.ledOUT, outputState);
+            measuredData.OCP = actualData.OCP;
+            measuredData.OVP = actualData.OVP;
+
+            if(outputState)
+            {
+                Display_PrepareDataACCX3(&display, measuredData);
+            }
+            else
+            {
+                Display_PrepareDataACCX3(&display, actualData);
+            }
+
+            if(flashData.beep)
+            {
+                Buzzer_Play(&display, BUZZER_TONE_B3, 100);
+            }
         }
 
         /* USER CODE END WHILE */
@@ -549,6 +633,7 @@ static void MX_ADC1_Init(void)
 
     /* USER CODE END ADC1_Init 0 */
 
+    ADC_MultiModeTypeDef multimode = {0};
     ADC_ChannelConfTypeDef sConfig = {0};
 
     /* USER CODE BEGIN ADC1_Init 1 */
@@ -565,6 +650,14 @@ static void MX_ADC1_Init(void)
     hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
     hadc1.Init.NbrOfConversion = 1;
     if(HAL_ADC_Init(&hadc1) != HAL_OK)
+    {
+        Error_Handler();
+    }
+
+    /** Configure the ADC multi-mode
+     */
+    multimode.Mode = ADC_DUALMODE_REGSIMULT_ALTERTRIG;
+    if(HAL_ADCEx_MultiModeConfigChannel(&hadc1, &multimode) != HAL_OK)
     {
         Error_Handler();
     }
@@ -804,7 +897,7 @@ static void MX_TIM3_Init(void)
     htim3.Instance = TIM3;
     htim3.Init.Prescaler = 0;
     htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
-    htim3.Init.Period = 1799;
+    htim3.Init.Period = 35999;
     htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
     htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
     if(HAL_TIM_Base_Init(&htim3) != HAL_OK)
