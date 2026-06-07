@@ -4,3 +4,5 @@ Version=1.0
 ProjectPath=STM3205P\STM3205P.PrjPcb
 [Project2]
 ProjectPath=LowPowerSymmetricalSupply\LowPowerSymmetricalSupply.PrjPcb
+[Project3]
+ProjectPath=..\..\Nexus_CanSwitch\2.Hardware\STM3205P_PowerBoard\STM3205P_PowerBoard.PrjPcb
